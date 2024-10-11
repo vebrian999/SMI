@@ -59,7 +59,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Update the article in the database
         $query = "UPDATE articles SET title = ?, content = ?, category = ?, author = ?, image = ? WHERE id = ?";
         $stmt = $conn->prepare($query);
-        $stmt->bind_param("ssssi", $title, $content, $category, $author, $image, $articleId);
+$stmt->bind_param("sssssi", $title, $content, $category, $author, $image, $articleId);
+
         
         if ($stmt->execute()) {
             // Redirect to article_admin.php after successful update
@@ -80,21 +81,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stress Management Indoensia</title>
     <link href="../css/output.css" rel="stylesheet" />
-
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="../css/style.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" />
-
+   <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
-
+   <style>
+    .ck-editor__editable_inline {
+    padding: 0 30px !important;
+}
+   </style>
   </head>
   <body>
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-   <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
+
 
     <header>
       <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">

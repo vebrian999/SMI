@@ -43,6 +43,17 @@ if (isset($_GET['id'])) {
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 
+
+
+<style>
+  #content ul, #content ol {
+      list-style: initial;
+      margin-left: 20px;
+      padding-left: 20px;
+  }
+</style>
+
+
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
@@ -307,7 +318,7 @@ if (isset($_GET['id'])) {
             </div>
 
             <h1 class="text-4xl  font-semibold mb-3"><?php echo htmlspecialchars($article['title']); ?></h1>
-            <p class="pb-6"><?php echo nl2br(($article['content'])); ?></p>
+            <div class="pt-2.5 text-base text-[#28254C] leading-7"><?php echo nl2br(($article['content'])); ?></div>
 
 
 

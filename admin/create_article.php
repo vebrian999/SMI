@@ -69,19 +69,28 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="../css/style.css" />
-
+        <link rel="icon" href="../favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" />
 
+    <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/classic/ckeditor.js"></script>
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     
+   <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
 
+   <style>
+    .ck-editor__editable_inline {
+    padding: 0 30px !important;
+
+}
+
+   </style>
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
     <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
-   <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
+
 
     <header>
       <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
@@ -111,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div>
                   <button type="button" class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                     <span class="sr-only">Open user menu</span>
-                    <img class="w-12 h-12 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg" alt="user photo" />
+                    <img class="w-12 h-12 rounded-full" src="https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd4625e30d776.jpg" alt="user photo" />
                   </button>
                 </div>
                 <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow" id="dropdown-user">
@@ -202,63 +211,78 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
 </form>
 
-<script>
-  // import { List } from 'ckeditor5';
-  // import { ListProperties } from 'ckeditor5'; 
-
-const {
-    ClassicEditor,
-    Essentials,
-    Bold,
-    Italic,
-    Font,
-    Paragraph,
-    Heading,          // Tambahkan untuk heading
-    Link,             // Tambahkan untuk link
-    List,             // Tambahkan untuk bulletedList dan numberedList
-} = CKEDITOR;
-
-        ClassicEditor
-ClassicEditor
-    .create(document.querySelector('#content'), {
-        plugins: [
-            Essentials, 
-            Bold, 
-            Italic, 
-            Font, 
-            Paragraph, 
-            Heading,    // Plugin Heading
-            Link,       // Plugin Link
-            List        // Plugin untuk bulletedList dan numberedList
-        ],
-       toolbar: [
-            'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
-        ],
-                fontSize: {
-            options: [9, 11, 13, 'default', 16, 24, 36]
-        },
-            fontFamily: {
-            options: [
-                'default',
-                'Arial, Helvetica, sans-serif',
-                'Courier New, Courier, monospace',
-                'Georgia, serif',
-                'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                'Tahoma, Geneva, sans-serif',
-                'Times New Roman, Times, serif',
-                'Trebuchet MS, Helvetica, sans-serif',
-                'Verdana, Geneva, sans-serif'
-            ]
-        }
-    })
-
+  <script>
+  const {
+  ClassicEditor,
+  Essentials,
+  Bold,
+  Italic,
+  Font,
+  Paragraph,
+  Heading,
+  Link,
+  List,
+  ListProperties
+  } = CKEDITOR;
+  ClassicEditor
+  .create(document.querySelector('#content'), {
+  plugins: [
+  Essentials,
+  Bold,
+  Italic,
+  Font,
+  Paragraph,
+  Heading,
+  Link,
+  List,
+  ListProperties
+  ],
+  toolbar: [
+  'undo', 'redo', '|',
+  'heading', '|',
+  'bold', 'italic', '|',
+  'link',
+  'NumberedList', 'BulletedList', '|',
+  'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+  ],
+   heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
+                ]
+            },
+            list: {
+                properties: {
+                    styles: true,
+                    startIndex: true,
+                    reversed: true
+                }
+            },
+  fontSize: {
+  options: [9, 11, 13, 'default', 16, 24, 36]
+  },
+  fontFamily: {
+  options: [
+  'default',
+  'Arial, Helvetica, sans-serif',
+  'Courier New, Courier, monospace',
+  'Georgia, serif',
+  'Lucida Sans Unicode, Lucida Grande, sans-serif',
+  'Tahoma, Geneva, sans-serif',
+  'Times New Roman, Times, serif',
+  'Trebuchet MS, Helvetica, sans-serif',
+  'Verdana, Geneva, sans-serif'
+  ]
+  }
+  })
   .then(editor => {
-        console.log('Editor was initialized successfully', editor);
-    })
-    .catch(error => {
-        console.error('There was an error initializing the editor:', error);
-    });
-
+  console.log('Editor was initialized successfully', editor);
+  })
+  .catch(error => {
+  console.error('There was an error initializing the editor:', error);
+  });
         // Add event listener to the submit button
         document.getElementById('submitButton').addEventListener('click', function(e) {
             const introductionContent = editor.getData();
