@@ -80,16 +80,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stress Management Indoensia</title>
     <link href="../css/output.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
+
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
     <link rel="stylesheet" href="../css/style.css" />
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.css" />
+
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+
   </head>
   <body>
-    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+    <script src="../node_modules/flowbite/dist/flowbite.min.js"></script>
+   <script src="https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.umd.js"></script>
 
     <header>
       <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200">
@@ -152,7 +157,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- awal main -->
     <main>
-<div id="content" class="content">
+<div >
     <div class="p-4 sm:ml-64 md:mt-10">
         <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
             <div class="grid grid-cols-1 gap-4 mb-4">
@@ -167,7 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <?php endif; ?>
 
                         <?php if (isset($article)): ?>
-                        <form action="edit_article.php?id=<?php echo $articleId; ?>" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <form id="articleForm" action="edit_article.php?id=<?php echo $articleId; ?>" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
                             
                                                     <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
@@ -204,14 +209,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="content">
                                     Content
                                 </label>
-                                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="content" name="content" rows="3" required><?php echo htmlspecialchars($article['content']); ?></textarea>
+                                <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"  id="content" name="content" rows="10" ><?php echo htmlspecialchars($article['content']); ?></textarea>
                             </div>
                             
 
 
 
                             <div class="flex items-center justify-between">
-                                <button type="submit" class="bg-[#682E74] hover:bg-[#4F1B5A] text-white font-bold py-2 md:px-4 px-2 rounded focus:outline-none focus:shadow-outline">
+                                <button id="submitButton" type="submit" class="bg-[#682E74] hover:bg-[#4F1B5A] text-white font-bold py-2 md:px-4 px-2 rounded focus:outline-none focus:shadow-outline">
                                     Update Article
                                 </button>
 
@@ -221,6 +226,65 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             </div>
                         </form>
                         <?php endif; ?>
+
+ <script>
+        const {
+            ClassicEditor,
+            Essentials,
+            Bold,
+            Italic,
+            Font,
+            Paragraph,
+            Heading,
+            Link,
+            List
+        } = CKEDITOR;
+
+        ClassicEditor
+            .create(document.querySelector('#content'), {
+                plugins: [ Essentials, Bold, Italic, Font, Paragraph, Heading, Link, List ],
+                toolbar: [ 'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor' ],
+                fontSize: {
+                    options: [9, 11, 13, 'default', 16, 24, 36]
+                },
+                fontFamily: {
+                    options: [
+                        'default',
+                        'Arial, Helvetica, sans-serif',
+                        'Courier New, Courier, monospace',
+                        'Georgia, serif',
+                        'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                        'Tahoma, Geneva, sans-serif',
+                        'Times New Roman, Times, serif',
+                        'Trebuchet MS, Helvetica, sans-serif',
+                        'Verdana, Geneva, sans-serif'
+                    ]
+                }
+            })
+            .then(editor => {
+                console.log('Editor initialized successfully', editor);
+                
+                // Event listener for submit button
+                document.getElementById('submitButton').addEventListener('click', function(e) {
+                    const introductionContent = editor.getData();
+                    
+                    // Check if the introduction is empty
+                    if (!introductionContent.trim()) {
+                        alert('Please fill out the content field.');
+                        return;
+                    }
+
+                    // Update the hidden input with CKEditor content
+                    document.getElementById('contentInput').value = introductionContent;
+
+                    // Submit the form
+                    document.getElementById('articleForm').submit();
+                });
+            })
+            .catch(error => {
+                console.error('There was an error initializing the editor:', error);
+            });
+    </script>
                     </div>
                 </div>
             </div>

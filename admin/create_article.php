@@ -75,7 +75,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
+    
 
   </head>
   <body>
@@ -193,7 +193,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <div class="flex items-center justify-between">
         <!-- Tombol Create Article -->
-        <button class="bg-[#682E74] hover:bg-[#4F1B5A] text-white font-bold py-2 px-2 md:px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Create Article</button>
+        <button class="bg-[#682E74] hover:bg-[#4F1B5A] text-white font-bold py-2 px-2 md:px-4 rounded focus:outline-none focus:shadow-outline" id="submitButton" type="submit">Create Article</button>
 
         <!-- Tombol Cancel -->
         <a href="article_admin.php" class="bg-gray-500 hover:bg-red-800 text-white font-bold py-2 px-2 md:px-4 rounded focus:outline-none focus:shadow-outline">
@@ -203,53 +203,61 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </form>
 
 <script>
+  // import { List } from 'ckeditor5';
+  // import { ListProperties } from 'ckeditor5'; 
 
-         const {
-                ClassicEditor,
-                Essentials,
-                Bold,
-                Italic,
-                Font,
-                Paragraph
-            } = CKEDITOR;
-        let editor;
+const {
+    ClassicEditor,
+    Essentials,
+    Bold,
+    Italic,
+    Font,
+    Paragraph,
+    Heading,          // Tambahkan untuk heading
+    Link,             // Tambahkan untuk link
+    List,             // Tambahkan untuk bulletedList dan numberedList
+} = CKEDITOR;
 
         ClassicEditor
-           .create( document.querySelector( '#content' ), {
-                    plugins: [ Essentials, Bold, Italic, Font, Paragraph ],
-        toolbar: ['undo', 'redo', '|', 'heading', '|', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'],
+ClassicEditor
+    .create(document.querySelector('#content'), {
+        plugins: [
+            Essentials, 
+            Bold, 
+            Italic, 
+            Font, 
+            Paragraph, 
+            Heading,    // Plugin Heading
+            Link,       // Plugin Link
+            List        // Plugin untuk bulletedList dan numberedList
+        ],
+       toolbar: [
+            'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+        ],
                 fontSize: {
-                    options: [
-                        9,
-                        11,
-                        13,
-                        'default',
-                        16,
-                        24,
-                        36
-                    ]
-                },
-                               fontFamily: {
-                    options: [
-                        'default',
-                        'Arial, Helvetica, sans-serif',
-                        'Courier New, Courier, monospace',
-                        'Georgia, serif',
-                        'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                        'Tahoma, Geneva, sans-serif',
-                        'Times New Roman, Times, serif',
-                        'Trebuchet MS, Helvetica, sans-serif',
-                        'Verdana, Geneva, sans-serif'
-                    ]
-                               }
-                } )
-            .create(document.querySelector('#content'))
-            .then(newEditor => {
-                editor = newEditor;
-            })
-            .catch(error => {
-                console.error(error);
-            });
+            options: [9, 11, 13, 'default', 16, 24, 36]
+        },
+            fontFamily: {
+            options: [
+                'default',
+                'Arial, Helvetica, sans-serif',
+                'Courier New, Courier, monospace',
+                'Georgia, serif',
+                'Lucida Sans Unicode, Lucida Grande, sans-serif',
+                'Tahoma, Geneva, sans-serif',
+                'Times New Roman, Times, serif',
+                'Trebuchet MS, Helvetica, sans-serif',
+                'Verdana, Geneva, sans-serif'
+            ]
+        }
+    })
+
+  .then(editor => {
+        console.log('Editor was initialized successfully', editor);
+    })
+    .catch(error => {
+        console.error('There was an error initializing the editor:', error);
+    });
 
         // Add event listener to the submit button
         document.getElementById('submitButton').addEventListener('click', function(e) {
@@ -269,7 +277,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             document.getElementById('articleForm').submit();
         });
     </script>
-    <script type="importmap">
+<script type="importmap">
     {
         "imports": {
             "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js",
@@ -277,6 +285,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     }
 </script>
+
 
                 </div>
               </div>
