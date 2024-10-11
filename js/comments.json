@@ -1,0 +1,34 @@
+[
+  {
+    "id": 1,
+    "author": "Michael Gough",
+    "authorImage": "https://flowbite.com/docs/images/people/profile-picture-2.jpg",
+    "date": "2022-02-08",
+    "content": "Very straight-to-point article. Really worth time reading. Thank you! But tools are just the instruments for the UX designers. The knowledge of the design tools are as important as the creation of the design strategy.",
+    "replies": []
+  },
+  {
+    "id": 2,
+    "author": "Jese Leos",
+    "authorImage": "https://flowbite.com/docs/images/people/profile-picture-5.jpg",
+    "date": "2022-02-12",
+    "content": "Much appreciated! Glad you liked it ☺️",
+    "replies": []
+  },
+  {
+    "id": 3,
+    "author": "Bonnie Green",
+    "authorImage": "https://flowbite.com/docs/images/people/profile-picture-3.jpg",
+    "date": "2022-03-12",
+    "content": "The article covers the essentials, challenges, myths and stages the UX designer should consider while creating the design strategy.",
+    "replies": []
+  },
+  {
+    "id": 4,
+    "author": "Helene Engels",
+    "authorImage": "https://flowbite.com/docs/images/people/profile-picture-4.jpg",
+    "date": "2022-06-23",
+    "content": "Thanks for sharing this. I do came from the Backend development and explored some of the tools to design my Side Projects.",
+    "replies": []
+  }
+]

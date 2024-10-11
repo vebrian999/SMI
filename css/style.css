@@ -1,0 +1,227 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Poppins;
+  /* background-color: #fff3fc; */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+
+/* .scroll-container {
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0 50%;
+}
+.scroll-item {
+  scroll-snap-align: center;
+}
+.enlarged {
+  transform: scale(1.1);
+}
+
+[x-cloak] {
+  display: none;
+} */
+
+.progress {
+  animation: progress;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards;
+  animation-timing-function: linear;
+}
+@keyframes progress {
+  0% {
+    width: 0%;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.5;
+    width: 100%;
+  }
+}
+
+/* .scrolled {
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.scrolled .text-white {
+  color: black;
+}
+.scrolled #header-border {
+  border-color: #e5e7eb;
+}
+.scrolled .nav-link:hover span:last-child {
+  background-color: black;
+}
+.transition-bg {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.scrolled {
+  background-color: white;
+  color: black;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.scrolled .text-white {
+  color: black;
+}
+.scrolled #header-border {
+  border-color: #e5e7eb;
+}
+.scrolled .nav-link:hover span:last-child {
+  background-color: black;
+}
+.transition-bg {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.scrolled .search-input {
+  border-color: black;
+  color: black;
+}
+.scrolled .search-input::placeholder {
+  color: #6b7280;
+}
+.scrolled .search-button path {
+  fill: black;
+} */
+
+@layer utilities {
+  .after-line {
+    position: relative;
+  }
+  .after-line::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    height: 1px;
+    width: 0;
+    background-color: #fff;
+    transition: width 0.3s ease, left 0.3s ease;
+  }
+  .after-line:hover::after {
+    width: 100%;
+    left: 0;
+  }
+}
+
+/* CSS untuk navbar dan sidebar */
+#navbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  transform: translateY(-100%);
+  z-index: -1;
+}
+
+#navbar.scrolled::before {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#navbar.scrolled * {
+  color: black !important;
+}
+
+#navbar.scrolled #search-navbar::placeholder {
+  color: #6b7280;
+}
+
+#navbar.scrolled .text-gray-500 {
+  color: #6b7280 !important;
+}
+
+#navbar.scrolled #search-navbar {
+  background-color: #f3f4f6;
+  border-color: #d1d5db;
+}
+
+/* Tambahan CSS untuk sidebar */
+#sidebar-menu {
+  background-color: white !important;
+}
+
+#sidebar-menu * {
+  color: #1f2937 !important; /* Warna teks lebih gelap untuk kontras yang lebih baik */
+}
+
+#sidebar-menu a:hover {
+  background-color: #f3f4f6 !important;
+}
+
+/* carusel di bawah ini */
+
+/* Custom CSS for carousel indicators */
+.carousel-indicator {
+  width: 0.75rem; /* w-3 in Tailwind */
+  height: 0.75rem; /* h-3 in Tailwind */
+  border-radius: 9999px; /* rounded-full in Tailwind */
+  background-color: #ffffff; /* Default color (gray-400 in Tailwind) */
+  transition: background-color 0.3s ease;
+}
+
+.carousel-indicator:focus {
+  outline: none;
+}
+
+/* Active indicator */
+.carousel-indicator[aria-current="true"] {
+  background-color: #ffffff; /* Active color (gray-600 in Tailwind) */
+}
+
+/* Hover effect */
+.carousel-indicator:hover {
+  background-color: #ffffff; /* Hover color (gray-500 in Tailwind) */
+}
+
+:root {
+  --indicator-color: #ffffff;
+  --indicator-color-active: hsl(290, 43%, 32%);
+  --indicator-color-hover: #ffffff;
+}
+
+.carousel-indicator {
+  background-color: var(--indicator-color);
+}
+
+.carousel-indicator[aria-current="true"] {
+  background-color: var(--indicator-color-active);
+}
+
+.carousel-indicator:hover {
+  background-color: var(--indicator-color-hover);
+}
+
+@keyframes modal-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+.modal-animation {
+  animation: modal-pop 0.3s ease-out;
+}
+
+
