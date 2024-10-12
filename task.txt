@@ -1,0 +1,7 @@
+1. memperbaiki bagian abous us khususnya pada bagian our mision
+2. memperbaiki bagian testimoni. agar bisa muat banya testimoni. saat ini cuma 3. dan layout perbaiki agar 3 yang keliahatn
+3. komentar CRUD.
+4. contact us kirim email dan database.
+6. switch langgueage
+7. fungsi search 
+8. dan asset aset gambar harus gunakan yang relevans

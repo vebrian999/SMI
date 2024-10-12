@@ -6,17 +6,12 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     exit();
 }
 
+// Include database connection
 require_once '../functions/db.php';
 
-// Fetch articles from the database
-// Ganti 'introduction' dengan 'content' atau kolom yang benar di database
-$query = "SELECT id, title, content, image, category, author, created_at FROM articles ORDER BY created_at DESC";
+// Query to fetch contact messages
+$query = "SELECT * FROM contact_submissions ORDER BY submission_date DESC";
 $result = $conn->query($query);
-
-// Cek apakah query berhasil
-if (!$result) {
-    die("Error fetching articles: " . $conn->error);
-}
 ?>
 
 <!DOCTYPE html>
@@ -100,61 +95,36 @@ if (!$result) {
     <main>
 <div id="content" class="content">
     <div class="mt-20 p-4 sm:ml-64 md:mt-10">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
-
-            <?php if (isset($_SESSION['message'])): ?>
-                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
-                    <span class="block sm:inline"><?php echo $_SESSION['message']; ?></span>
-                </div>
-                <?php unset($_SESSION['message']); // Clear the message after displaying ?>
-            <?php endif; ?>
-
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg md:mt-14">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-lg md:text-3xl font-bold text-primary-color">Article Management</h2>
-                <a href="create_article.php" class="inline-flex items-center px-3 py-2 text-lg md:text-xl font-medium md:text-center text-end text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
-                    Create New Article
-                </a>
+                <h2 class="text-lg md:text-3xl font-bold text-primary-color">Message from contact us</h2>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl">
-                        <a href="edit_article.php?id=<?php echo $row['id']; ?>">
-                            <img class="rounded-t-lg w-[380px] h-[290px]" src="../uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" />
-                        </a>
-                        <div class="p-5">
-                            <div class="flex justify-between items-center">
-                                <span class="bg-primary-color text-white px-2 py-1 rounded text-sm"><?php echo htmlspecialchars($row['category']); ?></span>
-                                <p class="text-primary-color font-medium my-3">Written by <?php echo htmlspecialchars($row['author']); ?></p>
-                            </div>
-                            <p class="text-gray-400 font-normal my-3"><?php echo date('d F Y', strtotime($row['created_at'])); ?></p>
-                            <a href="edit_article.php?id=<?php echo $row['id']; ?>">
-                                <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><?php echo htmlspecialchars($row['title']); ?></h5>
-                            </a>
-                            <!-- Ganti 'introduction' dengan 'content' atau kolom yang sesuai -->
-                            <p class="mb-5 font-normal text-gray-400"><?php 
-        // Menghapus tag HTML, melindungi dari XSS, dan memotong teks menjadi 100 karakter
-        echo htmlspecialchars(substr(strip_tags($row['content']), 0, 100)) . (strlen(strip_tags($row['content'])) > 100 ? '...' : ''); 
-    ?>...</p>
-                            <div class="flex justify-between items-center">
-                                <a
-                                    href="edit_article.php?id=<?php echo $row['id']; ?>"
-                                    class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
-                                    Edit
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
-                                </a>
-                                <a
-                                    href="delete_article.php?id=<?php echo $row['id']; ?>"
-                                    class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-red-600 bg-transparent rounded-lg hover:bg-red-600 hover:text-white transition-colors duration-300 ease-in-out hover:scale-105"
-                                    onclick="return confirm('Are you sure you want to delete this article?');">
-                                    Delete
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                <?php endwhile; ?>
-            </div>
+            <?php
+            // Check if there are any messages
+            if ($result->num_rows > 0) {
+                echo '<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">';
+                
+                while($row = $result->fetch_assoc()) {
+                    echo '<div class="bg-white p-6 rounded-lg shadow-md">';
+                    echo '<h3 class="text-xl font-semibold text-primary-color mb-2">' . htmlspecialchars($row['subject']) . '</h3>';
+                    echo '<p class="text-gray-600 mb-4">"' . htmlspecialchars($row['message']) . '"</p>';
+                    echo '<div class="text-sm text-gray-500">';
+                    echo '<p>From: ' . htmlspecialchars($row['first_name'] . ' ' . $row['last_name']) . '</p>';
+                    echo '<p>Email: ' . htmlspecialchars($row['email']) . '</p>';
+                    echo '<p>Phone: ' . htmlspecialchars($row['phone']) . '</p>';
+                    echo '<p>Date: ' . date('F j, Y, g:i a', strtotime($row['submission_date'])) . '</p>';
+                    echo '</div>';
+                    echo '</div>';
+                }
+                
+                echo '</div>';
+            } else {
+                echo '<p class="text-center text-gray-500">No messages found.</p>';
+            }
+
+            // Close the database connection
+            $conn->close();
+            ?>
         </div>
     </div>
 </div>
@@ -177,7 +147,7 @@ if (!$result) {
 
             <!-- ini adalah halaman article -->
             <li>
-              <a href="#" class="flex items-center p-2 text-black rounded-lg bg-white">
+              <a href="article_admin.php" class="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-black">
                 <svg class="flex-shrink-0 w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 18 20">
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>
@@ -185,9 +155,8 @@ if (!$result) {
               </a>
             </li>
 
-
             <li>
-              <a href="message_admin.php" class="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-black">
+              <a href="#" class="flex items-center p-2 text-black rounded-lg bg-white">                
                 <svg  class="flex-shrink-0 w-5 h-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
                 <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
                 <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />

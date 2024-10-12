@@ -1,3 +1,60 @@
+<?php
+session_start();
+require_once './functions/db.php';
+
+// Initialize variables to store form data
+$firstName = $lastName = $phone = $email = $subject = $message = "";
+
+// Function to sanitize input
+function sanitize_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+// Check if the form is submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Collect and sanitize form data
+    $firstName = sanitize_input($_POST['firstName'] ?? '');
+    $lastName = sanitize_input($_POST['lastName'] ?? '');
+    $phone = sanitize_input($_POST['phone'] ?? '');
+    $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+    $subject = sanitize_input($_POST['subject'] ?? '');
+    $message = sanitize_input($_POST['message'] ?? '');
+
+    // Validate data
+    if (empty($firstName) || empty($lastName) || empty($email) || empty($subject) || empty($message)) {
+        $_SESSION['toast'] = ['type' => 'error', 'message' => 'Please fill all required fields.'];
+    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $_SESSION['toast'] = ['type' => 'error', 'message' => 'Invalid email format.'];
+    } else {
+        // Prepare SQL statement
+        $sql = "INSERT INTO contact_submissions (first_name, last_name, phone, email, subject, message) 
+                VALUES (?, ?, ?, ?, ?, ?)";
+        
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssssss", $firstName, $lastName, $phone, $email, $subject, $message);
+        
+        // Execute the statement
+        if ($stmt->execute()) {
+            $_SESSION['toast'] = ['type' => 'success', 'message' => 'Your message has been sent successfully!'];
+            // Clear form data after successful submission
+            $firstName = $lastName = $phone = $email = $subject = $message = "";
+        } else {
+            $_SESSION['toast'] = ['type' => 'error', 'message' => 'Oops! Something went wrong. Please try again later.'];
+        }
+        
+        $stmt->close();
+    }
+    
+    // Redirect to the same page
+    header("Location: " . $_SERVER['PHP_SELF']);
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -296,11 +353,15 @@
                     <h2 class="text-gray-900 md:text-lg text-2xl md:my-0 my-6 md:mb-1 font-medium title-font">Feedback</h2>
                     <p class="leading-relaxed text-base text-black mb-5">Please fill out the form below if you have any questions or inquiries.</p>
 
+                    <?php if (!empty($error)) : ?>
+                        <p class="text-red-500 mb-4"><?php echo $error; ?></p>
+                    <?php endif; ?>
+
                     <div class="relative mb-4">
-                      <form class="">
+   <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
                         <div class="grid sm:grid-cols-2 gap-8">
                           <div class="relative flex items-center">
-                            <input type="text" placeholder="First Name" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                      <input type="text" name="firstName" placeholder="First Name" value="<?php echo $firstName; ?>" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" required />
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 24 24">
                               <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                               <path
@@ -310,7 +371,7 @@
                           </div>
 
                           <div class="relative flex items-center">
-                            <input type="text" placeholder="Last Name" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                              <input type="text" name="lastName" placeholder="Last Name" value="<?php echo $lastName; ?>" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" required />
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 24 24">
                               <circle cx="10" cy="7" r="6" data-original="#000000"></circle>
                               <path
@@ -320,7 +381,7 @@
                           </div>
 
                           <div class="relative flex items-center">
-                            <input type="number" placeholder="Phone No." class="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                        <input type="tel" name="phone" placeholder="Phone No." value="<?php echo $phone; ?>" class="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
                             <svg fill="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 64 64">
                               <path
                                 d="m52.148 42.678-6.479-4.527a5 5 0 0 0-6.963 1.238l-1.504 2.156c-2.52-1.69-5.333-4.05-8.014-6.732-2.68-2.68-5.04-5.493-6.73-8.013l2.154-1.504a4.96 4.96 0 0 0 2.064-3.225 4.98 4.98 0 0 0-.826-3.739l-4.525-6.478C20.378 10.5 18.85 9.69 17.24 9.69a4.69 4.69 0 0 0-1.628.291 8.97 8.97 0 0 0-1.685.828l-.895.63a6.782 6.782 0 0 0-.63.563c-1.092 1.09-1.866 2.472-2.303 4.104-1.865 6.99 2.754 17.561 11.495 26.301 7.34 7.34 16.157 11.9 23.011 11.9 1.175 0 2.281-.136 3.29-.406 1.633-.436 3.014-1.21 4.105-2.302.199-.199.388-.407.591-.67l.63-.899a9.007 9.007 0 0 0 .798-1.64c.763-2.06-.007-4.41-1.871-5.713z"
@@ -329,7 +390,7 @@
                           </div>
 
                           <div class="relative flex items-center">
-                            <input type="email" placeholder="Email" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                           <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" required />
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                               <defs>
                                 <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -349,7 +410,8 @@
                           </div>
 
                           <div class="relative flex items-center sm:col-span-2">
-                            <input placeholder="Subject" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" />
+                          <input name="subject" placeholder="Subject" value="<?php echo $subject; ?>" class="rounded-lg px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" required />
+                                    <!-- ... (SVG icon) ... -->
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                               <defs>
                                 <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -369,7 +431,7 @@
                           </div>
 
                           <div class="relative flex items-center sm:col-span-2">
-                            <textarea placeholder="Write Message" class="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none"></textarea>
+                          <textarea name="message" placeholder="Write Message" class="px-2 py-3 bg-white w-full text-sm text-gray-800 border-b border-gray-300 focus:border-blue-500 outline-none" required><?php echo $message; ?></textarea>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="#bbb" stroke="#bbb" class="w-[18px] h-[18px] absolute right-2" viewBox="0 0 682.667 682.667">
                               <defs>
                                 <clipPath id="a" clipPathUnits="userSpaceOnUse">
@@ -390,8 +452,8 @@
                         </div>
 
                         <button
-                          type="button"
-                          class="mt-5 flex items-center justify-center text-sm lg:ml-auto max-lg:w-full rounded-lg px-4 py-3 tracking-wide text-white bg-[#682E74] transition-transform duration-300 ease-in-out hover:bg-[#8b3c95] hover:scale-105">
+                                type="submit"
+                                class="mt-5 flex items-center justify-center text-sm lg:ml-auto max-lg:w-full rounded-lg px-4 py-3 tracking-wide text-white bg-[#682E74] transition-transform duration-300 ease-in-out hover:bg-[#8b3c95] hover:scale-105">
                           <svg xmlns="http://www.w3.org/2000/svg" width="16px" height="16px" fill="#fff" class="mr-2" viewBox="0 0 548.244 548.244">
                             <path
                               fill-rule="evenodd"
@@ -402,6 +464,27 @@
                           Send Message
                         </button>
                       </form>
+
+
+ <script>
+    function showToast(message, type) {
+        const toast = document.createElement('div');
+        toast.className = `fixed bottom-4 right-4 p-4 rounded-md text-white ${type === 'success' ? 'bg-green-500' : 'bg-red-500'}`;
+        toast.textContent = message;
+        document.body.appendChild(toast);
+        
+        setTimeout(() => {
+            toast.remove();
+        }, 5000);
+    }
+
+    <?php
+    if (isset($_SESSION['toast'])) {
+        echo "showToast('" . addslashes($_SESSION['toast']['message']) . "', '" . $_SESSION['toast']['type'] . "');";
+        unset($_SESSION['toast']);
+    }
+    ?>
+    </script>
                     </div>
 
                     <p class="text-xs font-light text-gray-500 mt-3 md:my-0 my-4">We value your privacy and will only use the information provided to help you.</p>

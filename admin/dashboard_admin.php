@@ -108,11 +108,9 @@ if ($result) {
         <div id="content" class="content">
             <div class="p-4 sm:ml-64 md:mt-10">
                 <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
-                    <div class="grid grid-cols-1 gap-4 mb-4">
-                        <div class="flex items-center justify-center h-48 mb-4 rounded bg-gray-50">
-                            <h2 class="text-2xl font-semibold text-gray-900">Jumlah Article</h2>
-                        </div>
-                    </div>
+            <div class="flex items-center justify-between mb-4">
+                <h2 class="text-lg md:text-3xl font-bold text-primary-color">Article Total</h2>
+            </div>
 
                     <div class="grid grid-cols-1 gap-4 mb-4">
                         <div class="flex items-center justify-center gap-2 h-56 rounded bg-primary-color">
@@ -151,6 +149,16 @@ if ($result) {
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>
                 <span class="flex-1 ms-3 whitespace-nowrap">Article</span>
+              </a>
+            </li>
+
+          <li>
+              <a href="message_admin.php" class="flex items-center p-2 text-white rounded-lg hover:bg-white hover:text-black">
+                <svg  class="flex-shrink-0 w-5 h-5"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6">
+                <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+                </svg>
+                <span class="flex-1 ms-3 whitespace-nowrap">Message</span>
               </a>
             </li>
           </ul>
