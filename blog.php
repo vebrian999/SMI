@@ -41,23 +41,57 @@ $result = $conn->query($query);
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
               <div class="flex md:order-2">
-                <div class="relative hidden md:block">
-                  <div class="flex justify-center items-center">
-                    <div class="relative">
-                      <input
-                        type="text"
-                        class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none transition-all duration-300 ease-in-out w-12 focus:w-64"
-                        placeholder="Search..."
-                        onfocus="this.classList.remove('w-12'); this.classList.add('w-64');"
-                        onblur="if(this.value === '') { this.classList.remove('w-64'); this.classList.add('w-12'); }" />
-                      <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
-                        <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                          <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
-                        </svg>
-                      </button>
-                    </div>
-                  </div>
-                </div>
+
+
+              
+          <!-- Search Bar Desktop -->
+          <div class="relative hidden md:block">
+            <div class="flex justify-center items-center">
+              <div class="relative">
+                <input
+                  type="text"
+                  id="search-desktop"
+                  class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none transition-all duration-300 ease-in-out w-12 focus:w-64"
+                  placeholder="Search..."
+                  onfocus="this.classList.remove('w-12'); this.classList.add('w-64');"
+                  onblur="if (this.value === '') { this.classList.remove('w-64'); this.classList.add('w-12'); }"
+                  oninput="searchArticlesDesktop()" />
+
+                <button type="button" class="absolute right-0 top-0 mt-3 mr-4">
+                  <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                    <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- Container untuk hasil pencarian -->
+            <div id="search-results-desktop" class="absolute w-64 mt-2 bg-white shadow-lg rounded-lg z-10 hidden"></div>
+          </div>
+
+          <script>
+            function searchArticlesDesktop() {
+  const query = document.getElementById('search-desktop').value;
+
+  if (query.length > 0) {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', `search.php?q=${encodeURIComponent(query)}`, true);
+    xhr.onreadystatechange = function () {
+      if (xhr.readyState === 4 && xhr.status === 200) {
+        const resultsContainer = document.getElementById('search-results-desktop');
+        resultsContainer.innerHTML = xhr.responseText;
+        resultsContainer.classList.remove('hidden'); // Tampilkan hasil
+      }
+    };
+    xhr.send();
+  } else {
+    // Kosongkan dan sembunyikan hasil jika input kosong
+    document.getElementById('search-results-desktop').innerHTML = '';
+    document.getElementById('search-results-desktop').classList.add('hidden');
+  }
+}
+          </script>
+
 
                 <div class="relative text-left mx-3 text-sm md:block hidden">
                   <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
@@ -117,7 +151,7 @@ $result = $conn->query($query);
                     </a>
                   </li>
                   <li>
-                    <a href="./contact-us.html" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./contact-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Contact Us
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
@@ -161,6 +195,7 @@ $result = $conn->query($query);
                     </div>
                     <input type="text" id="search-sidebar" class="block w-full bg-gray-100 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-primary-color focus:border-primary-color" placeholder="Search..." />
                   </div>
+                  
                 </div>
 
                 <!-- Language selector -->
@@ -195,7 +230,7 @@ $result = $conn->query($query);
                 <ul class="space-y-2">
                   <li><a href="./index.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
                   <li><a href="./about-us.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
-                  <li><a href="./contact-us.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
+                  <li><a href="./contact-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
                   <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Article</a></li>
                   <li><a href="./our-product.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
                 </ul>
@@ -554,7 +589,7 @@ $result = $conn->query($query);
                       <a href="./about-us.html" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
                     </li>
                     <li>
-                      <a href="./contact-us.html" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
+                      <a href="./contact-us.php" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
                     </li>
                     <li>
                       <a href="./our-product.html" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>

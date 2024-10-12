@@ -4,6 +4,7 @@ require_once './functions/db.php';  // Meng-include koneksi database
 // Mendapatkan ID artikel dari parameter URL
 if (isset($_GET['id'])) {
     $id = $_GET['id'];
+    
     $query = "SELECT * FROM articles WHERE id = ?";
     $stmt = $conn->prepare($query);
     $stmt->bind_param("i", $id);
@@ -24,10 +25,39 @@ if (isset($_GET['id'])) {
     $sidebarStmt->execute();
     $sidebarResult = $sidebarStmt->get_result();
     $sidebarArticles = $sidebarResult->fetch_all(MYSQLI_ASSOC);
+
+    // Proses pengiriman komentar
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['comment'])) {
+        $name = $_POST['name'];
+        $comment = $_POST['comment'];
+
+        // Query untuk menyimpan komentar
+        $insertCommentQuery = "INSERT INTO comments (article_id, name, comment) VALUES (?, ?, ?)";
+        $insertStmt = $conn->prepare($insertCommentQuery);
+        $insertStmt->bind_param("iss", $id, $name, $comment);
+        if ($insertStmt->execute()) {
+            // Jika berhasil, redirect ke halaman yang sama untuk menampilkan komentar terbaru
+            header("Location: " . $_SERVER['REQUEST_URI']);
+            exit;
+        } else {
+            echo "Gagal menambahkan komentar!";
+        }
+    }
+
+    // Mengambil komentar untuk artikel
+    $commentsQuery = "SELECT * FROM comments WHERE article_id = ? ORDER BY created_at DESC";
+    $commentsStmt = $conn->prepare($commentsQuery);
+    $commentsStmt->bind_param("i", $id);
+    $commentsStmt->execute();
+    $commentsResult = $commentsStmt->get_result();
+    $comments = $commentsResult->fetch_all(MYSQLI_ASSOC);
 } else {
     echo "ID artikel tidak diberikan!";
     exit;
 }
+
+// Gambar profil default
+$defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd4625e30d776.jpg"; // Ganti dengan path gambar profil default Anda
 ?>
 
 <!DOCTYPE html>
@@ -152,14 +182,14 @@ if (isset($_GET['id'])) {
                     </a>
                   </li>
                   <li>
-                    <a href="./contact-us.html" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./contact-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Contact Us
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
                   <li>
                     <a href="./blog.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
-                      >Blog
+                      >Article
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
@@ -230,8 +260,8 @@ if (isset($_GET['id'])) {
                 <ul class="space-y-2">
                   <li><a href="./index.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
                   <li><a href="./about-us.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
-                  <li><a href="./contact-us.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-                  <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
+                  <li><a href="./contact-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
+                  <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Article</a></li>
                   <li><a href="./our-product.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
                 </ul>
               </div>
@@ -279,7 +309,7 @@ if (isset($_GET['id'])) {
           <!-- Hero -->
           <div class="mx-20 py-24 text-white relative">
             <div class="my-28">
-              <h1 class="md:text-7xl text-3xl text-center">Blog</h1>
+              <h1 class="md:text-7xl text-3xl text-center">Article</h1>
               <hr class="my-3 md:w-1/2 mx-auto" />
               <p class="md:text-lg text-sm text-center">Odio cras proin proin sit quis fringilla aliquet. Consectetur</p>
               <p class="md:text-lg text-sm text-center">elementum viverra egestas egestas nulla ullamcorper varius quam.</p>
@@ -319,13 +349,50 @@ if (isset($_GET['id'])) {
 
             <h1 class="text-4xl  font-semibold mb-3"><?php echo htmlspecialchars($article['title']); ?></h1>
             <div class="pt-2.5 text-base text-[#28254C] leading-7"><?php echo nl2br(($article['content'])); ?></div>
-
-
-
-
-
         </section>
+
+        <section class="bg-white py-8 lg:py-16 antialiased">
+    <div class="max-w-5xl mx-auto">
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-lg lg:text-2xl font-bold text-gray-900">Comments (<?= count($comments) ?>)</h2>
+        </div>
+        <form method="POST" class="mb-6">
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                <label for="name" class="sr-only">Your name</label>
+                <input type="text" id="name" name="name" required class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none" placeholder="Your name" />
+            </div>
+            <div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200">
+                <label for="comment" class="sr-only">Your comment</label>
+                <textarea id="comment" name="comment" rows="6" class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0 focus:outline-none" placeholder="Write a comment..." required></textarea>
+            </div>
+            <button type="submit" class="inline-flex items-center py-2.5 px-4 text-xs font-medium text-center text-white bg-primary-700 rounded-lg bg-[#682E74]">Post comment</button>
+        </form>
+        <?php foreach ($comments as $comment): ?>
+         <article class="p-6 mb-3 text-base bg-white rounded-lg">
+                <footer class="flex items-center mb-2">
+                    <img src="<?= $defaultProfileImage ?>" alt="Profile Image" class="w-6 h-6 rounded-full mr-3">
+                    <div class="flex space-x-3">
+                        <p class="inline-flex items-center text-sm text-gray-900 font-semibold">
+                            <?= htmlspecialchars($comment['name']) ?>
+                        </p>
+                        <p class="text-sm text-gray-600">
+                            <time pubdate datetime="<?= $comment['created_at'] ?>" title="<?= $comment['created_at'] ?>">
+                                <?= date("M. d, Y", strtotime($comment['created_at'])) ?>
+                            </time>
+                        </p>
+                    </div>
+                </footer>
+                <p class="text-gray-500"><?= htmlspecialchars($comment['comment']) ?></p>
+            </article>
+                   <!-- Garis pembatas antara komentar -->
+            <hr class="my-4 border-t border-gray-300">
+        <?php endforeach; ?>
+    </div>
+</section>
       </div>
+
+
+
 <aside class="w-full md:w-1/3 md:my-0 my-5 space-y-4 md:sticky md:top-32 self-start">
     <?php foreach ($sidebarArticles as $sidebarArticle): ?>
     <div class="bg-white p-4 rounded-lg shadow-md">
@@ -425,13 +492,13 @@ if (isset($_GET['id'])) {
                     <a href="./about-us.html" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
                   </li>
                   <li>
-                    <a href="./contact-us.html" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
+                    <a href="./contact-us.php" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
                   </li>
                   <li>
                     <a href="./our-product.html" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>
                   </li>
                   <li>
-                    <a href="./blog.php" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
+                    <a href="./blog.php" class="text-sm leading-6 text-white hover:text-gray-900">Article</a>
                   </li>
                 </ul>
               </div>
@@ -445,7 +512,7 @@ if (isset($_GET['id'])) {
                     <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Event</a>
                   </li>
                   <li>
-                    <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
+                    <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Article</a>
                   </li>
                   <li>
                     <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Invite a friend</a>
