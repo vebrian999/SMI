@@ -169,8 +169,36 @@
                     </div>
                     <input type="text" id="search-sidebar" class="block w-full bg-gray-100 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-primary-color focus:border-primary-color" placeholder="Search..." />
                   </div>
-                  
+                  <!-- Container for search results -->
+                  <div id="search-results-mobile" class="mt-2 bg-white rounded-lg shadow-md overflow-hidden hidden"></div>
                 </div>
+
+                <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                  const searchInput = document.getElementById('search-sidebar');
+                  const searchResults = document.getElementById('search-results-mobile');
+
+                  searchInput.addEventListener('input', function() {
+                    const query = this.value.trim();
+                    
+                    if (query.length > 0) {
+                      // Make an AJAX request to the server
+                      fetch(`search.php?q=${encodeURIComponent(query)}`)
+                        .then(response => response.text())
+                        .then(data => {
+                          searchResults.innerHTML = data;
+                          searchResults.classList.remove('hidden');
+                        })
+                        .catch(error => {
+                          console.error('Error:', error);
+                        });
+                    } else {
+                      searchResults.innerHTML = '';
+                      searchResults.classList.add('hidden');
+                    }
+                  });
+                });
+                </script>
 
                 <!-- Language selector -->
                 <div class="mb-4">
