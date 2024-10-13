@@ -17,27 +17,57 @@
     <header>
       <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
-          <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
           </a>
           <div class="flex md:order-2">
+            <!-- Search Bar Desktop -->
             <div class="relative hidden md:block">
               <div class="flex justify-center items-center">
                 <div class="relative">
                   <input
                     type="text"
+                    id="search-desktop"
                     class="bg-white h-10 px-5 pr-10 rounded-full text-sm focus:outline-none transition-all duration-300 ease-in-out w-12 focus:w-64"
                     placeholder="Search..."
                     onfocus="this.classList.remove('w-12'); this.classList.add('w-64');"
-                    onblur="if(this.value === '') { this.classList.remove('w-64'); this.classList.add('w-12'); }" />
-                  <button type="submit" class="absolute right-0 top-0 mt-3 mr-4">
+                    onblur="if (this.value === '') { this.classList.remove('w-64'); this.classList.add('w-12'); }"
+                    oninput="searchArticlesDesktop()" />
+
+                  <button type="button" class="absolute right-0 top-0 mt-3 mr-4">
                     <svg class="h-4 w-4 fill-current" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                      <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+                      <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z" />
                     </svg>
                   </button>
                 </div>
               </div>
+
+              <!-- Container untuk hasil pencarian -->
+              <div id="search-results-desktop" class="absolute w-64 mt-2 bg-white shadow-lg rounded-lg z-10 hidden"></div>
             </div>
+
+            <script>
+              function searchArticlesDesktop() {
+                const query = document.getElementById("search-desktop").value;
+
+                if (query.length > 0) {
+                  const xhr = new XMLHttpRequest();
+                  xhr.open("GET", `search.php?q=${encodeURIComponent(query)}`, true);
+                  xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                      const resultsContainer = document.getElementById("search-results-desktop");
+                      resultsContainer.innerHTML = xhr.responseText;
+                      resultsContainer.classList.remove("hidden"); // Tampilkan hasil
+                    }
+                  };
+                  xhr.send();
+                } else {
+                  // Kosongkan dan sembunyikan hasil jika input kosong
+                  document.getElementById("search-results-desktop").innerHTML = "";
+                  document.getElementById("search-results-desktop").classList.add("hidden");
+                }
+              }
+            </script>
 
             <div class="relative text-left mx-3 text-sm md:block hidden">
               <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
@@ -91,7 +121,7 @@
                 </a>
               </li>
               <li>
-                <a href="./about-us.html" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./about-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >About Us
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
@@ -109,7 +139,7 @@
                 </a>
               </li>
               <li>
-                <a href="./our-product.html" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./our-product.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >Our Product
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
@@ -175,10 +205,10 @@
 
             <ul class="space-y-2">
               <li><a href="#" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
-              <li><a href="./about-us.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
+              <li><a href="./about-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
               <li><a href="./contact-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-              <li><a href="./blog.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
-              <li><a href="./our-product.html" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
+              <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
+              <li><a href="./our-product.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
             </ul>
           </div>
         </div>
@@ -625,7 +655,7 @@
         <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
-              <a href="./index.html" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="SMI logo" />
               </a>
               <p class="text-sm leading-6 text-white">This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
@@ -677,19 +707,19 @@
                   <h3 class="text-sm font-semibold leading-6 text-white">Navigasi Link</h3>
                   <ul role="list" class="mt-6 space-y-4">
                     <li>
-                      <a href="./index.html" class="text-sm leading-6 text-white hover:text-gray-900">Home</a>
+                      <a href="./index.php" class="text-sm leading-6 text-white hover:text-gray-900">Home</a>
                     </li>
                     <li>
-                      <a href="./about-us.html" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
+                      <a href="./about-us.php" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
                     </li>
                     <li>
                       <a href="./contact-us.php" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
                     </li>
                     <li>
-                      <a href="./our-product.html" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>
+                      <a href="./our-product.php" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>
                     </li>
                     <li>
-                      <a href="./blog.html" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
+                      <a href="./blog.php" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
                     </li>
                   </ul>
                 </div>
@@ -716,22 +746,22 @@
                   <h3 class="text-sm font-semibold leading-6 text-white">Socials</h3>
                   <ul role="list" class="mt-6 space-y-4">
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Shopee</a>
+                      <a href="https://shopee.co.id/stressmanagement.indonesia?is_from_login=true" class="text-sm leading-6 text-white hover:text-gray-900">Shopee</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Instagram</a>
+                      <a href="https://www.instagram.com/stressmanagementindonesia/?hl=en" class="text-sm leading-6 text-white hover:text-gray-900">Instagram</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Twitter</a>
+                      <a href="https://x.com/smi_healthylife" class="text-sm leading-6 text-white hover:text-gray-900">Twitter</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Facebook</a>
+                      <a href="https://www.facebook.com/stressmanagementindonesia/?locale=id_ID" class="text-sm leading-6 text-white hover:text-gray-900">Facebook</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Linkedin</a>
+                      <a href="https://bw.linkedin.com/company/stressmanagementindonesia" class="text-sm leading-6 text-white hover:text-gray-900">Linkedin</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-gray-900">Tiktok</a>
+                      <a href="https://www.tiktok.com/@stressmanagementid" class="text-sm leading-6 text-white hover:text-gray-900">Tiktok</a>
                     </li>
                   </ul>
                 </div>

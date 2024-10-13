@@ -22,7 +22,7 @@ if (!empty($q)) {
         // Tampilkan hasil pencarian
         while ($row = $result->fetch_assoc()) {
             echo '<div class="p-4 border-b">';
-            echo '<a href="article.php?id=' . $row['id'] . '" class=" text-primary-color text-base font-bold ">'
+            echo '<a href="article.php?id=' . $row['id'] . '" class=" text-primary-color text-base font-bold  ">'
                  . htmlspecialchars($row['title']) . '</a>';
 
 // echo '<a href="article.php?id=' . $row['id'] . '" class="search-title text-base font-bold">'

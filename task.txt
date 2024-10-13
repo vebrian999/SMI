@@ -1,7 +1,9 @@
 1. memperbaiki bagian abous us khususnya pada bagian our mision
-2. memperbaiki bagian testimoni. agar bisa muat banya testimoni. saat ini cuma 3. dan layout perbaiki agar 3 yang keliahatn (done)
+2. memperbaiki bagian testimoni (done)
 3. komentar CRUD. (done)
 4. contact us kirim database. (done)
 6. switch langgueage
 7. fungsi search (done)
 8. dan asset aset gambar harus gunakan yang relevan
+9. samarkan extension seperti php dan html
+10. menjadikan header dan footer komponen (done)
