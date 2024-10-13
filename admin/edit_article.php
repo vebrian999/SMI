@@ -164,11 +164,11 @@ $stmt->bind_param("sssssi", $title, $content, $category, $author, $image, $artic
     <main>
 <div >
     <div class="p-4 sm:ml-64 md:mt-10">
-        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+        <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-20 md:mt-14">
             <div class="grid grid-cols-1 gap-4 mb-4">
                 <div class="flex items-center justify-center gap-2 rounded ">
-                    <div class="container mx-auto px-4 py-8">
-                        <h1 class="text-3xl font-bold mb-6 text-primary-color">Edit Article</h1>
+                    <div class="container mx-auto">
+                        <h1 class="text-3xl font-bold mb-6 text-primary-color md:text-left text-center">Edit Article</h1>
                         
                         <?php if (!empty($message)): ?>
                             <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -177,7 +177,7 @@ $stmt->bind_param("sssssi", $title, $content, $category, $author, $image, $artic
                         <?php endif; ?>
 
                         <?php if (isset($article)): ?>
-                        <form id="articleForm" action="edit_article.php?id=<?php echo $articleId; ?>" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                        <form id="articleForm" action="edit_article.php?id=<?php echo $articleId; ?>" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-3 md:px-8 pt-6 pb-8 mb-4">
                             
                                                     <div class="mb-4">
                                 <label class="block text-gray-700 text-sm font-bold mb-2" for="image">

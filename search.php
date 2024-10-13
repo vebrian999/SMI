@@ -22,13 +22,20 @@ if (!empty($q)) {
         // Tampilkan hasil pencarian
         while ($row = $result->fetch_assoc()) {
             echo '<div class="p-4 border-b">';
-            echo '<a href="article.php?id=' . $row['id'] . '" class="text-base font-bold text-primary-color">'
+            echo '<a href="article.php?id=' . $row['id'] . '" class=" text-primary-color text-base font-bold ">'
                  . htmlspecialchars($row['title']) . '</a>';
+
+// echo '<a href="article.php?id=' . $row['id'] . '" class="search-title text-base font-bold">'
+//      . htmlspecialchars(
+//          implode(' ', array_slice(explode(' ', strip_tags($row['title'])), 0, 6)) // Ambil 6 kata pertama
+//          . (str_word_count(strip_tags($row['title'])) > 6 ? '...' : '') // Tambahkan "..." jika lebih dari 6 kata
+//      ) . '</a>';
+
             echo '<p class="text-xs text-gray-500">' 
                  . date('d F Y', strtotime($row['created_at'])) . ' - ' 
                  . htmlspecialchars($row['author']) . '</p>';
-            echo '<p class="text-gray-600 text-sm">' 
-                 . (substr(strip_tags($row['content']), 0, 50)) . '...</p>';
+            echo '<p class="text-gray-600 text-sm">'
+     . (substr(strip_tags($row['content']), 0, 50)) . '...</p>';
             echo '</div>';
         }
     } else {

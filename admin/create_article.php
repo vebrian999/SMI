@@ -83,7 +83,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     .ck-editor__editable_inline {
     padding: 0 30px !important;
 
+    }
+
+    .ck-editor__editable {
+    min-height: 300px;
 }
+    /* .ck.ck-editor__main>.ck-editor__editable {
+    min-height: 300px !important;
+
+    } */
 
    </style>
   </head>
@@ -155,11 +163,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <main>
       <div >
         <div class="p-4 sm:ml-64 md:mt-10">
-          <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-14">
+          <div class="p-4 border-2 border-gray-200 border-dashed rounded-lg mt-20 md:mt-14">
             <div class="grid grid-cols-1 gap-4 mb-4">
-              <div class="flex items-center justify-center mb-4 rounded bg-gray-50">
-                <div class="container mx-auto px-4 py-8">
-                  <h1 class="text-3xl text-primary-color font-bold mb-6">Create New Article</h1>
+              <div class="flex items-center justify-center mb-4 rounded  ">
+                <div class="container mx-auto ">
+                  <h1 class="text-3xl text-primary-color text-center md:text-left font-bold mb-6">Create New Article</h1>
 
                   <?php if (!empty($message)): ?>
                   <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -167,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                   </div>
                   <?php endif; ?>
 
-  <form id="articleForm" action="create_article.php" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+  <form id="articleForm" action="create_article.php" method="POST" enctype="multipart/form-data" class="bg-white shadow-md rounded px-3 md:px-8 pt-6 pb-8 mb-4">
 
     <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="image"> Image </label>
@@ -194,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- Ubah label Introduction menjadi Content -->
     <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="content"> Content </label>
-        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="content" name="content" rows="10" ></textarea>
+        <textarea class="ckeditor shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="content" name="content" rows="10" ></textarea>
     </div>
 
 

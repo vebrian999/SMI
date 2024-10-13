@@ -224,8 +224,7 @@ body {
   animation: modal-pop 0.3s ease-out;
 }
 
-
-    .modal-open {
-        transform: scale(1);
-        opacity: 1;
-    }
+.modal-open {
+  transform: scale(1);
+  opacity: 1;
+}

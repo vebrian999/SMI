@@ -398,7 +398,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     <div class="bg-white p-4 rounded-lg shadow-md">
         <div class="flex items-start gap-6">
             <div class="flex-shrink-0 w-36 h-36">
-                <img src="./uploads/<?php echo htmlspecialchars($sidebarArticle['image']); ?>" alt="<?php echo htmlspecialchars($sidebarArticle['title']); ?>" class="w-full h-full object-cover rounded-md" />
+                <img src="./uploads/<?php echo htmlspecialchars($sidebarArticle['image']); ?>" alt="<?php echo htmlspecialchars($sidebarArticle['title']); ?>" class="w-[144px] h-[144px] object-cover rounded-md" />
             </div>
             <div class="flex-1">
                 <div class="flex items-center space-x-2">
@@ -406,20 +406,34 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
                     <span class="border-l border-gray-400 h-4"></span>
                     <p class="text-sm text-gray-500">By <?php echo htmlspecialchars($sidebarArticle['author']); ?></p>
                 </div>
-                <h1 class="font-semibold text-base text-gray-700 mb-2"><?php echo htmlspecialchars($sidebarArticle['title']); ?></h1>
-                <!-- Mengubah dari summary ke content -->
-<p class="text-sm text-gray-600">
-    <?php 
-    // Memecah string menjadi array kata
-    $words = explode(' ', $sidebarArticle['content']); 
-    // Mengambil 10 kata pertama
-    $shortenedcontent = implode(' ', array_slice($words, 0, 7)); 
-    // Menambahkan ellipsis jika lebih dari 10 kata
-    echo nl2br(htmlspecialchars($shortenedcontent . (count($words) > 10 ? '...' : ''))); 
-    ?>
-</p>
 
-                <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="text-primary-color hover:underline">Read more</a>
+
+                <h1 class="font-semibold text-sm text-gray-700 mb-2">
+                    <?php 
+                    echo htmlspecialchars(
+                        implode(' ', array_slice(explode(' ', strip_tags($sidebarArticle['title'])), 0, 7)) 
+                        . (str_word_count($sidebarArticle['title']) > 7 ? '...' : '')
+                    ); 
+                    ?>
+                </h1>
+
+
+                <!-- Mengubah dari summary ke content -->
+              <div class="text-sm text-gray-600">
+                  <?php 
+                  // Menghapus tag HTML dari konten
+                  $cleanContent = strip_tags($sidebarArticle['content']); 
+                  // Memecah string menjadi array kata
+                  $words = explode(' ', $cleanContent); 
+                  // Mengambil 7 kata pertama
+                  $shortenedContent = implode(' ', array_slice($words, 0, 6)); 
+                  // Menambahkan ellipsis jika lebih dari 7 kata
+                  echo nl2br(htmlspecialchars($shortenedContent . (count($words) > 7 ? '...' : ''))); 
+                  ?>
+              </div>
+
+
+                <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="text-primary-color text-sm hover:underline">Read more</a>
             </div>
         </div>
     </div>
