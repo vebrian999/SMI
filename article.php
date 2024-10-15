@@ -244,7 +244,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     </main>
 
     <!-- awal footer -->
-     <div class="">
+     <div class="mx-28">
         <?php require_once('footer.php'); ?>
     </div>
   </body>

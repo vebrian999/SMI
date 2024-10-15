@@ -17,7 +17,7 @@
     <header>
       <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
-          <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
           </a>
           <div class="flex md:order-2">
@@ -121,25 +121,25 @@
                 </a>
               </li>
               <li>
-                <a href="./about-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./about-us" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >About Us
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
               </li>
               <li>
-                <a href="./contact-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./contact-us" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >Contact Us
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
               </li>
               <li>
-                <a href="./blog.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./blog" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >Article
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
               </li>
               <li>
-                <a href="./our-product.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./our-product" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >Our Product
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
@@ -234,10 +234,10 @@
 
             <ul class="space-y-2">
               <li><a href="#" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
-              <li><a href="./about-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
-              <li><a href="./contact-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-              <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
-              <li><a href="./our-product.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
+              <li><a href="./about-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
+              <li><a href="./contact-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
+              <li><a href="./blog" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
+              <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
             </ul>
           </div>
         </div>
@@ -684,7 +684,7 @@
         <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
-              <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="SMI logo" />
               </a>
               <p class="text-sm leading-6 text-white">This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
@@ -736,19 +736,19 @@
                   <h3 class="text-sm font-semibold leading-6 text-white">Navigasi Link</h3>
                   <ul role="list" class="mt-6 space-y-4">
                     <li>
-                      <a href="./index.php" class="text-sm leading-6 text-white hover:text-gray-900">Home</a>
+                      <a href="./index" class="text-sm leading-6 text-white hover:text-gray-900">Home</a>
                     </li>
                     <li>
-                      <a href="./about-us.php" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
+                      <a href="./about-us" class="text-sm leading-6 text-white hover:text-gray-900">About Us</a>
                     </li>
                     <li>
-                      <a href="./contact-us.php" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
+                      <a href="./contact-us" class="text-sm leading-6 text-white hover:text-gray-900">Contact</a>
                     </li>
                     <li>
-                      <a href="./our-product.php" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>
+                      <a href="./our-product" class="text-sm leading-6 text-white hover:text-gray-900">Our Product</a>
                     </li>
                     <li>
-                      <a href="./blog.php" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
+                      <a href="./blog" class="text-sm leading-6 text-white hover:text-gray-900">Blog</a>
                     </li>
                   </ul>
                 </div>
