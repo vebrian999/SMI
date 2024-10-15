@@ -7,3 +7,4 @@
 8. dan asset aset gambar harus gunakan yang relevan
 9. samarkan extension seperti php dan html
 10. menjadikan header dan footer komponen (done)
+11. pagenation (done)
