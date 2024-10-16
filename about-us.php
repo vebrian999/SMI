@@ -12,7 +12,16 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
+
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet" />
+
+
     <style>
+
+    * {
+        font-family: "Montserrat", sans-serif;
+      }
       @keyframes modal-pop {
         0% {
           opacity: 0;
@@ -45,7 +54,7 @@
         <div class="relative z-10">
           <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
             <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
-              <a href="./index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
               <div class="flex md:order-2">
@@ -143,31 +152,31 @@
                 </div>
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-normal border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                   <li>
-                    <a href="./index.php" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
+                    <a href="./index" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
                       >Home
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="./about-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./about-us" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >About Us
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="./contact-us.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./contact-us" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Contact Us
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="./blog.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./blog" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Article
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
                   </li>
                   <li>
-                    <a href="./our-product.php" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./our-product" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Our Product
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
@@ -260,11 +269,11 @@
                   </div>
                 </div>
                 <ul class="space-y-2">
-                  <li><a href="./index.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
-                  <li><a href="./about-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
-                  <li><a href="./contact-us.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-                  <li><a href="./blog.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
-                  <li><a href="./our-product.php" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
+                  <li><a href="./index" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
+                  <li><a href="./about-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
+                  <li><a href="./contact-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
+                  <li><a href="./blog" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
+                  <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
                 </ul>
               </div>
             </div>
@@ -326,7 +335,93 @@
 
     <main class="mx-4 md:mx-28">
       <div id="content" class="container mx-auto">
-        <section class="mt-10 md:-mx-14">
+
+
+
+        <section class="mt-20 md:-mx-14">
+          <article>
+            <!-- Header Section -->
+            <div class="flex justify-start">
+              <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
+                <h1 class="text-white font-semibold text-xl md:text-3xl px-4 md:px-0">Our Vision & Mission</h1>
+              </div>
+            </div>
+
+            <!-- Content Section -->
+            <div class="md:flex md:space-x-16">
+              <!-- Left Content -->
+              <div>
+                <h5 class="font-medium text-base md:text-xl mt-5 text-[#172432]">Who we are</h5>
+                <h1 class="font-medium text-xl md:text-4xl my-6 text-[#172432]">The following is our company's vision and mission</h1>
+
+                <!-- Vision Section -->
+                <div class="mt-8">
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-primary-color px-2.5 py-3.5 rounded-lg">
+                      <svg width="59" height="45" viewBox="0 0 59 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                          d="M2.14238 23.3812C1.95272 22.8147 1.95253 22.2013 2.14187 21.6347C5.95368 10.2266 16.763 2 29.5024 2C42.2358 2 53.0411 10.2189 56.8576 21.6188C57.0473 22.1853 57.0475 22.7987 56.8581 23.3653C53.0463 34.7734 42.237 43 29.4976 43C16.7642 43 5.95893 34.7811 2.14238 23.3812Z"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M37.7368 22.5C37.7368 27.0287 34.0491 30.7 29.5002 30.7C24.9512 30.7 21.2636 27.0287 21.2636 22.5C21.2636 17.9713 24.9512 14.3 29.5002 14.3C34.0491 14.3 37.7368 17.9713 37.7368 22.5Z"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <h5 class="font-medium text-xl text-[#172432]">Our Vision</h5>
+                  </div>
+                  <p class="my-5 mb-10 text-[#172432]">
+                   We not me! No one is to walk this journey alone.
+                  </p>
+                </div>
+                
+                <!-- Mission Section -->
+                <div>
+                  <div class="flex items-center space-x-3">
+                    <div class="bg-primary-color px-3.5 py-3 rounded-lg">
+                      <svg width="50" height="50" viewBox="0 0 62 62" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M29.9256 32.0741L42.8144 19.1853" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M59.9995 10.5925H51.4069V2L42.8144 10.5925V19.1851H51.4069L59.9995 10.5925Z" stroke="white" stroke-width="3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M29.9257 44.9629C37.044 44.9629 42.8145 39.1924 42.8145 32.0741C42.8145 24.9558 37.044 19.1853 29.9257 19.1853C22.8074 19.1853 17.0369 24.9558 17.0369 32.0741C17.0369 39.1924 22.8074 44.9629 29.9257 44.9629Z"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                        <path
+                          d="M53.5552 17.0374C56.3478 21.3336 57.8514 26.4891 57.8514 32.0743C57.8514 47.5408 45.3923 60 29.9257 60C14.4592 60 2 47.5408 2 32.0743C2 16.6077 14.4592 4.14856 29.9257 4.14856C35.5109 4.14856 40.6664 5.65225 44.9627 8.44482"
+                          stroke="white"
+                          stroke-width="3"
+                          stroke-miterlimit="10"
+                          stroke-linecap="round"
+                          stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <h5 class="text-xl font-medium text-[#172432]">Our Mission</h5>
+                  </div>
+                  <p class="mt-5 text-[#172432]">     Our mission is to create a healthy-life movement by building a mentally and physically healthy community and providing the right information and the most suitable solution for managing mental health.</p>
+                </div>
+              </div>
+              <div class="flex space-x-5 md:mt-0 mt-9">
+                <div class="">
+                  <img src="./asset/section visi misi (2).png" alt="" class="w-[800px]" />
+                </div>
+                <div class="mt-20">
+                  <img src="./asset/section visi misi (1).png" alt="" class="w-[800px]" />
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+
+        <!-- <section class="mt-10 md:-mx-14">
           <article>
             <div class="w-1/2">
               <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
@@ -405,91 +500,14 @@
               </div>
             </div>
           </article>
-        </section>
+        </section> -->
 
-        <section class="mt-20 md:-mx-14">
-          <article>
-            <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-20">
-              <!-- Kolom Gambar -->
-              <div class="w-full md:w-1/2 order-2 md:order-1 md:mt-0 mt-7">
-                <img src="./asset/laptop.png" alt="section2" class="w-full h-auto" />
-              </div>
 
-              <!-- Kolom Teks -->
-              <div class="w-full md:w-1/2 order-1 md:order-2">
-                <div class="flex justify-start md:justify-end">
-                  <!-- Flex container untuk memindahkan elemen ke kanan -->
-                  <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
-                    <!-- Menggunakan inline-block -->
-                    <h1 class="md:text-3xl text-xl font-semibold px-4 md:px-0 text-white">Why Us?</h1>
-                  </div>
-                </div>
+<!-- benefit -->
 
-                <div class="flex justify-end">
-                  <p class="py-4 text-gray-900 max-w-full md:text-right">At Stress Management Indonesia, we believe in empowering individuals through proven methods that enhance both mental and physical well-being.</p>
-                </div>
-
-                <div class="space-y-6">
-                  <!-- Bagian 1: SVG dengan teks di sebelah kanan -->
-                  <div class="flex items-center space-x-4">
-                    <!-- Kotak dengan background warna primary -->
-                    <div class="bg-primary-color p-4 rounded">
-                      <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M25.9127 0V33.0873H59C57.1783 47.6958 44.7165 59 29.6146 59C13.2589 59 0 45.7412 0 29.3855C0 14.2834 11.3042 1.82166 25.9127 0Z" fill="white" />
-                        <path d="M33.3163 0V25.6836H58.9999C57.3297 12.2878 46.7121 1.67044 33.3163 0Z" fill="white" />
-                      </svg>
-                    </div>
-                    <!-- Teks di sebelah kanan SVG -->
-                    <div>
-                      <h1 class="md:text-xl font-semibold md:font-bold text-lg">Based on data and facts</h1>
-                    </div>
-                  </div>
-
-                  <!-- Bagian 2: Deskripsi teks -->
-                  <p class="text-gray-950">All our methods are proven effective through expert research, ensuring you receive reliable and impactful support for your well-being and stress management.</p>
-
-                  <!-- Bagian 3: Elemen tambahan lainnya (contoh angka) -->
-
-                  <div class="flex items-center space-x-4">
-                    <!-- Kotak dengan background warna primary -->
-                    <div class="bg-primary-color p-4 rounded">
-                      <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M3 50V47.0625M14.75 50V38.25M26.5 50V26.5M38.25 50V14.75M50 50V3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-                      </svg>
-                    </div>
-                    <!-- Teks di sebelah kanan SVG -->
-                    <div>
-                      <h1 class="md:text-xl font-semibold md:font-bold text-lg">Realistic</h1>
-                    </div>
-                  </div>
-                  <p class="text-gray-950">The programs we provide are grounded in current data and facts, maximizing effectiveness and ensuring impactful outcomes for all participants.</p>
-                  <div class="flex items-center space-x-4">
-                    <!-- Kotak dengan background warna primary -->
-                    <div class="bg-primary-color p-4 rounded">
-                      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M19.9001 30.3L25.1001 35.5L38.1001 22.5" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
-                        <path
-                          d="M16 6.47833C19.8243 4.26612 24.2644 3 29 3C43.3593 3 55 14.6406 55 29C55 43.3593 43.3593 55 29 55C14.6406 55 3 43.3593 3 29C3 24.2644 4.26612 19.8243 6.47833 16"
-                          stroke="white"
-                          stroke-width="6"
-                          stroke-linecap="round" />
-                      </svg>
-                    </div>
-                    <!-- Teks di sebelah kanan SVG -->
-                    <div>
-                      <h1 class="md:text-xl font-semibold md:font-bold text-lg">Easy to practice</h1>
-                    </div>
-                  </div>
-                  <p class="text-gray-950">All the self-improvement methods that we provide can be easily integrated into your daily routine, allowing for consistent growth and development.</p>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
-
-        <section class="mt-20 md:-mx-14">
+       <section class="mt-28 md:-mx-14">
           <article class="">
-            <div class="md:w-1/3 md:mb-10 mb-7">
+            <div class="md:w-1/2 md:mb-10 mb-7">
               <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
                 <h1 class="md:text-3xl text-xl px-4 md:px-0 font-semibold text-white benefit">What are the benefits of SMI?</h1>
               </div>
@@ -638,6 +656,90 @@
             </div>
           </article>
         </section>
+
+
+
+
+        <section class="mt-52 md:-mx-14">
+          <article>
+            <div class="flex flex-col md:flex-row space-y-6 md:space-y-0 md:space-x-20">
+              <!-- Kolom Gambar -->
+              <div class="w-full md:w-1/2 order-2 md:order-1 md:mt-0 mt-7">
+                <img src="./asset/laptop.png" alt="section2" class="w-full h-auto" />
+              </div>
+
+              <!-- Kolom Teks -->
+              <div class="w-full md:w-1/2 order-1 md:order-2">
+                <div class="flex justify-start md:justify-end">
+                  <!-- Flex container untuk memindahkan elemen ke kanan -->
+                  <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
+                    <!-- Menggunakan inline-block -->
+                    <h1 class="md:text-3xl text-xl font-semibold px-4 md:px-0 text-white">Why Us?</h1>
+                  </div>
+                </div>
+
+                <div class="flex justify-end">
+                  <p class="py-4 text-gray-900 max-w-full md:text-right">At Stress Management Indonesia, we believe in empowering individuals through proven methods that enhance both mental and physical well-being.</p>
+                </div>
+
+                <div class="space-y-6">
+                  <!-- Bagian 1: SVG dengan teks di sebelah kanan -->
+                  <div class="flex items-center space-x-4">
+                    <!-- Kotak dengan background warna primary -->
+                    <div class="bg-primary-color p-4 rounded">
+                      <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M25.9127 0V33.0873H59C57.1783 47.6958 44.7165 59 29.6146 59C13.2589 59 0 45.7412 0 29.3855C0 14.2834 11.3042 1.82166 25.9127 0Z" fill="white" />
+                        <path d="M33.3163 0V25.6836H58.9999C57.3297 12.2878 46.7121 1.67044 33.3163 0Z" fill="white" />
+                      </svg>
+                    </div>
+                    <!-- Teks di sebelah kanan SVG -->
+                    <div>
+                      <h1 class="md:text-xl font-normal md:font-medium text-lg">Based on data and facts</h1>
+                    </div>
+                  </div>
+
+                  <!-- Bagian 2: Deskripsi teks -->
+                  <p class="text-gray-950">All our methods are proven effective through expert research, ensuring you receive reliable and impactful support for your well-being and stress management.</p>
+
+                  <!-- Bagian 3: Elemen tambahan lainnya (contoh angka) -->
+
+                  <div class="flex items-center space-x-4">
+                    <!-- Kotak dengan background warna primary -->
+                    <div class="bg-primary-color p-4 rounded">
+                      <svg width="53" height="53" viewBox="0 0 53 53" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M3 50V47.0625M14.75 50V38.25M26.5 50V26.5M38.25 50V14.75M50 50V3" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                      </svg>
+                    </div>
+                    <!-- Teks di sebelah kanan SVG -->
+                    <div>
+                      <h1 class="md:text-xl font-normal md:font-medium text-lg">Realistic</h1>
+                    </div>
+                  </div>
+                  <p class="text-gray-950">The programs we provide are grounded in current data and facts, maximizing effectiveness and ensuring impactful outcomes for all participants.</p>
+                  <div class="flex items-center space-x-4">
+                    <!-- Kotak dengan background warna primary -->
+                    <div class="bg-primary-color p-4 rounded">
+                      <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19.9001 30.3L25.1001 35.5L38.1001 22.5" stroke="white" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                          d="M16 6.47833C19.8243 4.26612 24.2644 3 29 3C43.3593 3 55 14.6406 55 29C55 43.3593 43.3593 55 29 55C14.6406 55 3 43.3593 3 29C3 24.2644 4.26612 19.8243 6.47833 16"
+                          stroke="white"
+                          stroke-width="6"
+                          stroke-linecap="round" />
+                      </svg>
+                    </div>
+                    <!-- Teks di sebelah kanan SVG -->
+                    <div>
+                      <h1 class="md:text-xl font-normal md:font-medium text-lg">Easy to practice</h1>
+                    </div>
+                  </div>
+                  <p class="text-gray-950">All the self-improvement methods that we provide can be easily integrated into your daily routine, allowing for consistent growth and development.</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
 
         <section class="mt-36 md:-mx-14">
           <article>

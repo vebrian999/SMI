@@ -103,6 +103,16 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
       margin-left: 20px;
       padding-left: 20px;
   }
+
+  /* jika terjadi masalah pada link href pada whatsapp ini nanti di HAPUS */
+   #content a, #content span {
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        max-width: 100%;
+        display: inline-block;
+      }
+
 </style>
 
 
@@ -117,7 +127,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
    ?>
 
    
-    <main class="md:flex space-x-5 md:mx-20 mx-4 md:py-8">
+    <main class="md:flex md:space-x-5 mx-4  md:mx-20 md:py-8">
       <!-- Konten Artikel -->
       <div id="content" class="container md:w-3/4">
           <section>
@@ -126,20 +136,20 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
                       <img class="rounded-xl w-full" src="./uploads/<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>" />
                   </div>
                   <div class="text-white py-2 my-6 rounded-xl flex items-center space-x-4">
-                      <p class="bg-primary-color text-xl font-medium py-2 px-4 rounded-xl">
+                      <p class="bg-primary-color md:text-xl text-base md:font-medium md:py-2 py-1 md:px-4 px-2 rounded-xl">
                           Written by: <?php echo htmlspecialchars($article['author']); ?>
                       </p>
                       <div class="flex items-center space-x-2">
                           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6 text-primary-color">
                               <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
                           </svg>
-                          <p class="text-primary-color text-lg">
+                          <p class="text-primary-color md:text-lg">
                               <?php echo date('d-m-Y', strtotime($article['created_at'])); ?>
                           </p>
                       </div>
                   </div>
 
-                  <h1 class="text-4xl font-semibold mb-3"><?php echo htmlspecialchars($article['title']); ?></h1>
+                  <h1 class="md:text-4xl text-2xl  font-semibold mb-3"><?php echo htmlspecialchars($article['title']); ?></h1>
                   <div class="pt-2.5 text-base text-[#28254C] leading-7">
                       <?php echo nl2br(($article['content'])); ?>
                   </div>
@@ -187,6 +197,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
               </div>
           </section>
       </div>
+      
 <aside class="w-full md:w-1/3 md:my-0 my-5 space-y-4 md:sticky md:top-24 self-start">
     <h2 class="text-2xl font-semibold text-primary-color">Popular Articles</h2>
     <?php foreach ($sidebarArticles as $sidebarArticle): ?>
@@ -205,11 +216,11 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
                 <a  href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="font-semibold text-sm text-gray-700 mb-2 hover:underline">
                     <?php 
                     echo htmlspecialchars(
-                        implode(' ', array_slice(explode(' ', strip_tags($sidebarArticle['title'])), 0, 6)) 
-                        . (str_word_count($sidebarArticle['title']) > 6 ? '...' : '')
+                        implode(' ', array_slice(explode(' ', strip_tags($sidebarArticle['title'])), 0, 5)) 
+                        . (str_word_count($sidebarArticle['title']) > 5 ? '...' : '')
                     ); 
                     ?>
-                </a>
+                </a> 
 
                 <a class="text-sm text-gray-600">
                     <?php 
@@ -244,7 +255,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     </main>
 
     <!-- awal footer -->
-     <div class="mx-28">
+     <div class="md:mx-28 mx-4">
         <?php require_once('footer.php'); ?>
     </div>
   </body>

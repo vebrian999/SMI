@@ -94,7 +94,17 @@ $stmt->bind_param("sssssi", $title, $content, $category, $author, $image, $artic
    <style>
     .ck-editor__editable_inline {
     padding: 0 30px !important;
+
+    }
+
+    .ck-editor__editable {
+    min-height: 300px;
 }
+    /* .ck.ck-editor__main>.ck-editor__editable {
+    min-height: 300px !important;
+
+    } */
+
    </style>
   </head>
   <body>
@@ -233,63 +243,103 @@ $stmt->bind_param("sssssi", $title, $content, $category, $author, $image, $artic
                         <?php endif; ?>
 
  <script>
-        const {
-            ClassicEditor,
-            Essentials,
-            Bold,
-            Italic,
-            Font,
-            Paragraph,
-            Heading,
-            Link,
-            List
-        } = CKEDITOR;
-
-        ClassicEditor
-            .create(document.querySelector('#content'), {
-                plugins: [ Essentials, Bold, Italic, Font, Paragraph, Heading, Link, List ],
-                toolbar: [ 'undo', 'redo', '|', 'heading', '|', 'bold', 'italic', '|', 'link', 'bulletedList', 'numberedList', '|', 'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor' ],
-                fontSize: {
-                    options: [9, 11, 13, 'default', 16, 24, 36]
-                },
-                fontFamily: {
-                    options: [
-                        'default',
-                        'Arial, Helvetica, sans-serif',
-                        'Courier New, Courier, monospace',
-                        'Georgia, serif',
-                        'Lucida Sans Unicode, Lucida Grande, sans-serif',
-                        'Tahoma, Geneva, sans-serif',
-                        'Times New Roman, Times, serif',
-                        'Trebuchet MS, Helvetica, sans-serif',
-                        'Verdana, Geneva, sans-serif'
-                    ]
+  const {
+  ClassicEditor,
+  Essentials,
+  Bold,
+  Italic,
+  Font,
+  Paragraph,
+  Heading,
+  Link,
+  List,
+  ListProperties
+  } = CKEDITOR;
+  ClassicEditor
+  .create(document.querySelector('#content'), {
+  plugins: [
+  Essentials,
+  Bold,
+  Italic,
+  Font,
+  Paragraph,
+  Heading,
+  Link,
+  List,
+  ListProperties
+  ],
+  toolbar: [
+  'undo', 'redo', '|',
+  'heading', '|',
+  'bold', 'italic', '|',
+  'link',
+  'NumberedList', 'BulletedList', '|',
+  'fontSize', 'fontFamily', 'fontColor', 'fontBackgroundColor'
+  ],
+   heading: {
+                options: [
+                    { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                    { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                    { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' },
+                    { model: 'heading3', view: 'h3', title: 'Heading 3', class: 'ck-heading_heading3' }
+                ]
+            },
+            list: {
+                properties: {
+                    styles: true,
+                    startIndex: true,
+                    reversed: true
                 }
-            })
-            .then(editor => {
-                console.log('Editor initialized successfully', editor);
-                
-                // Event listener for submit button
-                document.getElementById('submitButton').addEventListener('click', function(e) {
-                    const introductionContent = editor.getData();
-                    
-                    // Check if the introduction is empty
-                    if (!introductionContent.trim()) {
-                        alert('Please fill out the content field.');
-                        return;
-                    }
+            },
+  fontSize: {
+  options: [9, 11, 13, 'default', 16, 24, 36]
+  },
+  fontFamily: {
+  options: [
+  'default',
+  'Arial, Helvetica, sans-serif',
+  'Courier New, Courier, monospace',
+  'Georgia, serif',
+  'Lucida Sans Unicode, Lucida Grande, sans-serif',
+  'Tahoma, Geneva, sans-serif',
+  'Times New Roman, Times, serif',
+  'Trebuchet MS, Helvetica, sans-serif',
+  'Verdana, Geneva, sans-serif'
+  ]
+  }
+  })
+  .then(editor => {
+  console.log('Editor was initialized successfully', editor);
+  })
+  .catch(error => {
+  console.error('There was an error initializing the editor:', error);
+  });
+        // Add event listener to the submit button
+        document.getElementById('submitButton').addEventListener('click', function(e) {
+            const introductionContent = editor.getData();
+            
+            // Check if the introduction is empty
+            if (!introductionContent.trim()) {
+                alert('Please fill out the Introduction field.');
+                return;
+            }
 
-                    // Update the hidden input with CKEditor content
-                    document.getElementById('contentInput').value = introductionContent;
+            // Update the hidden textarea with CKEditor content
+            const introductionTextarea = document.querySelector('#content');
+            introductionTextarea.value = introductionContent;
 
-                    // Submit the form
-                    document.getElementById('articleForm').submit();
-                });
-            })
-            .catch(error => {
-                console.error('There was an error initializing the editor:', error);
-            });
+            // Submit the form
+            document.getElementById('articleForm').submit();
+        });
     </script>
+<script type="importmap">
+    {
+        "imports": {
+            "ckeditor5": "https://cdn.ckeditor.com/ckeditor5/43.2.0/ckeditor5.js",
+            "ckeditor5/": "https://cdn.ckeditor.com/ckeditor5/43.2.0/"
+        }
+    }
+</script>
                     </div>
                 </div>
             </div>

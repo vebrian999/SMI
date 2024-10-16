@@ -1,6 +1,6 @@
 <?php
 session_start();
-// Check if user is logged in and is an admin
+
 if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
     header('Location: login_admin.php');
     exit();
@@ -8,12 +8,10 @@ if (!isset($_SESSION['username']) || $_SESSION['role'] !== 'admin') {
 
 require_once '../functions/db.php';
 
-// Fetch articles from the database
-// Ganti 'introduction' dengan 'content' atau kolom yang benar di database
 $query = "SELECT id, title, content, image, category, author, created_at FROM articles ORDER BY created_at DESC";
 $result = $conn->query($query);
 
-// Cek apakah query berhasil
+
 if (!$result) {
     die("Error fetching articles: " . $conn->error);
 }
@@ -106,18 +104,28 @@ if (!$result) {
                 <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
                     <span class="block sm:inline"><?php echo $_SESSION['message']; ?></span>
                 </div>
-                <?php unset($_SESSION['message']); // Clear the message after displaying ?>
+                <?php unset($_SESSION['message']); ?>
             <?php endif; ?>
 
-            <div class="flex items-center justify-between mb-4">
+            <div class="md:flex items-center justify-between mb-4 md:space-y-0 space-y-3">
                 <h2 class="text-lg md:text-3xl font-bold text-primary-color">Article Management</h2>
-                <a href="create_article.php" class="inline-flex items-center px-3 py-2 text-lg md:text-xl font-medium md:text-center text-end text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
+                <a href="create_article.php" class="inline-flex items-center md:border-none border-2 border-primary-color px-3 py-2 text-lg md:text-xl font-medium text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
                     Create New Article
                 </a>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
+
+            <!-- Search Input -->
+            <input 
+                type="text" 
+                id="searchInput" 
+                onkeyup="searchArticles()" 
+                placeholder="Search by title, content, category, or author..." 
+                class="border  rounded p-2 w-full"
+            />
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-7 mb-10" id="articlesContainer">
                 <?php while ($row = $result->fetch_assoc()): ?>
-                    <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl">
+                    <div class="article-card max-w-md bg-white border border-gray-200 rounded-lg shadow-xl">
                         <a href="edit_article.php?id=<?php echo $row['id']; ?>">
                             <img class="rounded-t-lg w-[380px] h-[290px]" src="../uploads/<?php echo htmlspecialchars($row['image']); ?>" alt="<?php echo htmlspecialchars($row['title']); ?>" />
                         </a>
@@ -130,24 +138,16 @@ if (!$result) {
                             <a href="edit_article.php?id=<?php echo $row['id']; ?>">
                                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><?php echo htmlspecialchars($row['title']); ?></h5>
                             </a>
-                            <!-- Ganti 'introduction' dengan 'content' atau kolom yang sesuai -->
-                            <p class="mb-5 font-normal text-gray-400"><?php 
-        // Menghapus tag HTML, melindungi dari XSS, dan memotong teks menjadi 100 karakter
-        echo htmlspecialchars(substr(strip_tags($row['content']), 0, 100)) . (strlen(strip_tags($row['content'])) > 100 ? '...' : ''); 
-    ?>...</p>
+                            <p class="mb-5 font-normal text-gray-400">
+                                <?php 
+                                    echo htmlspecialchars(substr(strip_tags($row['content']), 0, 100)) . (strlen(strip_tags($row['content'])) > 100 ? '...' : ''); 
+                                ?>
+                            </p>
                             <div class="flex justify-between items-center">
-                                <a
-                                    href="edit_article.php?id=<?php echo $row['id']; ?>"
-                                    class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
+                                <a href="edit_article.php?id=<?php echo $row['id']; ?>" class="inline-flex items-center px-3 py-2 text-xl font-medium text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
                                     Edit
-                                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                    </svg>
                                 </a>
-                                <a
-                                    href="delete_article.php?id=<?php echo $row['id']; ?>"
-                                    class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-red-600 bg-transparent rounded-lg hover:bg-red-600 hover:text-white transition-colors duration-300 ease-in-out hover:scale-105"
-                                    onclick="return confirm('Are you sure you want to delete this article?');">
+                                <a href="delete_article.php?id=<?php echo $row['id']; ?>" class="inline-flex items-center px-3 py-2 text-xl font-medium text-red-600 bg-transparent rounded-lg hover:bg-red-600 hover:text-white transition-colors duration-300 ease-in-out hover:scale-105" onclick="return confirm('Are you sure you want to delete this article?');">
                                     Delete
                                 </a>
                             </div>
@@ -158,6 +158,38 @@ if (!$result) {
         </div>
     </div>
 </div>
+
+<script>
+    function searchArticles() {
+        const input = document.getElementById('searchInput').value.toLowerCase();
+        const articlesContainer = document.getElementById('articlesContainer');
+        const articles = articlesContainer.getElementsByClassName('article-card');
+        let resultsFound = false; // Track if any articles match the search
+
+        for (let i = 0; i < articles.length; i++) {
+            const article = articles[i];
+            const title = article.querySelector('h5').innerText.toLowerCase();
+            const content = article.querySelector('p.mb-5').innerText.toLowerCase();
+            const category = article.querySelector('span').innerText.toLowerCase();
+            const author = article.querySelector('.text-primary-color.font-medium').innerText.toLowerCase();
+
+            // Check if any field matches the input
+            const match = title.includes(input) || content.includes(input) || category.includes(input) || author.includes(input);
+
+            // Show or hide the article based on the match result
+            article.style.display = match ? '' : 'none';
+
+            if (match) {
+                resultsFound = true; // Set flag to true if at least one match is found
+            }
+        }
+
+        // Display a message if no articles match the search query
+        if (!resultsFound) {
+            articlesContainer.innerHTML = '<p class="text-red-500">No articles found.</p>';
+        }
+    }
+</script>
 
 
       <!-- awal sidebar (aside) -->

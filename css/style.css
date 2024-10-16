@@ -12,25 +12,10 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif; /* Menggunakan Montserrat sebagai font utama */
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-
-/* .scroll-container {
-  scroll-snap-type: x mandatory;
-  scroll-padding: 0 50%;
-}
-.scroll-item {
-  scroll-snap-align: center;
-}
-.enlarged {
-  transform: scale(1.1);
-}
-
-[x-cloak] {
-  display: none;
-} */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
 
 .progress {
   animation: progress;
