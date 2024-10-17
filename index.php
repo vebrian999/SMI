@@ -261,8 +261,8 @@
         <div class="relative h-screen overflow-hidden md:h-screen">
           <!-- Item 1 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
-            <img src="./asset/jumbotron carausel.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-50">
+            <img src="./asset/jumbotron carausel (1).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
               <div>
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
@@ -275,8 +275,8 @@
           </div>
           <!-- Item 2 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="./asset/jumbotron carausel (1).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-50">
+            <img src="./asset/jumbotron carausel.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-10">
               <div>
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
@@ -290,7 +290,7 @@
           <!-- Item 3 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (2).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-50">
+            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
               <div>
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
@@ -304,7 +304,7 @@
           <!-- Item 4 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (3).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-50">
+            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
               <div>
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
@@ -318,7 +318,7 @@
           <!-- Item 5 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (4).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-50">
+            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
               <div>
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>

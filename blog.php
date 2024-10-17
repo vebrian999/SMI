@@ -49,16 +49,11 @@ $popularResult = $conn->query($popularQuery);
   </head>
   <body>
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
-
    <?php
    require_once './header.php';
    ?>
-
-
-
     <main class="mx-4 md:mx-28">
       <div id="content" class="container mx-auto">
-
       <?php if ($current_page == 1): ?>
       <section class="mt-10 md:-mx-14">
         <article>
@@ -67,18 +62,20 @@ $popularResult = $conn->query($popularQuery);
               <h1 class="md:text-4xl text-xl px-4 font-semibold text-white">Popular Article</h1>
             </div>
           </div>    
-
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
-            <?php while ($popularRow = $popularResult->fetch_assoc()): ?>
-              <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">           
+           <?php while ($popularRow = $popularResult->fetch_assoc()): ?>
+              <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl flex flex-col h-full">
                 <a href="article.php?id=<?php echo $popularRow['id']; ?>">
                   <img class="rounded-t-lg w-[457px] h-[310px]" src="./uploads/<?php echo $popularRow['image']; ?>" alt="<?php echo $popularRow['title']; ?>" />
                 </a>
-                <div class="p-5">
+                <div class="p-5 flex flex-col flex-grow">
+                  <!-- Bagian atas card -->
                   <div class="flex justify-between items-center">
                     <span class="bg-primary-color text-white px-2 py-1 rounded text-sm"><?php echo $popularRow['category']; ?></span>
                     <p class="text-primary-color font-medium my-3">Written by <?php echo htmlspecialchars($popularRow['author']); ?></p>
                   </div>
+                  
+                  <!-- Metadata (tanggal, views, comments) -->
                   <div class="text-gray-400 font-normal my-3 flex items-center gap-4">
                     <span><?php echo date('d F Y', strtotime($popularRow['created_at'])); ?></span>
                     <span class="mx-1">|</span>
@@ -97,31 +94,38 @@ $popularResult = $conn->query($popularQuery);
                       <span><?php echo $popularRow['total_comments']; ?></span>
                     </span>
                   </div>
-                  <a href="article.php?id=<?php echo $popularRow['id']; ?>">
-                    <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><?php echo htmlspecialchars($popularRow['title']); ?></h5>
-                  </a>
-                  <p class="mb-5 font-normal text-gray-400">
-                    <?php 
-                    echo htmlspecialchars(substr(strip_tags($popularRow['content']), 0, 100)) . 
-                        (strlen(strip_tags($popularRow['content'])) > 100 ? '...' : ''); 
-                    ?>
-                  </p>
-                  <a href="article.php?id=<?php echo $popularRow['id']; ?>"
-                    class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
-                    Read more
-                    <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                    </svg>
-                  </a>
+                  
+                  <!-- Konten card -->
+                  <div class="flex-grow">
+                    <a href="article.php?id=<?php echo $popularRow['id']; ?>">
+                      <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900"><?php echo htmlspecialchars($popularRow['title']); ?></h5>
+                    </a>
+                    <p class="mb-5 font-normal text-gray-400">
+                      <?php 
+                      echo htmlspecialchars(substr(strip_tags($popularRow['content']), 0, 100)) . 
+                          (strlen(strip_tags($popularRow['content'])) > 100 ? '...' : ''); 
+                      ?>
+                    </p>
+                  </div>
+
+                  <!-- Button yang selalu berada di bawah -->
+                  <div class="mt-auto">
+                    <a href="article.php?id=<?php echo $popularRow['id']; ?>"
+                      class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
+                      Read more
+                      <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                      </svg>
+                    </a>
+                  </div>
                 </div>
               </div>
-          <?php endwhile; ?>
+            <?php endwhile; ?>
+
             </div>
           </article> 
         </section>
         <?php endif; ?>
-
-
         <section class="mt-20 md:-mx-14 ">
           <article>
             <div class="w-1/2">
@@ -129,15 +133,13 @@ $popularResult = $conn->query($popularQuery);
                 <h1 class="md:text-4xl text-xl px-4 font-semibold text-white">All Article</h1>
               </div>
             </div>     
-            
-            
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-10">
                   <?php while ($row = $result->fetch_assoc()): ?>
-                      <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl">
+                      <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl flex flex-col h-full">
                           <a href="article.php?id=<?php echo $row['id']; ?>">
                               <img class="rounded-t-lg w-[457px] h-[310px]" src="./uploads/<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>" />
                           </a>
-                          <div class="p-5">
+                          <div class="p-5 flex flex-col flex-grow">
                               <div class="flex justify-between items-center">
                                   <span class="bg-primary-color text-white px-2 py-1 rounded text-sm"><?php echo $row['category']; ?></span>
                                   <p class="text-primary-color font-medium my-3">Written by <?php echo htmlspecialchars($row['author']); ?></p>
@@ -145,9 +147,7 @@ $popularResult = $conn->query($popularQuery);
                               <div class="text-gray-400 font-normal my-3 flex items-center gap-4">
                                   <!-- Tanggal Pembuatan Artikel -->
                                   <span><?php echo date('d F Y', strtotime($row['created_at'])); ?></span>
-
                                   <span class="mx-1">|</span>
-
                                   <!-- Views dengan Ikon Mata -->
                                   <span class="flex items-center gap-1">
                                       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
@@ -167,8 +167,9 @@ $popularResult = $conn->query($popularQuery);
                                       <span><?php echo $row['total_comments']; ?></span>
                                   </span>
                               </div>
+                              <div class="flex-grow">
                               <a href="article.php?id=<?php echo $row['id']; ?>">
-                                  <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900"><?php echo htmlspecialchars($row['title']); ?></h5>
+                                  <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900"><?php echo htmlspecialchars($row['title']); ?></h5>
                               </a>
                               <p class="mb-5 font-normal text-gray-400">
                                   <?php 
@@ -176,6 +177,8 @@ $popularResult = $conn->query($popularQuery);
                                       (strlen(strip_tags($row['content'])) > 100 ? '...' : ''); 
                                   ?>
                               </p>
+                             </div>                 
+                             <div class="mt-auto">
                               <a href="article.php?id=<?php echo $row['id']; ?>"
                                 class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
                                   Read more
@@ -183,14 +186,13 @@ $popularResult = $conn->query($popularQuery);
                                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
                                   </svg>
                               </a>
+                              </div>
                           </div>
                       </div>
                   <?php endwhile; ?>
               </div>
-
-
             <!-- Pagination -->
-            <div class="flex items-center justify-center md:justify-end gap-x-2 md:gap-x-3 mt-8 md:my-10 md:mb-32 lg:mt-12">
+            <div class="flex items-center justify-center md:justify-end gap-x-2 md:gap-x-3 my-8 md:my-10 md:mb-32 lg:mt-12">
                 <!-- Tombol Sebelumnya -->
                 <?php if ($current_page > 1): ?>
                     <a href="?page=<?php echo $current_page - 1; ?>" 
@@ -201,7 +203,6 @@ $popularResult = $conn->query($popularQuery);
                         </svg>
                     </a>
                 <?php endif; ?>
-
                 <!-- Tautan Halaman -->
                 <?php for ($i = 1; $i <= $totalPages; $i++): ?>
                     <a href="?page=<?php echo $i; ?>" 
@@ -211,7 +212,6 @@ $popularResult = $conn->query($popularQuery);
                         <?php echo $i; ?>
                     </a>
                 <?php endfor; ?>
-
                 <!-- Tombol Berikutnya -->
                 <?php if ($current_page < $totalPages): ?>
                     <a href="?page=<?php echo $current_page + 1; ?>" 
@@ -223,7 +223,6 @@ $popularResult = $conn->query($popularQuery);
                     </a>
                 <?php endif; ?>
             </div>
-
           </article>
         </section>
       </div>

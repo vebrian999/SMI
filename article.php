@@ -136,7 +136,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
                       <img class="rounded-xl w-full" src="./uploads/<?php echo htmlspecialchars($article['image']); ?>" alt="<?php echo htmlspecialchars($article['title']); ?>" />
                   </div>
                   <div class="text-white py-2 my-6 rounded-xl flex items-center space-x-4">
-                      <p class="bg-primary-color md:text-xl text-base md:font-medium md:py-2 py-1 md:px-4 px-2 rounded-xl">
+                      <p class="bg-primary-color md:text-xl text-base md:font-medium md:py-2 py-1 md:px-4 px-2 rounded-md md:rounded-xl">
                           Written by: <?php echo htmlspecialchars($article['author']); ?>
                       </p>
                       <div class="flex items-center space-x-2">
@@ -198,53 +198,67 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
           </section>
       </div>
       
-<aside class="w-full md:w-1/3 md:my-0 my-5 space-y-4 md:sticky md:top-24 self-start">
-    <h2 class="text-2xl font-semibold text-primary-color">Popular Articles</h2>
+<aside class="w-full md:w-1/3 md:my-0 my-5 space-y-3 md:sticky md:top-24 self-start">
+    <h2 class="text-2xl font-semibold text-primary-color border-b-2 pb-2 border-primary-color">Popular Articles</h2>
     <?php foreach ($sidebarArticles as $sidebarArticle): ?>
-    <div class="bg-white p-4 rounded-lg shadow-md">
-        <div class="flex items-start gap-6">
-            <a  href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="flex-shrink-0 w-36 h-36">
-                <img src="./uploads/<?php echo htmlspecialchars($sidebarArticle['image']); ?>" alt="<?php echo htmlspecialchars($sidebarArticle['title']); ?>" class="w-[144px] h-[144px] object-cover rounded-md" />
+    <div class="bg-white md:p-4 rounded-lg shadow-md">
+        <div class="flex items-start gap-2 md:gap-4">
+            <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="flex-shrink-0 w-36 h-36">
+                <img src="./uploads/<?php echo htmlspecialchars($sidebarArticle['image']); ?>" 
+                     alt="<?php echo htmlspecialchars($sidebarArticle['title']); ?>" 
+                     class="w-[144px] h-[144px] object-cover rounded-md" />
             </a>
-            <div class="flex-1">
+            <div class="flex-1 flex flex-col min-h-[144px]"> <!-- Menambahkan flex flex-col dan min-height -->
+                <!-- Header Info -->
                 <div class="flex items-center space-x-2">
                     <p class="text-sm text-gray-500"><?php echo date('M d, Y', strtotime($sidebarArticle['created_at'])); ?></p>
                     <span class="border-l border-gray-400 h-4"></span>
                     <p class="text-sm text-gray-500">By <?php echo htmlspecialchars($sidebarArticle['author']); ?></p>
                 </div>
 
-                <a  href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="font-semibold text-sm text-gray-700 mb-2 hover:underline">
+                <!-- Title -->
+                <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" 
+                   class="font-semibold text-sm text-gray-700 mb-2 hover:underline">
                     <?php 
                     echo htmlspecialchars(
                         implode(' ', array_slice(explode(' ', strip_tags($sidebarArticle['title'])), 0, 5)) 
                         . (str_word_count($sidebarArticle['title']) > 5 ? '...' : '')
                     ); 
                     ?>
-                </a> 
-
-                <a class="text-sm text-gray-600">
-                    <?php 
-                    $cleanContent = strip_tags($sidebarArticle['content']); 
-                    $words = explode(' ', $cleanContent); 
-                    $shortenedContent = implode(' ', array_slice($words, 0, 5)); 
-                    echo nl2br(htmlspecialchars($shortenedContent . (count($words) > 5 ? '...' : ''))); 
-                    ?>
                 </a>
 
-                <div class="flex justify-between items-center mt-2">
-                    <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" class="text-primary-color text-sm hover:underline">Read more</a>
-                    <div class="flex items-center space-x-2 text-sm text-gray-500">
-                        <span class="flex gap-1" title="Views">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                        <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
-                        <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
-                      </svg> 
-                      <?php echo $sidebarArticle['views']; ?></span>
-                        <span class="flex gap-1" title="Comments">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
-                        <path fill-rule="evenodd" d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 0 0 1.28.53l4.184-4.183a.39.39 0 0 1 .266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0 0 12 2.25ZM8.25 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Zm2.625 1.125a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
-                      </svg>  
-                        <?php echo $sidebarArticle['comment_count']; ?></span>
+                <!-- Content -->
+                <div class="flex-grow"> <!-- Menambahkan flex-grow untuk mengisi ruang -->
+                    <a class="text-sm text-gray-600">
+                        <?php 
+                        $cleanContent = strip_tags($sidebarArticle['content']); 
+                        $words = explode(' ', $cleanContent); 
+                        $shortenedContent = implode(' ', array_slice($words, 0, 5)); 
+                        echo nl2br(htmlspecialchars($shortenedContent . (count($words) > 5 ? '...' : ''))); 
+                        ?>
+                    </a>
+                </div>
+
+                <!-- Footer with Read More and Stats -->
+                <div class="mt-auto pt-2"> <!-- Menambahkan mt-auto untuk push ke bawah -->
+                    <div class="flex justify-between items-center">
+                        <a href="article.php?id=<?php echo $sidebarArticle['id']; ?>" 
+                           class="text-primary-color text-sm hover:underline">Read more</a>
+                        <div class="flex items-center space-x-2 text-sm text-gray-500">
+                            <span class="flex gap-1" title="Views">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                    <path d="M12 15a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />
+                                    <path fill-rule="evenodd" d="M1.323 11.447C2.811 6.976 7.028 3.75 12.001 3.75c4.97 0 9.185 3.223 10.675 7.69.12.362.12.752 0 1.113-1.487 4.471-5.705 7.697-10.677 7.697-4.97 0-9.186-3.223-10.675-7.69a1.762 1.762 0 0 1 0-1.113ZM17.25 12a5.25 5.25 0 1 1-10.5 0 5.25 5.25 0 0 1 10.5 0Z" clip-rule="evenodd" />
+                                </svg> 
+                                <?php echo $sidebarArticle['views']; ?>
+                            </span>
+                            <span class="flex gap-1" title="Comments">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5">
+                                    <path fill-rule="evenodd" d="M12 2.25c-2.429 0-4.817.178-7.152.521C2.87 3.061 1.5 4.795 1.5 6.741v6.018c0 1.946 1.37 3.68 3.348 3.97.877.129 1.761.234 2.652.316V21a.75.75 0 0 0 1.28.53l4.184-4.183a.39.39 0 0 1 .266-.112c2.006-.05 3.982-.22 5.922-.506 1.978-.29 3.348-2.023 3.348-3.97V6.741c0-1.947-1.37-3.68-3.348-3.97A49.145 49.145 0 0 0 12 2.25ZM8.25 8.625a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Zm2.625 1.125a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Zm4.875-1.125a1.125 1.125 0 1 0 0 2.25 1.125 1.125 0 0 0 0-2.25Z" clip-rule="evenodd" />
+                                </svg>  
+                                <?php echo $sidebarArticle['comment_count']; ?>
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
