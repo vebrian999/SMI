@@ -321,13 +321,23 @@
 
     <main class="mx-4 md:mx-28">
       <div id="content" class="container mx-auto">
-        <section class="mt-10 md:-mx-14">
+
+      <!-- our-product section -->
+        <section class="my-24 md:-mx-8">
           <article>
-            <div class="md:w-1/2">
-              <div class="bg-primary-color md:py-5 inline-block md:px-20 py-2.5 md:-mx-20">
-                <h1 class="md:text-4xl md:px-0 px-4 font-semibold text-white">Come try our product for you</h1>
+            <div class="relative flex justify-start">
+              <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
+              <div class="relative">
+                <!-- Background utama dengan bg-primary-color -->
+                <div class="bg-primary-color px-10 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative ">
+                  <h1 class="md:text-4xl font-semibold text-center text-xl text-white md:px-16 px-4">Come try our product for you</h1>
+                </div>
+                <!-- Elemen untuk garis kuning di bawah -->
+                <div class="absolute right-8 -bottom-3 h-full w-full -z-10 bg-secondary-color rounded-br-2xl rounded-tl-2xl transform translate-x-4"></div>
               </div>
             </div>
+
+
             <div class="md:mt-10 mt-4 md:w-1/2">
               <p>We invite you to try our products specifically designed to support mental health. Try them now and start your journey to a healthier, more balanced life!</p>
             </div>

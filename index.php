@@ -258,7 +258,7 @@
       <!-- akhir navbar -->
       <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="relative h-screen overflow-hidden md:h-screen">
+          <div class="relative h-screen overflow-hidden md:h-screen">
           <!-- Item 1 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
             <img src="./asset/jumbotron carausel (1).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
@@ -460,25 +460,8 @@
                     keenSliderNext.addEventListener("click", () => keenSlider.next());
                   </script>
 
-                  <section class="bg-primary-color bg-opacity-20 md:pb-20">
-                    <div class="px-4 py-7 md:py-10 sm:px-6 lg:me-0 lg:pe-0 lg:ps-14">
-                      <div class="max-w-full items-end justify-center md:justify-start sm:flex sm:pe-6 lg:pe-8">
-                        <div class="md:mt-8 flex gap-4 lg:mt-0 items-center justify-center">
-                          <!-- Gunakan items-center dan justify-center -->
-                          <button aria-label="Previous slide" id="keen-slider-previous" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
-                            <svg class="size-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                          </button>
-
-                          <button aria-label="Next slide" id="keen-slider-next" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
-
+                  <section class="bg-primary-color bg-opacity-20">
+                    <div class="md:px-4 py-10  sm:px-6 lg:me-0 lg:pe-0 lg:ps-14">
                       <div class="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
                         <div id="keen-slider" class="keen-slider">
                           <div class="keen-slider__slide">
@@ -612,6 +595,22 @@
                               <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Agnetha O</footer>
                             </blockquote>
                           </div>
+                        </div>
+                      </div>
+                       <div class="max-w-full mt-5 items-end justify-center md:justify-start sm:flex sm:pe-6 lg:pe-8">
+                        <div class="md:mt-8 flex gap-4 lg:mt-0 items-center justify-center">
+                          <!-- Gunakan items-center dan justify-center -->
+                          <button aria-label="Previous slide" id="keen-slider-previous" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
+                            <svg class="size-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                          </button>
+
+                          <button aria-label="Next slide" id="keen-slider-next" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
+                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
+                            </svg>
+                          </button>
                         </div>
                       </div>
                     </div>
