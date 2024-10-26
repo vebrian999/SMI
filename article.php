@@ -88,10 +88,10 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stress Management Indoensia</title>
-    <link href="./css/output.css" rel="stylesheet" />
+    <link href="./css/output.css?v=1.0.1" rel="stylesheet" />
+    <link href="./css/style.css?v=1.0.1" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,typography,aspect-ratio,line-clamp,container-queries"></script>
-    <link rel="stylesheet" href="./css/style.css" />
     <link rel="icon" href="./favicon.ico" type="image/x-icon">
     <script src="https://cdn.tailwindcss.com"></script>
 

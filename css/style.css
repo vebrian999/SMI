@@ -1,19 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
 body {
-  margin: 0;
-  font-family: Poppins;
-  /* background-color: #fff3fc; */
+  font-family: "Montserrat", sans-serif;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-  /* font-family: "Montserrat", sans-serif; */
 }
-
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
-/* @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap"); */
 
 .progress {
   animation: progress;
@@ -279,3 +274,23 @@ body {
 .wrapper:hover .itemRight {
   transform: scale(1.1);
 }
+
+/* animasi mengambang pada hero section */
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+

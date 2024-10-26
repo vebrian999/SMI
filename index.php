@@ -160,47 +160,47 @@
               </button>
             </div>
 
-                <!-- Search bar -->
-                <div class="mb-4">
-                  <div class="relative">
-                    <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
-                      <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
-                      </svg>
-                      <span class="sr-only">Search icon</span>
-                    </div>
-                    <input type="text" id="search-sidebar" class="block w-full bg-gray-100 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-primary-color focus:border-primary-color" placeholder="Search..." />
-                  </div>
-                  <!-- Container for search results -->
-                  <div id="search-results-mobile" class="mt-2 bg-white rounded-lg shadow-md overflow-hidden hidden"></div>
+            <!-- Search bar -->
+            <div class="mb-4">
+              <div class="relative">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                  <svg class="w-4 h-4 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                  </svg>
+                  <span class="sr-only">Search icon</span>
                 </div>
+                <input type="text" id="search-sidebar" class="block w-full bg-gray-100 p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg focus:ring-primary-color focus:border-primary-color" placeholder="Search..." />
+              </div>
+              <!-- Container for search results -->
+              <div id="search-results-mobile" class="mt-2 bg-white rounded-lg shadow-md overflow-hidden hidden"></div>
+            </div>
 
-                <script>
-                document.addEventListener('DOMContentLoaded', function() {
-                  const searchInput = document.getElementById('search-sidebar');
-                  const searchResults = document.getElementById('search-results-mobile');
+            <script>
+              document.addEventListener("DOMContentLoaded", function () {
+                const searchInput = document.getElementById("search-sidebar");
+                const searchResults = document.getElementById("search-results-mobile");
 
-                  searchInput.addEventListener('input', function() {
-                    const query = this.value.trim();
-                    
-                    if (query.length > 0) {
-                      // Make an AJAX request to the server
-                      fetch(`search.php?q=${encodeURIComponent(query)}`)
-                        .then(response => response.text())
-                        .then(data => {
-                          searchResults.innerHTML = data;
-                          searchResults.classList.remove('hidden');
-                        })
-                        .catch(error => {
-                          console.error('Error:', error);
-                        });
-                    } else {
-                      searchResults.innerHTML = '';
-                      searchResults.classList.add('hidden');
-                    }
-                  });
+                searchInput.addEventListener("input", function () {
+                  const query = this.value.trim();
+
+                  if (query.length > 0) {
+                    // Make an AJAX request to the server
+                    fetch(`search.php?q=${encodeURIComponent(query)}`)
+                      .then((response) => response.text())
+                      .then((data) => {
+                        searchResults.innerHTML = data;
+                        searchResults.classList.remove("hidden");
+                      })
+                      .catch((error) => {
+                        console.error("Error:", error);
+                      });
+                  } else {
+                    searchResults.innerHTML = "";
+                    searchResults.classList.add("hidden");
+                  }
                 });
-                </script>
+              });
+            </script>
 
             <!-- Language selector -->
             <div class="mb-4">
@@ -254,69 +254,107 @@
       </script>
 
       <script src="./js/app.js"></script>
-
       <!-- akhir navbar -->
-      <div id="default-carousel" class="relative w-full" data-carousel="slide">
+
+      <div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="7000">
         <!-- Carousel wrapper -->
-          <div class="relative h-screen overflow-hidden md:h-screen">
+        <div class="relative h-screen overflow-hidden md:h-screen">
           <!-- Item 1 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item="active">
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item="active">
             <img src="./asset/jumbotron carausel (1).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
-              <div>
-                <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
-                <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+              <!-- Teks di sebelah kiri -->
+              <div class="w-full md:w-1/2">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight">Be Your <span class="text-secondary-color">Happy Self</span> Holistically.</h1>
                 <div class="flex space-x-4">
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
                 </div>
+                <p class="mt-7 text-base md:text-lg">To have <strong>a healthy brain</strong>, you have to have <strong>a healthy body</strong></p>
+              </div>
+              <!-- Gambar di sebelah kanan -->
+              <div class="hidden md:flex w-1/2 justify-end">
+                <iframe
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/GjP4tF1uTGE?si=hkKYyoxTWoQXCdhq"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen
+                  class="animate-float">
+                </iframe>
               </div>
             </div>
           </div>
           <!-- Item 2 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
-            <img src="./asset/jumbotron carausel.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-10">
-              <div>
-                <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
-                <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
+            <img src="./asset/jumbotron new.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+              <!-- Teks di sebelah kiri -->
+              <div class="w-full md:w-1/2">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight">Discover<span class="text-secondary-color"> Self-Love</span> Through Journaling.</h1>
                 <div class="flex space-x-4">
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
                 </div>
+                <p class="mt-7 text-base md:text-lg"><strong>A Healthy Mind</strong> Begins with Self-Love Start Your Journey with <strong>Self-Love Journaling.</strong></p>
+              </div>
+              <!-- Gambar di sebelah kanan -->
+              <div class="hidden md:flex w-1/2 justify-end">
+                <img src="./asset/buku-self-love.png" alt="" class="animate-float" />
               </div>
             </div>
           </div>
+
           <!-- Item 3 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (2).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
-              <div>
-                <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
-                <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+              <div class="w-full md:w-1/2">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight">Watch <span class="text-secondary-color">"Sari & Teratai Putih"</span> - Inspirational Animation</h1>
                 <div class="flex space-x-4">
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
                 </div>
+                <p class="mt-7 text-base md:text-lg">Experience the harmony of an inspiring story in stunning animation. <strong>Click and watch now!</strong></p>
+              </div>
+              <div class="hidden md:flex w-1/2 justify-end">
+                <iframe
+                  class="animate-float"
+                  width="560"
+                  height="315"
+                  src="https://www.youtube.com/embed/DhDva3ghKGs?si=WFN6JVhJ4kuwM0mJ"
+                  title="YouTube video player"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerpolicy="strict-origin-when-cross-origin"
+                  allowfullscreen></iframe>
               </div>
             </div>
           </div>
           <!-- Item 4 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (3).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
-              <div>
-                <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
-                <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+              <!-- Teks di sebelah kiri -->
+              <div class="w-full md:w-1/2">
+                <h1 class="text-3xl md:text-5xl font-bold leading-tight">Find Peace with <span class="text-secondary-color">Meditation</span></h1>
                 <div class="flex space-x-4">
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
                   <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
                 </div>
+                <p class="mt-7 text-base md:text-lg">Meditation for peace, focus and balance. <strong>Start Now.</strong></p>
+              </div>
+              <!-- Gambar di sebelah kanan -->
+              <div class="hidden md:flex w-1/2 justify-end">
+                <img src="./asset/meditasi-siluet.png" alt="" class="animate-float" />
               </div>
             </div>
           </div>
           <!-- Item 5 -->
-          <div class="hidden duration-700 ease-in-out" data-carousel-item>
+          <!-- <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (4).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
             <div class="absolute inset-0 flex items-center justify-start p-4 md:p-14 text-white bg-black bg-opacity-30">
               <div>
@@ -328,7 +366,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div> -->
         </div>
 
         <!-- Slider indicators -->
@@ -337,322 +375,633 @@
           <button type="button" class="carousel-indicator text-white bg-white" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
           <button type="button" class="carousel-indicator" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
           <button type="button" class="carousel-indicator" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
-          <button type="button" class="carousel-indicator" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+          <!-- <button type="button" class="carousel-indicator" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button> -->
         </div>
-
-        <!-- Slider controls -->
-        <!-- <button type="button" class="absolute top-[180px] end-0 z-30 md:flex hidden items-center justify-center px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-primary-color group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7"></path>
-            </svg>
-            <span class="sr-only">Previous</span>
-          </span>
-        </button>
-        <button type="button" class="absolute bottom-[270px] end-0 z-30 md:flex hidden items-center justify-center px-4 cursor-pointer group focus:outline-none" data-carousel-next>
-          <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 group-hover:bg-primary-color group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-            <span class="sr-only">Next</span>
-          </span>
-        </button> -->
       </div>
     </header>
 
     <main class="mx-4 md:mx-28">
       <div id="content" class="container mx-auto">
-        <!-- Menambahkan mx-auto -->
-        <section class="mt-10 md:-mx-14">
+        <!-- reach map-->
+        <section class="mb-28 mt-16 md:-mx-8">
+          <div class="relative inline-block">
+            <!-- Background utama dengan bg-primary-color -->
+            <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
+              <h1 class="md:text-4xl text-xl font-semibold text-white md:px-16 px-4">Reach Map</h1>
+            </div>
+
+            <!-- Elemen untuk garis kuning di bawah -->
+            <div class="absolute inset-x-0 -bottom-3 h-full w-full bg-secondary-color md:rounded-br-2xl rounded-br-2xl md:rounded-tl-2xl transform -translate-x-4"></div>
+          </div>
+
           <article>
-            <div class="md:flex justify-between items-center">
+            <div class="">
               <!-- Kolom 1: Title and description -->
-              <div class="md:flex-1">
-                <div class="bg-primary-color md:py-5 py-2.5 inline-block md:-mx-16">
-                  <!-- Menghapus -mx-20 -->
-                  <h1 class="md:text-4xl font-semibold text-xl text-white md:px-16 px-4">Reach Map</h1>
-                  <!-- Menghapus mx-20 dari h1 -->
+              <div class="mt-14">
+                <img src="./asset/reach.jpeg" alt="" />
+              </div>
+              <div class="md:flex md:space-x-4 mt-10">
+                <div class="bg-primary-color text-white px-8 py-10 rounded-tl-2xl rounded-br-2xl flex flex-col justify-center">
+                  <p class="md:text-xl text-base font-normal">
+                    Our total reach from 2014 to 2023, with the assumption that every person we reach directly influences 5 others in their circle, amounts to an impressive <strong class="text-secondary-color">1,371,769</strong> people.
+                    This widespread impact has been further amplified by our presence in key markets around the world. Among the countries with the highest number of clients, the top four are:
+                  </p>
+                  <hr class="w-full my-5 border-none h-[1px] bg-secondary-color" />
+                  <p class="font-light text-xs md:text-sm">Sumber: Clients, Website, dan Social Media Data per 30 June 2023</p>
                 </div>
-                <div class="mt-4">
-                  <p class="md:text-lg md:px-0 text-gray-700">Our total reach from 2014-2022 with the assumption that every person we reach directly influences 5 other people in their circle is <strong>735,070</strong> people.</p>
-                </div>
-                <div class="mt-4 md:block hidden">
-                  <img src="./asset/Donut Chart (1).png" alt="Chart showing reach statistics" />
+                <div class="flex-1 space-y-4 md:mt-0 mt-5">
+                  <div class="flex space-x-4">
+                    <div class="bg-primary-color md:w-[335px] md:h-[168px] w-full py-6 md:py-12 px-9 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="602630">0</p>
+                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <p class="text-secondary-color">Indonesian</p>
+                    </div>
+                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="33960">0</p>
+                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <p class="text-secondary-color hidden md:inline">United States</p>
+                      <p class="text-secondary-color md:hidden">USA</p>
+                    </div>
+                  </div>
+                  <div class="flex space-x-4">
+                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="12135">0</p>
+                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <p class="text-secondary-color">India</p>
+                    </div>
+                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="10865">0</p>
+                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <p class="text-secondary-color">Russia</p>
+                    </div>
+                  </div>
                 </div>
               </div>
 
-              <!-- Kolom 2: Image -->
-              <div class="flex items-center justify-end ml-auto md:mt-0 mt-5 md:px-0">
-                <img src="./asset/reach.jpeg" alt="Map showing reach" class="md:w-[780px] md:h-[434px]" />
-              </div>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  const counters = document.querySelectorAll(".counter");
+
+                  counters.forEach((counter) => {
+                    const target = parseInt(counter.getAttribute("data-target"));
+                    const duration = 4000; // durasi animasi dalam milidetik
+                    const step = target / (duration / 16); // 16ms per frame (approx. 60fps)
+                    let current = 0;
+
+                    const updateCounter = () => {
+                      current += step;
+                      if (current < target) {
+                        counter.textContent = Math.floor(current).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                      } else {
+                        counter.textContent = target.toLocaleString();
+                      }
+                    };
+
+                    // Mulai animasi ketika elemen visible
+                    const observer = new IntersectionObserver((entries) => {
+                      if (entries[0].isIntersecting) {
+                        updateCounter();
+                        observer.disconnect();
+                      }
+                    });
+
+                    observer.observe(counter);
+                  });
+                });
+              </script>
             </div>
           </article>
         </section>
 
-        <section class="mt-20 md:-mx-14">
+        <section class="my-28 md:-mx-8">
           <article>
-            <div class="flex flex-col-reverse md:flex-row md:justify-between space-x-0 md:space-x-5">
-              <!-- Kolom Gambar -->
-              <div class="w-full">
-                <img src="./asset/gambar 1.png" alt="section2" class="w-[620px] h-[497]" />
+            <div class="relative flex justify-start md:justify-end">
+              <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
+              <div class="relative">
+                <!-- Background utama dengan bg-primary-color -->
+                <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
+                  <h1 class="md:text-4xl text-base font-semibold text-white md:px-16 px-4">What Is Stress Manajement Indonesia?</h1>
+                </div>
+                <!-- Elemen untuk garis kuning di bawah -->
+                <div class="absolute right-8 -bottom-3 h-full w-full bg-secondary-color rounded-br-2xl rounded-tl-2xl transform translate-x-4"></div>
+              </div>
+            </div>
+
+            <div class="md:flex pt-14 md:space-x-10">
+              <!-- carausel image -->
+              <div class="relative md:w-1/2">
+                <!-- Background -->
+                <div class="absolute md:left-5 left-3 md:-bottom-5 -bottom-3 w-full h-full bg-secondary-color md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl -z-10"></div>
+
+                <div class="overflow-hidden">
+                  <!-- Carousel container -->
+                  <div class="relative carousel-container">
+                    <!-- Slides -->
+                    <div class="flex transition-transform duration-500 ease-in-out carousel-slides">
+                      <div class="relative min-w-full">
+                        <img src="./asset/whats-SMI.png" alt="" class="rounded-tl-3xl rounded-br-3xl md:rounded-tl-2xl md:rounded-br-2xl w-full" />
+                      </div>
+                      <div class="relative min-w-full">
+                        <img src="./asset/foto-meditasi.png" alt="" class="rounded-tl-3xl rounded-br-3xl md:rounded-tl-2xl md:rounded-br-2xl w-full" />
+                      </div>
+                      <div class="relative min-w-full">
+                        <img src="./asset/prease-realease-10-oktober.png" alt="" class="rounded-tl-3xl rounded-br-3xl md:rounded-tl-2xl md:rounded-br-2xl w-full" />
+                      </div>
+                      <div class="relative min-w-full">
+                        <img src="./asset/prease-realease-10-oktober2.png" alt="" class="rounded-tl-3xl rounded-br-3xl md:rounded-tl-2xl md:rounded-br-2xl w-full" />
+                      </div>
+                      <div class="relative min-w-full">
+                        <img src="./asset/prease-realease-10-oktober3.png" alt="" class="rounded-tl-3xl rounded-br-3xl md:rounded-tl-2xl md:rounded-br-2xl w-full" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <div class="absolute bottom-5 left-0 right-0 flex justify-center mt-4">
+                  <div class="flex space-x-4">
+                    <button class="w-3 h-3 rounded-full bg-secondary-color focus:outline-none carousel-dot" data-index="0"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-400 focus:outline-none carousel-dot" data-index="1"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-400 focus:outline-none carousel-dot" data-index="2"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-400 focus:outline-none carousel-dot" data-index="3"></button>
+                    <button class="w-3 h-3 rounded-full bg-gray-400 focus:outline-none carousel-dot" data-index="4"></button>
+                  </div>
+                </div>
               </div>
 
-              <!-- Kolom Teks -->
-              <div class="w-full md:pt-0 pt-4">
-                <div class="bg-primary-color md:py-5 py-2 text-left md:text-right md:-mx-16">
-                  <h1 class="md:text-3xl text-lg font-semibold text-white md:px-16 px-6">What Is Stress Manajement Indonesia?</h1>
-                </div>
-                <p class="md:text-right md:px-0 px-2 py-4 text-gray-700">
-                  Stress Management Indonesia (SMI) is an organization focused on promoting mental and physical well-being through holistic approaches. Founded in 2014, SMI's mission is to create a healthier community by offering solutions
-                  for managing mental health, including stress relief strategies. Their approach emphasizes a combination of neuroscience, physical health, and humanistic solutions to improve mental resilience and overall happiness. They
-                  provide evidence-based programs that are realistic and easy to practice in daily life, helping individuals navigate stress more effectively.
+              <script>
+                document.addEventListener("DOMContentLoaded", function () {
+                  const slidesContainer = document.querySelector(".carousel-slides");
+                  const dots = document.querySelectorAll(".carousel-dot");
+                  let currentSlide = 0;
+                  let autoplayInterval;
+
+                  // Function to update slides
+                  function updateSlide(index) {
+                    currentSlide = index;
+                    slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+                    // Update dots
+                    dots.forEach((dot, i) => {
+                      if (i === currentSlide) {
+                        dot.classList.remove("bg-gray-400");
+                        dot.classList.add("bg-secondary-color");
+                      } else {
+                        dot.classList.remove("bg-secondary-color");
+                        dot.classList.add("bg-gray-400");
+                      }
+                    });
+                  }
+
+                  // Add click events to dots
+                  dots.forEach((dot, index) => {
+                    dot.addEventListener("click", () => {
+                      clearInterval(autoplayInterval);
+                      updateSlide(index);
+                      startAutoplay();
+                    });
+                  });
+
+                  // Autoplay function
+                  function startAutoplay() {
+                    autoplayInterval = setInterval(() => {
+                      currentSlide = (currentSlide + 1) % dots.length;
+                      updateSlide(currentSlide);
+                    }, 5000); // Change slide every 5 seconds
+                  }
+
+                  // Start autoplay initially
+                  startAutoplay();
+
+                  // Pause autoplay when hovering over carousel
+                  const carouselContainer = document.querySelector(".carousel-container");
+                  carouselContainer.addEventListener("mouseenter", () => clearInterval(autoplayInterval));
+                  carouselContainer.addEventListener("mouseleave", startAutoplay);
+                });
+              </script>
+
+              <div class="bg-primary-color md:w-1/2 p-4 md:p-12 md:mt-0 mt-10 rounded-tl-3xl rounded-br-3xl h-1/2 text-white text-base md:text-xl font-normal">
+                <p>
+                  Stress Management Indonesia (SMI) is an organization focused on promoting <strong class="text-secondary-color">mental and physical well-being</strong> through holistic approaches. Founded in 2014, SMI's mission is to
+                  create a healthier community by offering solutions for managing mental health, including stress relief strategies. Their approach emphasizes a combination of neuroscience, physical health, and humanistic solutions to
+                  improve mental resilience and overall happiness. They provide evidence-based programs that are realistic and easy to practice in daily life, helping individuals navigate stress more effectively.
                 </p>
               </div>
             </div>
           </article>
         </section>
 
-        <section class="mt-20 md:-mx-14">
+        <section class="mt-28 md:-mx-8">
           <article>
-            <div>
-              <div class="">
-                <div class="bg-primary-color py-2 md:py-5 md:-mx-16 inline-block w-1/2">
-                  <h1 class="md:text-4xl text-xl font-semibold px-4 md:px-16 text-white">Testimonial</h1>
-                </div>
-                <div class="pt-6">
-                  <p class="md:w-1/2 md:pr-20">Here are some experiences of clients who have experienced our professional services and how we helped them achieve their goals with results that exceeded expectations.</p>
-                </div>
+            <div class="relative inline-block">
+              <!-- Background utama dengan bg-primary-color -->
+              <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
+                <h1 class="md:text-4xl text-base font-semibold text-white md:px-16 px-4">Testimonial</h1>
               </div>
-              <div>
-                <article id="locations" class="md:-mx-14 mt-6">
-                  <!-- awal testimoni -->
-                  <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
+              <!-- Elemen untuk garis kuning di bawah -->
+              <div class="absolute inset-x-0 -bottom-3 h-full w-full bg-secondary-color rounded-br-2xl rounded-tl-2xl transform -translate-x-4"></div>
+            </div>
 
-                  <script type="module">
-                    import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+            <link href="https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/keen-slider.min.css" rel="stylesheet" />
 
-                    const keenSlider = new KeenSlider(
-                      "#keen-slider",
-                      {
-                        loop: true,
-                        slides: {
-                          origin: "center",
-                          perView: 1.25,
-                          spacing: 16,
-                        },
-                        breakpoints: {
-                          "(min-width: 1024px)": {
-                            slides: {
-                              origin: "auto",
-                              perView: 2.5,
-                              spacing: 32,
-                            },
-                          },
-                        },
+            <script type="module">
+              import KeenSlider from "https://cdn.jsdelivr.net/npm/keen-slider@6.8.6/+esm";
+
+              const keenSliderActive = document.getElementById("keen-slider-active");
+              const keenSliderCount = document.getElementById("keen-slider-count");
+
+              const keenSlider = new KeenSlider(
+                "#keen-slider",
+                {
+                  loop: true,
+                  defaultAnimation: {
+                    duration: 750,
+                  },
+                  slides: {
+                    origin: "center",
+                    perView: 1,
+                    spacing: 16,
+                  },
+                  breakpoints: {
+                    "(min-width: 640px)": {
+                      slides: {
+                        origin: "center",
+                        perView: 1.5,
+                        spacing: 16,
                       },
-                      []
-                    );
+                    },
+                    "(min-width: 768px)": {
+                      slides: {
+                        origin: "center",
+                        perView: 1.75,
+                        spacing: 16,
+                      },
+                    },
+                    "(min-width: 1024px)": {
+                      slides: {
+                        origin: "center",
+                        perView: 3,
+                        spacing: 16,
+                      },
+                    },
+                  },
+                  created(slider) {
+                    slider.slides[slider.track.details.rel].classList.remove("opacity-40");
 
-                    const keenSliderPrevious = document.getElementById("keen-slider-previous");
-                    const keenSliderNext = document.getElementById("keen-slider-next");
+                    keenSliderActive.innerText = slider.track.details.rel + 1;
+                    keenSliderCount.innerText = slider.slides.length;
+                  },
+                  slideChanged(slider) {
+                    slider.slides.forEach((slide) => slide.classList.add("opacity-40"));
 
-                    keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
-                    keenSliderNext.addEventListener("click", () => keenSlider.next());
-                  </script>
+                    slider.slides[slider.track.details.rel].classList.remove("opacity-40");
 
-                  <section class="bg-primary-color bg-opacity-20">
-                    <div class="md:px-4 py-10  sm:px-6 lg:me-0 lg:pe-0 lg:ps-14">
-                      <div class="-mx-6 mt-8 lg:col-span-2 lg:mx-0">
-                        <div id="keen-slider" class="keen-slider">
-                          <div class="keen-slider__slide">
-                            <blockquote class="flex h-full flex-col justify-between bg-primary-color p-6 shadow-sm sm:p-8 lg:p-12">
-                              <div>
-                                <div class="flex gap-0.5 text-yellow-300">
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
+                    keenSliderActive.innerText = slider.track.details.rel + 1;
+                  },
+                },
+                []
+              );
 
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
+              const keenSliderPrevious = document.getElementById("keen-slider-previous");
+              const keenSliderNext = document.getElementById("keen-slider-next");
 
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
+              keenSliderPrevious.addEventListener("click", () => keenSlider.prev());
+              keenSliderNext.addEventListener("click", () => keenSlider.next());
+            </script>
 
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
+            <section class="bg-white">
+              <div class="mx-auto max-w-screen-2xl py-12 lg:py-16">
+                <h2 class="text-center text-2xl tracking-tight font-light sm:text-2xl text-gray-700">Here are some experiences of clients who have experienced our professional services.</h2>
 
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-                                </div>
+                <div class="mt-8">
+                  <div id="keen-slider" class="keen-slider">
+                    <div class="keen-slider__slide opacity-40 transition-opacity duration-500">
+                      <blockquote class="rounded-tl-3xl rounded-br-3xl bg-primary-color p-6 shadow-sm sm:p-8">
+                        <div class="">
+                          <div>
+                            <div class="flex justify-start gap-0.5 text-secondary-color">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
 
-                                <div class="mt-4">
-                                  <p class="text-2xl font-bold text-white sm:text-3xl">Webinar Seru tentang Love Language</p>
-
-                                  <p class="mt-4 leading-relaxed text-white">
-                                    "Seruu bangett webinarnya, topik yang diangkat juga menarik karena seperti yang kita tau memang saat ini love language sedang banyak dibicarakan diberbagai platform, jadi webinar ini juga cukup menambah
-                                    info soal love language, thank you buat coach dan kaka kaka panitia!!" -
-                                  </p>
-                                </div>
-                              </div>
-
-                              <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash;  Revani A</footer>
-                            </blockquote>
-                          </div>
-
-                          <div class="keen-slider__slide">
-                            <blockquote class="flex h-full flex-col justify-between bg-primary-color p-6 shadow-sm sm:p-8 lg:p-12">
-                              <div>
-                                <div class="flex gap-0.5 text-yellow-300">
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-                                </div>
-
-                                <div class="mt-4">
-                                  <p class="text-2xl font-bold text-white sm:text-3xl">Pengalaman Positif dalam Program Learning Interaktif</p>
-
-                                  <p class="mt-4 leading-relaxed text-white">
-                                    So happy saat ada learning program yang fun dan interaktif seperti saat YKAN kerjasama untuk Mental Health at work, ketika penyesuaian WFH dan beradaptasi dengan kondisi pandemi. Mudah-mudahan bisa
-                                    bekerjasama kembali
-                                  </p>
-                                </div>
-                              </div>
-
-                              <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Tricia</footer>
-                            </blockquote>
-                          </div>
-
-                          <div class="keen-slider__slide">
-                            <blockquote class="flex h-full flex-col justify-between bg-primary-color p-6 shadow-sm sm:p-8 lg:p-12">
-                              <div>
-                                <div class="flex gap-0.5 text-yellow-300">
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-
-                                  <svg class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                      d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                                  </svg>
-                                </div>
-
-                                <div class="mt-4">
-                                  <p class="text-2xl font-bold text-white sm:text-3xl">Pengalaman Berkesan dengan Workshop Delightful Revelation Bersama SMI</p>
-
-                                  <p class="mt-4 leading-relaxed text-white">
-                                    ""Stress Management Indonesia supported us for Delightful Revelation Workshop that we enjoyed the session very much. Full package of mental and food healthy wellbeing program, including our favourite
-                                    Qigong session. Thank you SMI!" "
-                                  </p>
-                                </div>
-                              </div>
-
-                              <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Agnetha O</footer>
-                            </blockquote>
+                            <p class="text-lg font-medium text-white mt-4">Pengalaman Positif dalam Program Learning Interaktif</p>
                           </div>
                         </div>
-                      </div>
-                       <div class="max-w-full mt-5 items-end justify-center md:justify-start sm:flex sm:pe-6 lg:pe-8">
-                        <div class="md:mt-8 flex gap-4 lg:mt-0 items-center justify-center">
-                          <!-- Gunakan items-center dan justify-center -->
-                          <button aria-label="Previous slide" id="keen-slider-previous" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
-                            <svg class="size-5 -rotate-180 transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                          </button>
 
-                          <button aria-label="Next slide" id="keen-slider-next" class="rounded-full border border-primary-color p-4 text-primary-color transition hover:bg-primary-color hover:text-white">
-                            <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" />
-                            </svg>
-                          </button>
-                        </div>
-                      </div>
+                        <p class="mt-4 text-white font-light">
+                          So happy saat ada learning program yang fun dan interaktif seperti saat YKAN kerjasama untuk Mental Health at work, ketika penyesuaian WFH dan beradaptasi dengan kondisi pandemi. Mudah-mudahan bisa bekerjasama
+                          kembali
+                        </p>
+                        <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Tricia</footer>
+                      </blockquote>
                     </div>
-                  </section>
-                </article>
-                <!-- akhir kenapa disini -->
+
+                    <div class="keen-slider__slide opacity-40 transition-opacity duration-500">
+                      <blockquote class="rounded-tl-3xl rounded-br-3xl bg-primary-color p-6 shadow-sm sm:p-8">
+                        <div class="">
+                          <div>
+                            <div class="flex justify-start gap-0.5 text-secondary-color">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
+
+                            <p class="text-lg font-medium text-white mt-4">Memorable Experience with Delightful Revelation Workshop with SMI</p>
+                          </div>
+                        </div>
+
+                        <p class="mt-4 text-white font-light">
+                          "Stress Management Indonesia supported us for Delightful Revelation Workshop that we enjoyed the session very much. Full package of mental and food healthy wellbeing program, including our favourite Qigong session.
+                          Thank you SMI!"
+                        </p>
+
+                        <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Agnetha O</footer>
+                      </blockquote>
+                    </div>
+
+                    <div class="keen-slider__slide opacity-40 transition-opacity duration-500">
+                      <blockquote class="rounded-tl-3xl rounded-br-3xl bg-primary-color p-6 shadow-sm sm:p-8">
+                        <div class="">
+                          <div>
+                            <div class="flex justify-start gap-0.5 text-secondary-color">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
+
+                            <p class="text-lg font-medium text-white mt-4">Rediscovering Myself and Embracing Positivity</p>
+                          </div>
+                        </div>
+
+                        <p class="mt-4 text-white font-light">
+                          "Academic Life Coaching program help me a lot to find and maintain balance in life. I learned to be more positive, to discover my own self once again and to practice self-acceptance more. I'm much happier and worry
+                          less. Thanks SMI for the support!"
+                        </p>
+                        <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash; Tannimara</footer>
+                      </blockquote>
+                    </div>
+
+                    <div class="keen-slider__slide opacity-40 transition-opacity duration-500">
+                      <blockquote class="rounded-tl-3xl rounded-br-3xl bg-primary-color p-6 shadow-sm sm:p-8">
+                        <div class="">
+                          <div>
+                            <div class="flex justify-start gap-0.5 text-secondary-color">
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                              <svg xmlns="http://www.w3.org/2000/svg" class="size-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path
+                                  d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                              </svg>
+                            </div>
+
+                            <p class="text-lg font-medium text-white mt-4">Webinar Seru tentang Love Language</p>
+                          </div>
+                        </div>
+
+                        <p class="mt-4 text-white font-light">
+                          "Seruu bangett webinarnya, topik yang diangkat juga menarik karena seperti yang kita tau memang saat ini love language sedang banyak dibicarakan diberbagai platform, jadi webinar ini juga cukup menambah info soal
+                          love language, thank you buat coach dan kaka kaka panitia!!"
+                        </p>
+                        <footer class="mt-4 text-sm font-medium text-white sm:mt-6">&mdash;  Revani A</footer>
+                      </blockquote>
+                    </div>
+                  </div>
+
+                  <div class="mt-6 flex items-center justify-center gap-4">
+                    <button aria-label="Previous slide" id="keen-slider-previous" class="text-primary-color transition-colors hover:text-hover-color">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+
+                    <p class="w-16 text-center text-sm text-primary-color">
+                      <span id="keen-slider-active"></span>
+                      /
+                      <span id="keen-slider-count"></span>
+                    </p>
+
+                    <button aria-label="Next slide" id="keen-slider-next" class="text-primary-color transition-colors hover:text-hover-color">
+                      <svg class="size-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </article>
+        </section>
+
+        <!-- our collaborator -->
+        <section class="my-10 md:-mx-8">
+          <article>
+            <div class="relative flex md:justify-end justify-start">
+              <div class="relative">
+                <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
+                  <h1 class="md:text-4xl text-base font-semibold text-white md:px-16 px-4">Our Collaboration</h1>
+                </div>
+                <div class="absolute right-8 -bottom-3 h-full w-full bg-secondary-color rounded-br-2xl rounded-tl-2xl transform translate-x-4"></div>
+              </div>
+            </div>
+
+            <!-- marquee effect -->
+            <div class="text-center mt-14 bg-primary-color mx-[560px] py-2.5 rounded-tl-2xl rounded-br-2xl md:rounded-tl-3xl md:rounded-br-3xl">
+              <h1 class="font-semibold md:text-2xl text-xl text-white ">Our Client</h1>
+            </div>
+            <div class="wrapper" id="wrapper1">
+              <div class="itemLeft item1"><img src="./asset/logo (1).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item2"><img src="./asset/logo (2).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item3"><img src="./asset/logo (3).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item4"><img src="./asset/logo (4).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item5"><img src="./asset/logo (5).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item6"><img src="./asset/logo (6).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item7"><img src="./asset/logo (7).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item8"><img src="./asset/logo (8).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item9"><img src="./asset/logo (9).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemLeft item10"><img src="./asset/logo (10).png" alt="" class="h-16 object-contain" /></div>
+            </div>
+
+            <!-- marquee effect -->
+            <div class="text-center mt-14 bg-primary-color mx-[560px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
+              <h1 class="font-semibold md:text-2xl text-xl text-white ">Our Partner</h1>
+            </div>
+            <div class="wrapper" id="wrapper2">
+              <div class="itemRight item1"><img src="./asset/logo (11).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item2"><img src="./asset/logo (12).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item3"><img src="./asset/logo (13).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item4"><img src="./asset/logo (14).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item5"><img src="./asset/logo (15).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item6"><img src="./asset/logo (16).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item7"><img src="./asset/logo (17).png" alt="" class="h-16 object-contain" /></div>
+              <div class="itemRight item8"><img src="./asset/logo (18).png" alt="" class="h-16 object-contain" /></div>
+            </div>
+
+            <div class="text-center mt-14 bg-primary-color mx-[370px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
+              <h1 class="font-semibold md:text-2xl text-xl text-white ">Media Partner & Press Release 93 Medias</h1>
+            </div>
+            <div class="md:flex md:space-x-10 mt-10">
+              <div>
+                <img src="./asset/Media Partner.png" alt="media partner" />
+              </div>
+              <div class="md:mt-0 mt-10"> 
+                <img src="./asset/Press-Release-93-Medias.png" alt="prease realease" />
               </div>
             </div>
           </article>
         </section>
 
-        <section class="mt-20 md:-mx-14">
+        <script>
+          document.addEventListener("DOMContentLoaded", function () {
+            const wrapper1 = document.getElementById("wrapper1");
+            const wrapper2 = document.getElementById("wrapper2");
+
+            function handleHover(wrapper, items) {
+              let isHovered = false;
+
+              wrapper.addEventListener("mouseover", (e) => {
+                if (e.target.closest(".itemLeft") || e.target.closest(".itemRight")) {
+                  isHovered = true;
+                  // Pause all animations in this wrapper
+                  items.forEach((item) => {
+                    item.style.animationPlayState = "paused";
+                  });
+                  // Scale up the hovered item
+                  if (e.target.closest(".itemLeft") || e.target.closest(".itemRight")) {
+                    e.target.closest(".itemLeft, .itemRight").style.transform = "scale(1.1)";
+                  }
+                }
+              });
+
+              wrapper.addEventListener("mouseout", (e) => {
+                if (e.target.closest(".itemLeft") || e.target.closest(".itemRight")) {
+                  isHovered = false;
+                  // Resume all animations in this wrapper
+                  items.forEach((item) => {
+                    item.style.animationPlayState = "running";
+                    item.style.transform = "scale(1)";
+                  });
+                }
+              });
+            }
+
+            // Initialize hover handlers for both wrappers
+            handleHover(wrapper1, [...wrapper1.querySelectorAll(".itemLeft")]);
+            handleHover(wrapper2, [...wrapper2.querySelectorAll(".itemRight")]);
+          });
+        </script>
+
+        <section class="my-24 md:-mx-8">
           <article>
-            <div class="flex flex-col md:flex-row md:space-x-5 justify-between">
-              <!-- Kolom Gambar -->
-              <div class="order-2 md:order-1">
-                <!-- Mengatur urutan untuk responsivitas -->
-                <img src="./asset/sponsor.png" alt="section2" class="w-full md:w-[620px] md:h-[500px]" />
+            <div class="relative inline-block">
+              <!-- Background utama dengan bg-primary-color -->
+              <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
+                <h1 class="md:text-4xl text-base font-semibold text-white md:px-16 px-4">Join Our App</h1>
+              </div>
+              <!-- Elemen untuk garis kuning di bawah -->
+              <div class="absolute inset-x-0 -bottom-3 h-full w-full bg-secondary-color rounded-br-2xl rounded-tl-2xl transform -translate-x-4"></div>
+            </div>
+
+            <div class="md:flex bg-[#5BC7D4] mt-20 md:px-20 -mx-4 md:-mx-20 text-white">
+              <div class="md:w-1/2 flex flex-col justify-center md:px-0 px-5 md:py-0 py-10">
+                <h1 class="text-4xl md:text-6xl font-semibold">Happy Self</h1>
+                <p class="text-lg py-5">
+                  There is no better time than now. <br />
+                  Take your first step towards a happier <strong>YOU</strong> today
+                </p>
+                <div>
+                  <p class="font-semibold pb-3">Get the App</p>
+                  <div class="flex space-x-4">
+                    <a href=""><img src="./asset/appstore.png" alt="appstore" class="h-[56px] w-[167px]" /></a>
+                    <a href="https://play.google.com/store/apps/details?id=com.stressmanagementindonesia.happyself&pcampaignid=web_share">
+                      <img src="./asset/playstore (1).png" alt="playstore" class="h-[56px] w-[167px]" />
+                    </a>
+                  </div>
+                </div>
               </div>
 
-              <!-- Kolom Teks (ditampilkan terlebih dahulu di mobile) -->
-              <div class="order-1 md:order-2 mt-10 md:mt-0">
-                <div class="bg-primary-color py-2.5 md:py-5 md:-mx-16 md:text-right">
-                  <h1 class="md:text-3xl text-xl font-semibold md:px-16 px-4 text-white">Our Collaboration</h1>
-                </div>
-                <p class="md:text-right py-2 text-gray-700">Here are some of the esteemed clients we have collaborated with.</p>
+              <!-- Bagian gambar di kanan -->
+              <!-- Gambar untuk desktop -->
+              <div class="md:w-1/2 justify-end items-center hidden md:flex">
+                <img src="./asset/happyselfbysmi-phone.png" alt="Map" class="w-full md:w-[592px]" />
+              </div>
+
+              <!-- Gambar untuk mobile -->
+              <div class="md:hidden flex justify-end items-center md:mt-0 mt-5">
+                <img src="./asset/happyselfAPP.png" alt="Map" class="w-[525px] md:h-[521px]" />
               </div>
             </div>
-          </article>
-        </section>
 
-        <section class="my-20 md:-mx-14">
-          <article>
-            <div class="md:flex justify-between">
-              <!-- Kolom 1: Title and description -->
-              <div class="md:mb-0 mb-16">
-                <!-- Menggunakan w-1/3 agar proporsional -->
-                <div class="bg-primary-color py-2.5 md:py-5 md:-mx-16">
-                  <h1 class="md:text-4xl text-xl font-semibold text-white md:px-16 px-4">Join Our App</h1>
-                </div>
+            <!-- <div class="md:flex">
+              <div>
                 <div class="py-8 pt-10">
-                  <h1 class="text-secondary-color text-4xl md:text-6xl font-semibold pb-5">Happy Self</h1>
+                  <h1 class="text-[#5BC7D4] text-4xl md:text-6xl font-semibold pb-5">Happy Self</h1>
                   <p class="text-lg text-gray-700">There is no better time than now. Take your first step towards a happier <strong>YOU</strong> today</p>
                 </div>
                 <div class="">
@@ -665,12 +1014,10 @@
                 </div>
               </div>
 
-              <!-- Kolom 2: Image -->
-              <div class="md:w-1/2 flex items-center justify-end">
-                <!-- Memastikan gambar di posisikan di kanan -->
-                <img src="./asset/happyselfAPP.png" alt="Map" class="w-[525px] h-[521px]" />
+              <div class="md:w-1/2 flex items-center justify-end md:mt-0 mt-10">
+                <img src="./asset/happyselfAPP.png" alt="Map" class="w-[525px] md:h-[521px]" />
               </div>
-            </div>
+            </div> -->
           </article>
         </section>
       </div>

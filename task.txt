@@ -15,8 +15,8 @@
 revisi
 
 1. kak desain websitenya tambahin aksen warna kuning ya , mungkin bisa di sebuah objek atau warna tulisan yang mau di highlight.
-di home mungkin di bagian judul.
+di home mungkin di bagian judul. (done)
 
 2. perbaiki responsif nya beberapa. (50%)
 3. tinggin pada card samain (done).
-4. button slider testimoni. 
+4. button slider testimoni. (done)
