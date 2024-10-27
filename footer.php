@@ -115,18 +115,10 @@
                   </ul>
                 </div>
                 <div class="mt-10 md:mt-0">
-                  <h3 class="text-sm font-semibold leading-6 text-white">Legal</h3>
-                  <ul role="list" class="mt-6 space-y-4">
-                    <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Terms</a>
-                    </li>
-                    <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Privacy</a>
-                    </li>
-                    <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Support</a>
-                    </li>
-                  </ul>
+                  <h3 class="text-sm font-semibold leading-6 text-white">Visitors</h3>
+                <div class="mt-6">
+                  <a href="http://s11.flagcounter.com/more/gVb4"><img src="https://s11.flagcounter.com/countxl/gVb4/bg_FFFFFF/txt_000000/border_CCCCCC/columns_2/maxflags_10/viewers_3/labels_0/pageviews_0/flags_0/percent_0/" alt="Flag Counter" border="0"></a>
+                </div>
                 </div>
               </div>
             </div>
