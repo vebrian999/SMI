@@ -1942,6 +1942,11 @@ input:checked + .toggle-bg {
   margin-bottom: 2rem;
 }
 
+.mx-32 {
+  margin-left: 8rem;
+  margin-right: 8rem;
+}
+
 .mb-1 {
   margin-bottom: 0.25rem;
 }
@@ -2974,6 +2979,19 @@ input:checked + .toggle-bg {
   background-color: rgb(252 233 106 / var(--tw-bg-opacity));
 }
 
+.bg-\[\] {
+  background-color: ;
+}
+
+.bg-\[1e1e1e\] {
+  background-color: 1e1e1e;
+}
+
+.bg-\[\#1e1e1e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 30 30 / var(--tw-bg-opacity));
+}
+
 .bg-opacity-30 {
   --tw-bg-opacity: 0.3;
 }
@@ -2986,8 +3004,32 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.6;
 }
 
+.bg-opacity-70 {
+  --tw-bg-opacity: 0.7;
+}
+
+.bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
+
+.bg-opacity-80 {
+  --tw-bg-opacity: 0.8;
+}
+
 .bg-\[url\(\'\.\/asset\/background-footer\.png\'\)\] {
   background-image: url('./asset/background-footer.png');
+}
+
+.bg-\[url\(\'\.\/asset\/\'\)\] {
+  background-image: url('./asset/');
+}
+
+.bg-\[url\(\'\.\/asset\/bac\'\)\] {
+  background-image: url('./asset/bac');
+}
+
+.bg-\[url\(\'\.\/asset\/jumbotron-carausel\.png\'\)\] {
+  background-image: url('./asset/jumbotron-carausel.png');
 }
 
 .bg-cover {
@@ -3314,10 +3356,6 @@ input:checked + .toggle-bg {
   text-transform: uppercase;
 }
 
-.lowercase {
-  text-transform: lowercase;
-}
-
 .italic {
   font-style: italic;
 }
@@ -3471,6 +3509,10 @@ input:checked + .toggle-bg {
 
 .opacity-40 {
   opacity: 0.4;
+}
+
+.opacity-80 {
+  opacity: 0.8;
 }
 
 .bg-blend-multiply {

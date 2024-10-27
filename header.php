@@ -2,10 +2,8 @@
       <!-- Jumbotron -->
       <section id="home" class="relative h-1/2 mb-14">
         <!-- Background image -->
-        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-fixed blur-sm" style="background-image: url(./asset/jumbotron\ carausel.png)"></div>
+        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply  bg-[#1e1e1e] bg-opacity-80 bg-[url('./asset/background-footer.png')]"></div>
 
-        <!-- Filter overlay -->
-        <div class="absolute inset-0 bg-[#172432] opacity-40"></div>
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">

@@ -130,68 +130,77 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
       <main class="mx-4 md:mx-28">
         <div id="content" class="container mx-auto">
 
-            <!-- CATEGORY LIST -->
-            <div class="md:-mx-8 md:mb-10">
-                <div class="container">
-                    <div class="flex flex-wrap items-center justify-between">
-                <div class="flex flex-wrap items-center space-x-5">
-                  <!-- All Category -->
-                  <a href="?category=all#article-section" 
-                    class="kategori-article-button <?php echo $category === 'all' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                    whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                      All Category
-                  </a>
-                  <!-- Latest -->
-                  <a href="?category=latest#article-section" 
-                    class="kategori-article-button <?php echo $category === 'latest' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                    whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                      Latest
-                  </a>
-                  <!-- Love -->
-                  <a href="?category=Love#article-section" 
-                    class="kategori-article-button <?php echo $category === 'Love' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                    whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                      Love
-                  </a>
-
-                    <!-- Worklife -->
-                    <a href="?category=Worklife#article-section" 
-                      class="kategori-article-button <?php echo $category === 'Worklife' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                      whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                        Worklife
-                    </a>
-
-                    <!-- Parenting -->
-                    <a href="?category=Parenting#article-section" 
-                      class="kategori-article-button <?php echo $category === 'Parenting' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                      whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                        Parenting
-                    </a>
-
-                    <!-- Healthy -->
-                    <a href="?category=Healthy#article-section" 
-                      class="kategori-article-button <?php echo $category === 'Healthy' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                      whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                        Healthy
-                    </a>
-
-                    <!-- Financial -->
-                    <a href="?category=Financial#article-section" 
-                      class="kategori-article-button <?php echo $category === 'Financial' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                      whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                        Financial
-                    </a>
-
-                    <!-- Humaniora -->
-                    <a href="?category=Humaniora#article-section" 
-                      class="kategori-article-button <?php echo $category === 'Humaniora' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?> 
-                      whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
-                        Humaniora
-                    </a>
-                </div>
-                </div>
-            </div>
+<!-- CATEGORY LIST -->
+<div class="md:-mx-8 md:mb-10">
+    <div class="container">
+        <!-- Mobile Dropdown for Categories -->
+        <div class="md:hidden mb-4 ">
+            <select onchange="location = this.value;" class="w-full py-2.5 px-4 mb-4 rounded-md border border-slate-200 text-base font-semibold bg-slate-100 text-primary-color">
+                <option value="?category=all#article-section" <?php echo $category === 'all' ? 'selected' : ''; ?>>All Category</option>
+                <option value="?category=latest#article-section" <?php echo $category === 'latest' ? 'selected' : ''; ?>>Latest</option>
+                <option value="?category=Love#article-section" <?php echo $category === 'Love' ? 'selected' : ''; ?>>Love</option>
+                <option value="?category=Worklife#article-section" <?php echo $category === 'Worklife' ? 'selected' : ''; ?>>Worklife</option>
+                <option value="?category=Parenting#article-section" <?php echo $category === 'Parenting' ? 'selected' : ''; ?>>Parenting</option>
+                <option value="?category=Healthy#article-section" <?php echo $category === 'Healthy' ? 'selected' : ''; ?>>Healthy</option>
+                <option value="?category=Financial#article-section" <?php echo $category === 'Financial' ? 'selected' : ''; ?>>Financial</option>
+                <option value="?category=Humaniora#article-section" <?php echo $category === 'Humaniora' ? 'selected' : ''; ?>>Humaniora</option>
+            </select>
         </div>
+
+        <!-- Desktop Category Buttons -->
+        <div class="hidden md:flex flex-wrap items-center space-x-5">
+            <!-- All Category -->
+            <a href="?category=all#article-section"
+                class="kategori-article-button <?php echo $category === 'all' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                All Category
+            </a>
+            <!-- Latest -->
+            <a href="?category=latest#article-section"
+                class="kategori-article-button <?php echo $category === 'latest' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Latest
+            </a>
+            <!-- Love -->
+            <a href="?category=Love#article-section"
+                class="kategori-article-button <?php echo $category === 'Love' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Love
+            </a>
+            <!-- Worklife -->
+            <a href="?category=Worklife#article-section"
+                class="kategori-article-button <?php echo $category === 'Worklife' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Worklife
+            </a>
+            <!-- Parenting -->
+            <a href="?category=Parenting#article-section"
+                class="kategori-article-button <?php echo $category === 'Parenting' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Parenting
+            </a>
+            <!-- Healthy -->
+            <a href="?category=Healthy#article-section"
+                class="kategori-article-button <?php echo $category === 'Healthy' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Healthy
+            </a>
+            <!-- Financial -->
+            <a href="?category=Financial#article-section"
+                class="kategori-article-button <?php echo $category === 'Financial' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Financial
+            </a>
+            <!-- Humaniora -->
+            <a href="?category=Humaniora#article-section"
+                class="kategori-article-button <?php echo $category === 'Humaniora' ? 'kategori-article-active bg-[#682E74] text-white' : 'bg-slate-100 text-primary-color'; ?>
+                whitespace-nowrap md:text-lg text-base font-semibold border border-slate-200 py-2.5 px-6 rounded-tl-2xl rounded-br-2xl">
+                Humaniora
+            </a>
+        </div>
+    </div>
+</div>
+
 
       <?php if ($current_page == 1): ?>
         <section class="md:mb-24 mb-14 md:-mx-8">

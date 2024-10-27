@@ -35,10 +35,7 @@
       <!-- Jumbotron -->
       <section id="home" class="relative h-1/2 mb-14">
         <!-- Background image -->
-        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-fixed" style="background-image: url(./asset/jumbotron\ carausel.png)"></div>
-
-        <!-- Filter overlay -->
-        <div class="absolute inset-0 bg-[#172432] opacity-40"></div>
+        <div class="absolute inset-0 bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply  bg-[#1e1e1e] bg-opacity-80 bg-[url('./asset/background-footer.png')]"></div>
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">
@@ -310,8 +307,8 @@
           <!-- Hero -->
           <div class="md:mx-20 mx-10 py-24 text-white relative">
             <div class="my-28">
-              <h1 class="md:text-7xl text-3xl text-center">About Us</h1>
-              <hr class="my-3 md:w-1/2 mx-auto" />
+              <h1 class="md:text-7xl text-3xl text-center ">About Us</h1>
+              <hr class="my-3 md:w-1/2 mx-auto " />
               <p class="md:text-lg text-sm text-center">
                 Our Commitment to Raising Mental Awareness and Wellbeing We <br />
                 focus on providing information, support and resources to help <br />individuals understand and care for their mental health.
