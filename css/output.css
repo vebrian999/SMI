@@ -2624,6 +2624,12 @@ input:checked + .toggle-bg {
   margin-left: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
+.space-x-5 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 0;
+  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
+  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
+}
+
 .space-x-8 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-x-reverse: 0;
   margin-right: calc(2rem * var(--tw-space-x-reverse));
@@ -2670,12 +2676,6 @@ input:checked + .toggle-bg {
   --tw-space-y-reverse: 0;
   margin-top: calc(2rem * calc(1 - var(--tw-space-y-reverse)));
   margin-bottom: calc(2rem * var(--tw-space-y-reverse));
-}
-
-.space-x-5 > :not([hidden]) ~ :not([hidden]) {
-  --tw-space-x-reverse: 0;
-  margin-right: calc(1.25rem * var(--tw-space-x-reverse));
-  margin-left: calc(1.25rem * calc(1 - var(--tw-space-x-reverse)));
 }
 
 .self-start {
@@ -3312,6 +3312,10 @@ input:checked + .toggle-bg {
 
 .uppercase {
   text-transform: uppercase;
+}
+
+.lowercase {
+  text-transform: lowercase;
 }
 
 .italic {
@@ -3960,11 +3964,6 @@ input:checked + .toggle-bg {
     order: 2;
   }
 
-  .md\:-mx-14 {
-    margin-left: -3.5rem;
-    margin-right: -3.5rem;
-  }
-
   .md\:-mx-20 {
     margin-left: -5rem;
     margin-right: -5rem;
@@ -4018,16 +4017,6 @@ input:checked + .toggle-bg {
   .md\:my-24 {
     margin-top: 6rem;
     margin-bottom: 6rem;
-  }
-
-  .md\:-mx-16 {
-    margin-left: -4rem;
-    margin-right: -4rem;
-  }
-
-  .md\:-mx-10 {
-    margin-left: -2.5rem;
-    margin-right: -2.5rem;
   }
 
   .md\:mb-1 {

@@ -20,3 +20,4 @@ di home mungkin di bagian judul. (done)
 2. perbaiki responsif nya beberapa. (50%)
 3. tinggin pada card samain (done).
 4. button slider testimoni. (done)
+5. buatkan url nya agar ketika card di klik pada url memuncul title pada 
