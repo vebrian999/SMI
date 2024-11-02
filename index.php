@@ -15,8 +15,8 @@
     <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
 
     <header>
-      <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
-        <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
+      <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out flex justify-center">
+          <div class="max-w-screen-2xl w-full mx-5 md:mx-32 flex flex-wrap items-center justify-between py-4">
           <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
           </a>
@@ -69,7 +69,7 @@
               }
             </script>
 
-            <div class="relative text-left mx-3 text-sm md:block hidden">
+            <div class="relative text-left ml-3 text-sm md:block hidden">
               <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
                 <span class="flex items-center">
                   <img src="https://flagicons.lipis.dev/flags/4x3/gb-eng.svg" alt="UK Flag" class="w-4 h-4 mr-2" />
@@ -256,13 +256,13 @@
       <script src="./js/app.js"></script>
       <!-- akhir navbar -->
 
-      <div id="default-carousel" class="relative w-full" data-carousel="slide" data-carousel-interval="7000">
+      <div id="default-carousel" class="relative w-full  " data-carousel="slide" data-carousel-interval="7000">
         <!-- Carousel wrapper -->
-        <div class="relative h-screen overflow-hidden md:h-screen">
+        <div class="relative h-screen overflow-hidden md:h-screen ">
           <!-- Item 1 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item="active">
             <img src="./asset/jumbotron carausel (1).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 2xl:px-32 text-white bg-black bg-opacity-30">
               <!-- Teks di sebelah kiri -->
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Be Your <span class="text-secondary-color">Happy Self</span> Holistically.</h1>
@@ -292,7 +292,7 @@
           <!-- Item 2 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron new.png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 2xl:px-32 text-white bg-black bg-opacity-30">
               <!-- Teks di sebelah kiri -->
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Discover<span class="text-secondary-color"> Self-Love</span> Through Journaling.</h1>
@@ -313,7 +313,7 @@
           <!-- Item 3 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (2).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 2xl:px-32 text-white bg-black bg-opacity-30">
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Watch <span class="text-secondary-color">"Sari & Teratai Putih"</span> - Inspirational Animation</h1>
                 <div class="flex space-x-4">
@@ -340,7 +340,7 @@
           <!-- Item 4 -->
           <div class="hidden duration-1000 ease-in-out" data-carousel-item>
             <img src="./asset/jumbotron carausel (3).png" class="absolute block w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="..." />
-            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 text-white bg-black bg-opacity-30">
+            <div class="absolute inset-0 flex items-center justify-between p-4 md:p-14 2xl:px-32 text-white bg-black bg-opacity-30">
               <!-- Teks di sebelah kiri -->
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Find Peace with <span class="text-secondary-color">Meditation</span></h1>
@@ -385,7 +385,7 @@
       </div>
     </header>
 
-    <main class="mx-4 md:mx-28">
+    <main class="mx-4 md:mx-40 2xl:mx-56">
       <div id="content" class="container mx-auto">
         <!-- reach map-->
         <section class="mb-28 mt-16 md:-mx-8">
@@ -877,10 +877,10 @@
             </div>
 
             <!-- marquee effect -->
-            <div class="text-center mt-14 bg-primary-color md:mx-[560px] py-2.5 rounded-tl-2xl rounded-br-2xl md:rounded-tl-3xl md:rounded-br-3xl">
+            <div class="text-center mt-14 bg-primary-color md:mx-[450px] py-2.5 rounded-tl-2xl rounded-br-2xl md:rounded-tl-3xl md:rounded-br-3xl">
               <h1 class="font-semibold md:text-2xl text-base px-2 text-white ">Our Client</h1>
             </div>
-            <div class="wrapper" id="wrapper1">
+            <div class="wrapper md:-mx-28" id="wrapper1">
               <div class="itemLeft item1"><img src="./asset/logo (1).png" alt="" class="h-16 object-contain" /></div>
               <div class="itemLeft item2"><img src="./asset/logo (2).png" alt="" class="h-16 object-contain" /></div>
               <div class="itemLeft item3"><img src="./asset/logo (3).png" alt="" class="h-16 object-contain" /></div>
@@ -894,10 +894,10 @@
             </div>
 
             <!-- marquee effect -->
-            <div class="text-center mt-14 bg-primary-color md:mx-[560px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
+            <div class="text-center mt-14 bg-primary-color md:mx-[450px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
               <h1 class="font-semibold md:text-2xl text-base px-2 text-white ">Our Partner</h1>
             </div>
-            <div class="wrapper" id="wrapper2">
+            <div class="wrapper md:-mx-28" id="wrapper2">
               <div class="itemRight item1"><img src="./asset/logo (11).png" alt="" class="h-16 object-contain" /></div>
               <div class="itemRight item2"><img src="./asset/logo (12).png" alt="" class="h-16 object-contain" /></div>
               <div class="itemRight item3"><img src="./asset/logo (13).png" alt="" class="h-16 object-contain" /></div>
@@ -908,7 +908,7 @@
               <div class="itemRight item8"><img src="./asset/logo (18).png" alt="" class="h-16 object-contain" /></div>
             </div>
 
-            <div class="text-center mt-14 bg-primary-color md:mx-[370px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
+            <div class="text-center mt-14 bg-primary-color md:mx-[250px] py-2.5 rounded-tl-2xl rounded-br-2xl  md:rounded-tl-3xl md:rounded-br-3xl">
               <h1 class="font-semibold md:text-2xl text-sm px-2 text-white ">Media Partner & Press Release 93 Medias</h1>
             </div>
             <div class="md:flex md:space-x-10 mt-10">
@@ -962,7 +962,7 @@
           });
         </script>
 
-        <section class="my-24 md:-mx-8">
+        <section class="mt-24   md:-mx-8">
           <article>
             <div class="relative inline-block">
               <!-- Background utama dengan bg-primary-color -->
@@ -972,36 +972,43 @@
               <!-- Elemen untuk garis kuning di bawah -->
               <div class="absolute inset-x-0 -bottom-3 h-full w-full bg-secondary-color rounded-br-2xl rounded-tl-2xl transform -translate-x-4"></div>
             </div>
+             
 
-            <div class="md:flex bg-[#5BC7D4] mt-20 md:px-20 -mx-4 md:-mx-20 text-white">
-              <div class="md:w-1/2 flex flex-col justify-center md:px-0 px-5 md:py-0 py-10">
-                <h1 class="text-4xl md:text-6xl font-semibold">Happy Self</h1>
-                <p class="text-lg py-5">
-                  There is no better time than now. <br />
-                  Take your first step towards a happier <strong>YOU</strong> today
-                </p>
-                <div>
-                  <p class="font-semibold pb-3">Get the App</p>
-                  <div class="flex space-x-4">
-                    <a href=""><img src="./asset/appstore.png" alt="appstore" class="h-[56px] w-[167px]" /></a>
-                    <a href="https://play.google.com/store/apps/details?id=com.stressmanagementindonesia.happyself&pcampaignid=web_share">
-                      <img src="./asset/playstore (1).png" alt="playstore" class="h-[56px] w-[167px]" />
-                    </a>
-                  </div>
-                </div>
-              </div>
+<section class="relative w-screen left-[50%] right-[50%] -mx-[51vw] bg-[url('./asset/bg-cta.png')] bg-cover bg-center bg-fixed mt-20">
+  <div class="container mx-auto">
+    <div class="flex flex-col md:flex-row max-w-7xl px-5 mx-auto">
+      <div class="md:w-1/2 flex flex-col justify-center md:px-0 px-5 md:py-0 py-10 text-white">
+        <h1 class="text-4xl md:text-6xl font-semibold">Happy Self</h1>
+        <p class="text-lg py-5">
+          There is no better time than now. <br />
+          Take your first step towards a happier <strong>YOU</strong> today
+        </p>
+        <div>
+          <p class="font-semibold pb-3">Get the App</p>
+          <div class="flex space-x-4">
+            <a href="#"><img src="./asset/appstore.png" alt="appstore" class="h-[56px] w-[167px]" /></a>
+            <a href="https://play.google.com/store/apps/details?id=com.stressmanagementindonesia.happyself&pcampaignid=web_share">
+              <img src="./asset/playstore (1).png" alt="playstore" class="h-[56px] w-[167px]" />
+            </a>
+          </div>
+        </div>
+      </div>
 
-              <!-- Bagian gambar di kanan -->
-              <!-- Gambar untuk desktop -->
-              <div class="md:w-1/2 justify-end items-center hidden md:flex">
-                <img src="./asset/happyselfbysmi-phone.png" alt="Map" class="w-full md:w-[592px]" />
-              </div>
+      <!-- Right-side image for desktop -->
+      <div class="md:w-1/2 justify-end items-center hidden md:flex">
+        <img src="./asset/happyselfbysmi-phone.png" alt="Map" class="w-full md:w-[592px]" />
+      </div>
 
-              <!-- Gambar untuk mobile -->
-              <div class="md:hidden flex justify-end items-center md:mt-0 mt-5">
-                <img src="./asset/happyselfAPP.png" alt="Map" class="w-[525px] md:h-[521px]" />
-              </div>
-            </div>
+      <!-- Image for mobile -->
+      <div class="md:hidden flex justify-end items-center mt-5">
+        <img src="./asset/happyselfAPP.png" alt="Map" class="w-[525px] h-auto" />
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
 
             <!-- <div class="md:flex">
               <div>
@@ -1030,9 +1037,9 @@
       <aside></aside>
 
       <!-- awal footer -->
-      <footer class="bg-[#1e1e1e] bg-opacity-80  -mx-4  bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply md:-mx-28" aria-labelledby="footer-heading">
+      <footer class="bg-[#1e1e1e] bg-opacity-80  -mx-4  bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply md:-mx-40 2xl:-mx-56 flex justify-center" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
+        <div class="mx-4 md:mx-32 max-w-screen-2xl w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
               <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">

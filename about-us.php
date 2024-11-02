@@ -39,8 +39,8 @@
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">
-          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
-            <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
+          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out flex justify-center">
+          <div class="max-w-screen-2xl w-full mx-5 md:mx-32 flex flex-wrap items-center justify-between py-4">
               <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
@@ -93,7 +93,7 @@
                   }
                 </script>
 
-                <div class="relative text-left mx-3 text-sm md:block hidden">
+                <div class="relative text-left ml-3 text-sm md:block hidden">
                   <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
                     <span class="flex items-center">
                       <img src="https://flagicons.lipis.dev/flags/4x3/gb-eng.svg" alt="UK Flag" class="w-4 h-4 mr-2" />
@@ -321,7 +321,7 @@
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-28">
+    <main class="mx-4 md:mx-40 2xl:mx-56">
       <div id="content" class="container mx-auto">
         <!-- our vision & mission -->
         <section class="md:my-24 my-14 md:-mx-8">
@@ -402,7 +402,7 @@
                 <!-- Container untuk gambar pertama -->
                 <div class="relative">
                   <!-- Background kuning untuk gambar pertama -->
-                  <div class="absolute bg-secondary-color w-full h-[245px] xl:h-[390px] 2xl:h-[445px] md:rounded-tl-3xl rounded-tl-3xl md:rounded-br-3xl rounded-br-3xl -z-10 top-5 right-3"></div>
+                  <div class="absolute bg-secondary-color w-full h-[245px] md:h-[190px] 2xl:h-[360px] md:rounded-tl-3xl rounded-tl-3xl md:rounded-br-3xl rounded-br-3xl -z-10 top-5 right-3"></div>
 
                   <!-- Gambar pertama -->
                   <img src="./asset/section visi misi (2).png" alt="" class="w-[800px] rounded-tl-3xl rounded-br-3xl" />
@@ -411,7 +411,7 @@
                 <!-- Container untuk gambar kedua -->
                 <div class="relative mt-16">
                   <!-- Background kuning untuk gambar kedua -->
-                  <div class="absolute bg-secondary-color w-full h-full xl:h-[395px] 2xl:h-[455px] rounded-tl-3xl rounded-br-3xl -z-10 top-3 right-3"></div>
+                  <div class="absolute bg-secondary-color w-full h-full md:h-[190px] 2xl:h-[370px] rounded-tl-3xl rounded-br-3xl -z-10 top-3 right-3"></div>
                   <!-- Gambar kedua -->
                   <img src="./asset/section visi misi (1).png" alt="" class="w-[800px] rounded-tl-3xl rounded-br-3xl" />
                 </div>
@@ -560,7 +560,7 @@
               </div>
             </div>
 
-            <div class="md:flex md:space-x-5 space-y-20 md:space-y-0 justify-center mt-16 mb-40">
+            <div class="md:flex md:space-x-5 space-y-20 md:space-y-0 justify-between mt-16 mb-40">
               <!-- Card 1 -->
               <div class="relative max-w-md">
                 <img class="rounded-tl-3xl rounded-br-3xl w-[446px] h-[352px] object-cover" src="./asset/card-img1.png" alt="" />
@@ -570,11 +570,11 @@
                 </div>
 
                 <!-- Elemen background kuning -->
-                <div class="absolute inset-x-[80px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[260px] h-[175px] xl:h-[200px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
 
                 <!-- Konten utama dengan background abu-abu di atas background kuning -->
-                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-10 max-w-md mx-7 md:mx-16 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
-                  <p class="mb-3 font-normal text-gray-500 text-center">Stress Management Indonesia believes that a combination...</p>
+                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100  max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
+                  <p class="mb-3 font-normal text-gray-500 text-center">Stress Management Indonesia believes that a...</p>
                   <div class="flex justify-center">
                     <button
                       data-modal-target="defaultModal2"
@@ -618,10 +618,10 @@
                   <p class="text-white font-semibold">Happiness</p>
                 </div>
 
-                <div class="absolute inset-x-[80px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[260px] h-[175px] xl:h-[200px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
 
                 <!-- Bagian teks dan tombol diposisikan secara absolut di atas gambar -->
-                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:mx-16 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
+                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
                   <p class="mb-3 font-normal text-gray-500 text-center">With an increase in physical and mental condition, it...</p>
                   <!-- Wrapper flex untuk tombol -->
                   <div class="flex justify-center">
@@ -669,9 +669,9 @@
                   <p class="text-white font-semibold">Realistic</p>
                 </div>
 
-                <div class="absolute inset-x-[80px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[260px] h-[175px] xl:h-[200px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
                 <!-- Bagian teks dan tombol diposisikan secara absolut di atas gambar -->
-                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:mx-16 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
+                <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
                   <p class="mb-3 font-normal text-gray-500 text-center">Increased levels of happiness are marked by clarity....</p>
                   <!-- Wrapper flex untuk tombol -->
                   <div class="flex justify-center">

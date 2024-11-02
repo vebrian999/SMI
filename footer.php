@@ -1,7 +1,7 @@
   <!-- awal footer -->
-      <footer class="md:-mx-28 -mx-4 bg-[#1e1e1e] bg-opacity-80 bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply" aria-labelledby="footer-heading">
+      <footer class="md:-mx-40 2xl:-mx-56 -mx-4 bg-[#1e1e1e] bg-opacity-80 bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
+        <div class="mx-4 md:mx-32 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
               <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">

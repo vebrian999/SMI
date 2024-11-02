@@ -25,8 +25,8 @@
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">
-          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
-            <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
+          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out flex justify-center">
+            <div class="max-w-screen-2xl w-full mx-5 md:mx-32 flex flex-wrap items-center justify-between py-4">
               <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
@@ -79,7 +79,7 @@
                   }
                 </script>
 
-                <div class="relative text-left mx-3 text-sm md:block hidden">
+                <div class="relative text-left ml-3 text-sm md:block hidden">
                   <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
                     <span class="flex items-center">
                       <img src="https://flagicons.lipis.dev/flags/4x3/gb-eng.svg" alt="UK Flag" class="w-4 h-4 mr-2" />
@@ -308,7 +308,7 @@
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-28">
+    <main class="mx-4 md:mx-40 2xl:mx-56">
       <div id="content" class="container mx-auto">
 
       <!-- our-product section -->
@@ -332,8 +332,8 @@
             </div>
 
             <!-- card product -->
-            <div class="md:flex justify-center mb-20">
-              <div class="relative md:mx-10 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
+            <div class="md:flex justify-center mb-20 md:space-x-8">
+              <div class="relative md:mx-0 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
                 <a href="https://shopee.co.id/Self-Love-Journaling-i.504044759.23616848833?xptdk=e620a1b1-3dd3-4f1f-b20f-110bec771380">
                   <img class="h-60 w-[384px] rounded-t-lg object-cover" src="./asset/buku-self-love-jurnal.png" alt="product image" />
                 </a>
@@ -378,7 +378,7 @@
                   </div>
                 </div>
               </div>
-              <div class="relative md:mx-10 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
+              <div class="relative md:mx-0 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
                 <a href="https://shopee.co.id/Sarira-Celtic-Salt-Garam-Bali-i.504044759.29203531515?xptdk=9f46b326-c138-4d99-af85-80a7ea534211">
                   <img class="h-60 w-[384px] rounded-t-lg object-cover" src="./asset/garam.png" alt="product image" />
                 </a>
@@ -423,7 +423,7 @@
                   </div>
                 </div>
               </div>
-              <div class="relative md:mx-10 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
+              <div class="relative md:mx-0 md:my-10 my-6 w-full max-w-sm overflow-hidden rounded-lg bg-white shadow-md">
                 <a href="https://shopee.co.id/Meditasi-Harmoni-untuk-Move-On-Menavigasi-PHK-dengan-Pikiran-yang-Jernih-(E-Book)-i.504044759.26757094580?sp_atk=819de3b2-f207-46f5-9f1d-9a3409bd2369&xptdk=819de3b2-f207-46f5-9f1d-9a3409bd2369">
                   <img class="h-60 w-[384px] rounded-t-lg object-cover" src="./asset/kelas-meditasi.png" alt="product image" />
                 </a>

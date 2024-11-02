@@ -82,8 +82,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">
-          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
-            <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
+          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out flex justify-center">
+           <div class="max-w-screen-2xl w-full mx-5 md:mx-32 flex flex-wrap items-center justify-between py-4">
               <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
@@ -138,7 +138,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             }
           </script>
 
-                <div class="relative text-left mx-3 text-sm md:block hidden">
+                <div class="relative text-left ml-3 text-sm md:block hidden">
                   <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
                     <span class="flex items-center">
                       <img src="https://flagicons.lipis.dev/flags/4x3/gb-eng.svg" alt="UK Flag" class="w-4 h-4 mr-2" />
@@ -365,7 +365,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-28">
+    <main class="mx-4 md:mx-40 2xl:mx-56">
       <div id="content" class="container mx-auto">
 
       <!-- contact information -->

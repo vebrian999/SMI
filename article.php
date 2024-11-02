@@ -119,8 +119,8 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
 
         <!-- Content jika bermasalah tambahkan z-10-->
         <div class="relative z-10">
-          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
-            <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
+          <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out flex justify-center">
+             <div class="max-w-screen-2xl w-full mx-5 md:mx-32 flex flex-wrap items-center justify-between py-4">
               <a href="../home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="../asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
@@ -177,7 +177,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
           </script>
 
 
-                <div class="relative text-left mx-3 text-sm md:block hidden">
+                <div class="relative text-left ml-3 text-sm md:block hidden">
                   <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="inline-flex justify-between w-full shadow-sm py-2 text-sm font-normal text-white" type="button">
                     <span class="flex items-center">
                       <img src="https://flagicons.lipis.dev/flags/4x3/gb-eng.svg" alt="UK Flag" class="w-4 h-4 mr-2" />
@@ -405,7 +405,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     </header>
 
    
-    <main class="md:flex md:space-x-5 mx-4  md:mx-20 md:py-8">
+    <main class="md:flex md:space-x-5 mx-4 md:mx-40 2xl:mx-32 md:py-8">
       <!-- Konten Artikel -->
       <div id="content" class="container md:w-3/4">
           <section>
@@ -551,7 +551,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
   <!-- awal footer -->
       <footer class="md:-mx-28 -mx-4 bg-[#1e1e1e] bg-opacity-80 bg-[url('../asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
-        <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
+        <div class="mx-4 md:mx-32 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
               <a href="../home" class="flex items-center space-x-3 rtl:space-x-reverse">
