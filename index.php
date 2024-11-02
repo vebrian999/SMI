@@ -17,7 +17,7 @@
     <header>
       <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
         <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
-          <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
+          <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
           </a>
           <div class="flex md:order-2">
@@ -115,7 +115,7 @@
             </div>
             <ul class="flex flex-col p-4 md:p-0 mt-4 font-normal border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
               <li>
-                <a href="#" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
+                <a href="./home" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
                   >Home
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
@@ -133,7 +133,7 @@
                 </a>
               </li>
               <li>
-                <a href="./blog" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                <a href="./article" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                   >Article
                   <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                 </a>
@@ -236,8 +236,8 @@
               <li><a href="#" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
               <li><a href="./about-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
               <li><a href="./contact-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-              <li><a href="./blog" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
-              <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
+              <li><a href="./article" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Article</a></li>
+              <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Our Product</a></li>
             </ul>
           </div>
         </div>
@@ -267,8 +267,9 @@
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Be Your <span class="text-secondary-color">Happy Self</span> Holistically.</h1>
                 <div class="flex space-x-4">
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
+                  <a href="https://www.youtube.com/watch?v=8F9r1tsgjM8&t=1511s" class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</a>
+                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white learn-more" data-target="#content">Explore More</button>
+
                 </div>
                 <p class="mt-7 text-base md:text-lg">To have <strong>a healthy brain</strong>, you have to have <strong>a healthy body</strong></p>
               </div>
@@ -277,7 +278,7 @@
                 <iframe
                   width="560"
                   height="315"
-                  src="https://www.youtube.com/embed/GjP4tF1uTGE?si=hkKYyoxTWoQXCdhq"
+                  src="https://www.youtube.com/embed/8F9r1tsgjM8?si=H_LP2Bw0iGU5_-Bf"
                   title="YouTube video player"
                   frameborder="0"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -296,8 +297,9 @@
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Discover<span class="text-secondary-color"> Self-Love</span> Through Journaling.</h1>
                 <div class="flex space-x-4">
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
+                  <a href="https://shopee.co.id/Self-Love-Journaling-i.504044759.23616848833?xptdk=e620a1b1-3dd3-4f1f-b20f-110bec771380" class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</a>
+                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white learn-more" data-target="#content">Explore More</button>
+
                 </div>
                 <p class="mt-7 text-base md:text-lg"><strong>A Healthy Mind</strong> Begins with Self-Love Start Your Journey with <strong>Self-Love Journaling.</strong></p>
               </div>
@@ -315,8 +317,9 @@
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Watch <span class="text-secondary-color">"Sari & Teratai Putih"</span> - Inspirational Animation</h1>
                 <div class="flex space-x-4">
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
+                  <a href="https://www.youtube.com/watch?v=DhDva3ghKGs" class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</a>
+                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white learn-more" data-target="#content">Explore More</button>
+
                 </div>
                 <p class="mt-7 text-base md:text-lg">Experience the harmony of an inspiring story in stunning animation. <strong>Click and watch now!</strong></p>
               </div>
@@ -342,8 +345,9 @@
               <div class="w-full md:w-1/2">
                 <h1 class="text-3xl md:text-5xl font-bold leading-tight">Find Peace with <span class="text-secondary-color">Meditation</span></h1>
                 <div class="flex space-x-4">
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
+                  <a href="https://shopee.co.id/Meditasi-Harmoni-untuk-Move-On-Menavigasi-PHK-dengan-Pikiran-yang-Jernih-(E-Book)-i.504044759.26757094580" class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</a>
+                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white learn-more" data-target="#content">Explore More</button>
+
                 </div>
                 <p class="mt-7 text-base md:text-lg">Meditation for peace, focus and balance. <strong>Start Now.</strong></p>
               </div>
@@ -361,8 +365,9 @@
                 <h1 class="text-4xl font-bold">Be Your <span class="text-primary-color">Happy Self</span> Holistically.</h1>
                 <p class="mt-4 text-lg">To have a <span class="underline">healthy brain,</span> you have to have a <span class="underline">healthy body</span></p>
                 <div class="flex space-x-4">
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</button>
-                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white">Learn More</button>
+                  <a href="" class="mt-6 px-6 py-2.5 font-normal text-white bg-primary-color rounded-full hover:underline hover:bg-[#4A1056] focus:outline-none">Find Out More</a>
+                  <button class="mt-6 px-6 py-2.5 font-normal text-white bg-transparent rounded-full hover:underline focus:outline-none border border-white learn-more" data-target="#content">Explore More</button>
+
                 </div>
               </div>
             </div>
@@ -403,21 +408,21 @@
               <div class="md:flex md:space-x-4 mt-10">
                 <div class="bg-primary-color text-white px-8 py-10 rounded-tl-2xl rounded-br-2xl flex flex-col justify-center">
                   <p class="md:text-xl text-base font-normal">
-                    Our total reach from 2014 to 2023, with the assumption that every person we reach directly influences 5 others in their circle, amounts to an impressive <strong class="text-secondary-color">1,371,769</strong> people.
+                    Our total reach from 2014 to 2023, with the assumption that every person we reach directly influences 5 others in their circle, amounts to an impressive <strong class="text-secondary-color">1,689,609</strong> people.
                     This widespread impact has been further amplified by our presence in key markets around the world. Among the countries with the highest number of clients, the top four are:
                   </p>
                   <hr class="w-full my-5 border-none h-[1px] bg-secondary-color" />
-                  <p class="font-light text-xs md:text-sm">Sumber: Clients, Website, dan Social Media Data per 30 June 2023</p>
+                  <p class="font-light text-xs md:text-sm">Sumber: Clients, Website, dan Social Media Data per February 28, 2024</p>
                 </div>
                 <div class="flex-1 space-y-4 md:mt-0 mt-5">
                   <div class="flex space-x-4">
                     <div class="bg-primary-color md:w-[335px] md:h-[168px] w-full py-6 md:py-12 px-9 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
-                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="602630">0</p>
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="1002295">0</p>
                       <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
                       <p class="text-secondary-color">Indonesian</p>
                     </div>
                     <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
-                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="33960">0</p>
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="255567">0</p>
                       <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
                       <p class="text-secondary-color hidden md:inline">United States</p>
                       <p class="text-secondary-color md:hidden">USA</p>
@@ -425,12 +430,12 @@
                   </div>
                   <div class="flex space-x-4">
                     <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
-                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="12135">0</p>
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="72866">0</p>
                       <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
                       <p class="text-secondary-color">India</p>
                     </div>
                     <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
-                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="10865">0</p>
+                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="65678">0</p>
                       <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
                       <p class="text-secondary-color">Russia</p>
                     </div>
@@ -1030,7 +1035,7 @@
         <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
-              <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="SMI logo" />
               </a>
               <p class="text-sm leading-6 text-white">This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
@@ -1082,7 +1087,7 @@
                   <h3 class="text-sm font-semibold leading-6 text-white">Navigasi Link</h3>
                   <ul role="list" class="mt-6 space-y-4">
                     <li>
-                      <a href="./index" class="text-sm leading-6 text-white hover:text-primary-color">Home</a>
+                      <a href="./home" class="text-sm leading-6 text-white hover:text-primary-color">Home</a>
                     </li>
                     <li>
                       <a href="./about-us" class="text-sm leading-6 text-white hover:text-primary-color">About Us</a>
@@ -1094,7 +1099,7 @@
                       <a href="./our-product" class="text-sm leading-6 text-white hover:text-primary-color">Our Product</a>
                     </li>
                     <li>
-                      <a href="./blog" class="text-sm leading-6 text-white hover:text-primary-color">Blog</a>
+                      <a href="./article" class="text-sm leading-6 text-white hover:text-primary-color">Article</a>
                     </li>
                   </ul>
                 </div>
@@ -1108,7 +1113,7 @@
                       <a href="#" class="text-sm leading-6 text-white hover:text-primary-color">Event</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-primary-color">Blog</a>
+                      <a href="#" class="text-sm leading-6 text-white hover:text-primary-color">Article</a>
                     </li>
                     <li>
                       <a href="#" class="text-sm leading-6 text-white hover:text-primary-color">Invite a friend</a>

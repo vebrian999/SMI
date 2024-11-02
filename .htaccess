@@ -1,7 +1,17 @@
 RewriteEngine On
+# Aturan untuk article.php
+RewriteRule ^article/?$ blog.php [L]
+
+# Aturan untuk artikel dengan title
+RewriteRule ^article/([a-zA-Z0-9-]+)$ article.php?title=$1 [L,QSA]
+
+# Aturan untuk mengubah 'index' menjadi 'home'
+RewriteRule ^home/?$ index.php [L]
+
+# Aturan umum untuk file PHP
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php [L]
 
-# Aturan khusus untuk halaman utama
+# Aturan untuk halaman utama
 RewriteRule ^$ index.php [L]

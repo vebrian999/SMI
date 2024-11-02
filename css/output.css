@@ -1872,16 +1872,6 @@ input:checked + .toggle-bg {
   margin-right: 1.75rem;
 }
 
-.mx-\[370px\] {
-  margin-left: 370px;
-  margin-right: 370px;
-}
-
-.mx-\[560px\] {
-  margin-left: 560px;
-  margin-right: 560px;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -2210,10 +2200,6 @@ input:checked + .toggle-bg {
 
 .h-\[40px\] {
   height: 40px;
-}
-
-.h-\[500px\] {
-  height: 500px;
 }
 
 .h-\[56px\] {
@@ -2871,11 +2857,6 @@ input:checked + .toggle-bg {
   background-color: rgb(249 250 251 / var(--tw-bg-opacity)) !important;
 }
 
-.bg-\[\#172432\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(23 36 50 / var(--tw-bg-opacity));
-}
-
 .bg-\[\#1e1e1e\] {
   --tw-bg-opacity: 1;
   background-color: rgb(30 30 30 / var(--tw-bg-opacity));
@@ -2999,8 +2980,8 @@ input:checked + .toggle-bg {
   --tw-bg-opacity: 0.8;
 }
 
-.bg-\[url\(\'\.\/asset\/CTA-happyself\.png\'\)\] {
-  background-image: url('./asset/CTA-happyself.png');
+.bg-\[url\(\'\.\.\/asset\/background-footer\.png\'\)\] {
+  background-image: url('../asset/background-footer.png');
 }
 
 .bg-\[url\(\'\.\/asset\/background-footer\.png\'\)\] {
@@ -3675,11 +3656,6 @@ input:checked + .toggle-bg {
 .hover\:text-hover-color:hover {
   --tw-text-opacity: 1;
   color: rgb(79 27 90 / var(--tw-text-opacity));
-}
-
-.hover\:text-orange-500:hover {
-  --tw-text-opacity: 1;
-  color: rgb(255 90 31 / var(--tw-text-opacity));
 }
 
 .hover\:text-primary-color:hover {

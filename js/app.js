@@ -6,3 +6,19 @@ window.addEventListener("scroll", function () {
     navbar.classList.remove("scrolled");
   }
 });
+
+// Smooth scrolling for Learn More buttons
+document.addEventListener("DOMContentLoaded", function () {
+  const learnMoreButtons = document.querySelectorAll(".learn-more");
+
+  learnMoreButtons.forEach((button) => {
+    button.addEventListener("click", function () {
+      const targetId = button.getAttribute("data-target");
+      const targetElement = document.querySelector(targetId);
+      if (targetElement) {
+        // Scroll to the target element
+        targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+});

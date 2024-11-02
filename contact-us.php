@@ -84,7 +84,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <div class="relative z-10">
           <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 ease-in-out">
             <div class="max-w-screen-2xl mx-5 md:mx-16 flex flex-wrap items-center justify-between py-4">
-              <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="Flowbite Logo" />
               </a>
               <div class="flex md:order-2">
@@ -184,7 +184,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 </div>
                 <ul class="flex flex-col p-4 md:p-0 mt-4 font-normal border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
                   <li>
-                    <a href="./index" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
+                    <a href="./home" class="block py-2 px-3 text-white bg-primary-color rounded md:bg-transparent md:hover:text-primary-color md:p-0 relative group" aria-current="page"
                       >Home
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
@@ -202,7 +202,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </a>
                   </li>
                   <li>
-                    <a href="./blog" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
+                    <a href="./article" class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-primary-color md:p-0 relative group"
                       >Article
                       <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-primary-color transition-all duration-300 transform scale-x-0 group-hover:scale-x-100"></span>
                     </a>
@@ -301,11 +301,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                   </div>
                 </div>
                 <ul class="space-y-2">
-                  <li><a href="./index" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
+                  <li><a href="./home" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Home</a></li>
                   <li><a href="./about-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">About Us</a></li>
                   <li><a href="./contact-us" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Contact Us</a></li>
-                  <li><a href="./blog" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Blog</a></li>
-                  <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">our Product</a></li>
+                  <li><a href="./article" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Article</a></li>
+                  <li><a href="./our-product" class="block text-gray-800 hover:bg-gray-100 px-3 py-2 rounded-md">Our Product</a></li>
                 </ul>
               </div>
             </div>
@@ -402,11 +402,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                       src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.387214867883!2d106.81817857453106!3d-6.212554760851089!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f41cb80e8eb9%3A0xa66cfbfd9591b95b!2sPt%20Stress%20Management%20Indonesia!5e0!3m2!1sen!2sid!4v1728459413643!5m2!1sen!2sid"
                       style="filter: grayscale(1) contrast(1.2) opacity(0.4)"></iframe>
                     <div class="bg-white relative md:flex flex-wrap py-6 rounded shadow-md">
-                      <div class="lg:w-1/2 px-6">
+                      <div class="lg:w-1/2 px-4">
                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">ADDRESS</h2>
                         <p class="mt-1">Millennium Centennial Center, Level 38, Jl. Jend. Sudirman No.Kav. 25, South Jakarta 12920</p>
                       </div>
-                      <div class="lg:w-1/2 px-6 mt-4 lg:mt-0">
+                      <div class="lg:w-1/2 px-4 mt-4 lg:mt-0">
                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs">EMAIL</h2>
                         <a class="text-primary-color md:px-0 leading-relaxed break-all w-full block sm:w-auto"> stressmanagementindonesia@email.com </a>
                         <h2 class="title-font font-semibold text-gray-900 tracking-widest text-xs mt-4">PHONE</h2>

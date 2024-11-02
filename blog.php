@@ -25,7 +25,7 @@ try {
         $params[] = $category;
     }
 
-    // Query untuk menghitung total artikel menggunakan prepared statement
+    // Query untuk menghitung total artikel
     $totalArticlesQuery = $conn->prepare("SELECT COUNT(*) as total FROM articles a $whereClause");
     if (!empty($params)) {
         $totalArticlesQuery->bind_param('s', $params[0]);
@@ -35,7 +35,7 @@ try {
     $totalArticles = $totalArticlesResult->fetch_assoc()['total'];
     $totalPages = ceil($totalArticles / $articlesPerPage);
 
-    // Query utama untuk artikel dengan prepared statement
+    // Query utama untuk artikel
     $orderClause = "ORDER BY a.created_at DESC";
     $mainQuery = "SELECT 
                     a.id, 
@@ -63,7 +63,7 @@ try {
     $stmt->execute();
     $result = $stmt->get_result();
 
-    // Query untuk artikel populer menggunakan JOIN
+    // Query untuk artikel populer
     $popularQuery = "SELECT 
                         a.id, 
                         a.title, 
@@ -81,23 +81,21 @@ try {
                     LIMIT 3";
     $popularResult = $conn->query($popularQuery);
 
-    // Validasi hasil query
-    if (!$result || !$popularResult) {
-        throw new Exception("Error executing query");
-    }
-
 } catch (Exception $e) {
-    // Log error
     error_log("Database error: " . $e->getMessage());
-    // Set default values atau tampilkan pesan error yang user-friendly
     $result = false;
     $popularResult = false;
     $totalPages = 0;
 }
 
-// Tutup prepared statements
-if (isset($stmt)) $stmt->close();
-if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
+function titleToSlug($title) {
+    $slug = strtolower($title);
+    $slug = str_replace(' ', '-', $slug);
+    $slug = preg_replace('/[^A-Za-z0-9\-]/', '', $slug);
+    $slug = preg_replace('/-+/', '-', $slug);
+    $slug = trim($slug, '-');
+    return $slug;
+}
 ?>
 
 
@@ -219,8 +217,10 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14">           
            <?php while ($popularRow = $popularResult->fetch_assoc()): ?>
               <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl flex flex-col h-full">
-                <a href="article.php?id=<?php echo $popularRow['id']; ?>">
-                  <img class="rounded-t-lg w-[457px] h-[310px] object-cover" src="./uploads/<?php echo $popularRow['image']; ?>" alt="<?php echo $popularRow['title']; ?>" />
+                <a href="article/<?php echo titleToSlug($popularRow['title']); ?>">
+                    <img class="rounded-t-lg w-[457px] h-[310px] object-cover" 
+                         src="./uploads/<?php echo htmlspecialchars($popularRow['image']); ?>" 
+                         alt="<?php echo htmlspecialchars($popularRow['title']); ?>" />
                 </a>
                 <div class="p-5 flex flex-col flex-grow">
                   <!-- Bagian atas card -->
@@ -251,8 +251,10 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
                   
                   <!-- Konten card -->
                   <div class="flex-grow">
-                    <a href="article.php?id=<?php echo $popularRow['id']; ?>">
-                      <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900"><?php echo htmlspecialchars($popularRow['title']); ?></h5>
+                    <a href="article/<?php echo titleToSlug($popularRow['title']); ?>">
+                        <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900">
+                            <?php echo htmlspecialchars($popularRow['title']); ?>
+                        </h5>
                     </a>
                     <p class="mb-5 font-normal text-gray-400">
                       <?php 
@@ -264,12 +266,12 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
 
                   <!-- Button yang selalu berada di bawah -->
                   <div class="mt-auto">
-                    <a href="article.php?id=<?php echo $popularRow['id']; ?>"
-                      class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
-                      Read more
-                      <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                      </svg>
+                    <a href="article/<?php echo titleToSlug($popularRow['title']); ?>"
+                        class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
                     </a>
                   </div>
                 </div>
@@ -307,9 +309,11 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
               <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-14">
                   <?php while ($row = $result->fetch_assoc()): ?>
                       <div class="max-w-md bg-white border border-gray-200 rounded-lg shadow-xl flex flex-col h-full">
-                          <a href="article.php?id=<?php echo $row['id']; ?>">
-                              <img class="rounded-t-lg w-[457px] h-[310px] object-cover" src="./uploads/<?php echo $row['image']; ?>" alt="<?php echo $row['title']; ?>" />
-                          </a>
+                 <a href="article/<?php echo titleToSlug($row['title']); ?>">
+                    <img class="rounded-t-lg w-[457px] h-[310px] object-cover" 
+                         src="./uploads/<?php echo htmlspecialchars($row['image']); ?>" 
+                         alt="<?php echo htmlspecialchars($row['title']); ?>" />
+                </a>
                           <div class="p-5 flex flex-col flex-grow">
                               <div class="flex justify-between items-center">
                                   <span class="bg-primary-color text-white px-2 py-1 rounded text-sm"><?php echo $row['category']; ?></span>
@@ -339,9 +343,11 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
                                   </span>
                               </div>
                               <div class="flex-grow">
-                              <a href="article.php?id=<?php echo $row['id']; ?>">
-                                  <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900"><?php echo htmlspecialchars($row['title']); ?></h5>
-                              </a>
+                   <a href="article/<?php echo titleToSlug($row['title']); ?>">
+                        <h5 class="mb-2 md:text-2xl font-semibold tracking-tight text-gray-900">
+                            <?php echo htmlspecialchars($row['title']); ?>
+                        </h5>
+                    </a>
                               <p class="mb-5 font-normal text-gray-400">
                                   <?php 
                                   echo htmlspecialchars(substr(strip_tags($row['content']), 0, 100)) . 
@@ -350,13 +356,13 @@ if (isset($totalArticlesQuery)) $totalArticlesQuery->close();
                               </p>
                              </div>                 
                              <div class="mt-auto">
-                              <a href="article.php?id=<?php echo $row['id']; ?>"
-                                class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
-                                  Read more
-                                  <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                                      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
-                                  </svg>
-                              </a>
+                    <a href="article/<?php echo titleToSlug($row['title']); ?>"
+                        class="inline-flex items-center px-3 py-2 text-xl font-medium text-center text-primary-color bg-transparent rounded-lg hover:bg-primary-color hover:text-white transition-colors duration-300 ease-in-out hover:scale-105">
+                        Read more
+                        <svg class="rtl:rotate-180 w-3.5 h-3.5 ms-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
+                        </svg>
+                    </a>
                               </div>
                           </div>
                       </div>

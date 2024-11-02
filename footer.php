@@ -4,7 +4,7 @@
         <div class="mx-4 md:mx-16 max-w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">
             <div class="space-y-8 mr-16">
-              <a href="./index" class="flex items-center space-x-3 rtl:space-x-reverse">
+              <a href="./home" class="flex items-center space-x-3 rtl:space-x-reverse">
                 <img src="./asset/logo.png" class="md:w-32 w-20" alt="SMI logo" />
               </a>
               <p class="text-sm leading-6 text-white">This growth plan will help you reach your resolutions and achieve the goals you have been striving towards.</p>
@@ -56,7 +56,7 @@
                   <h3 class="text-sm font-semibold leading-6 text-white">Navigasi Link</h3>
                   <ul role="list" class="mt-6 space-y-4">
                     <li>
-                      <a href="./index" class="text-sm leading-6 text-white hover:text-[#682E74]">Home</a>
+                      <a href="./home" class="text-sm leading-6 text-white hover:text-[#682E74]">Home</a>
                     </li>
                     <li>
                       <a href="./about-us" class="text-sm leading-6 text-white hover:text-[#682E74]">About Us</a>
@@ -68,7 +68,7 @@
                       <a href="./our-product" class="text-sm leading-6 text-white hover:text-[#682E74]">Our Product</a>
                     </li>
                     <li>
-                      <a href="./blog" class="text-sm leading-6 text-white hover:text-[#682E74]">Blog</a>
+                      <a href="./article" class="text-sm leading-6 text-white hover:text-[#682E74]">Article</a>
                     </li>
                   </ul>
                 </div>
@@ -82,7 +82,7 @@
                       <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Event</a>
                     </li>
                     <li>
-                      <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Blog</a>
+                      <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Article</a>
                     </li>
                     <li>
                       <a href="#" class="text-sm leading-6 text-white hover:text-[#682E74]">Invite a friend</a>

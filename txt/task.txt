@@ -5,7 +5,7 @@
 6. switch langgueage
 7. fungsi search (done)
 8. dan asset aset gambar harus gunakan yang relevan (belum)
-9. samarkan extension seperti php dan id nya. (50%)
+9. samarkan extension seperti php dan id nya. (done)
 10. menjadikan header dan footer komponen (done)
 11. pagenation (done)
 12. menggunakan font montserat (belum)
@@ -14,10 +14,14 @@
 
 revisi
 
-1. kak desain websitenya tambahin aksen warna kuning ya , mungkin bisa di sebuah objek atau warna tulisan yang mau di highlight.
+1. kak desain websitenya tambahin aksen warna kuning ya , mungkin bisa di sebuah objek atau warna tulisan yang mau di highlight. (done)
 di home mungkin di bagian judul. (done)
 
 2. perbaiki responsif nya beberapa. (50%)
 3. tinggin pada card samain (done).
 4. button slider testimoni. (done)
-5. buatkan url nya agar ketika card di klik pada url memuncul title pada 
+5. buatkan url nya agar ketika card di klik pada url memuncul title pada (done)
+
+
+6. pada halaman blog.php ubah nanti menjadi article pada urlnya (done)
+7. masalah gambar tidak muncul pada halaman article/title, mungkin karena bentrok antra blog dan article (done)
