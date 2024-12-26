@@ -321,10 +321,10 @@
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-40 2xl:mx-56">
+    <main class="mx-4 md:mx-40 2xl:mx-40">
       <div id="content" class="container mx-auto">
         <!-- our vision & mission -->
-        <section class="md:my-24 my-14 md:-mx-8">
+        <section class="md:my-24 my-14 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -421,7 +421,7 @@
         </section>
 
         <!-- How We Started -->
-        <section class="md:my-24 my-16 md:-mx-8">
+        <section class="md:my-24 my-16 ">
           <article>
             <div class="relative flex md:justify-end">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -459,7 +459,7 @@
                         <img src="./asset/foto-meditasi.png" alt="" class="rounded-tr-3xl rounded-bl-3xl md:rounded-tr-2xl md:rounded-bl-2xl w-full" />
                       </div>
                       <div class="relative min-w-full">
-                        <img src="./asset/coach priss.png" alt="" class="rounded-tr-3xl rounded-bl-3xl md:rounded-tr-2xl md:rounded-bl-2xl w-full" />
+                        <img src="./asset/coach priss-removebg-preview.png" alt="" class="rounded-tr-3xl rounded-bl-3xl md:rounded-tr-2xl md:rounded-bl-2xl w-full" />
                       </div>
                     </div>
                   </div>
@@ -546,7 +546,7 @@
         </section>
 
         <!-- benefit -->
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -570,7 +570,9 @@
                 </div>
 
                 <!-- Elemen background kuning -->
-                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute xl:block hidden   w-80  top-80 md:top-64 md:left-12 transform ">
+                  <img src="./asset/bg-yellocard-section-about-us.png" alt="">
+                </div>
 
                 <!-- Konten utama dengan background abu-abu di atas background kuning -->
                 <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100  max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
@@ -618,7 +620,9 @@
                   <p class="text-white font-semibold">Happiness</p>
                 </div>
 
-                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute xl:block hidden   w-80  top-80 md:top-64 md:left-12 transform ">
+                  <img src="./asset/bg-yellocard-section-about-us.png" alt="">
+                </div>
 
                 <!-- Bagian teks dan tombol diposisikan secara absolut di atas gambar -->
                 <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
@@ -669,7 +673,9 @@
                   <p class="text-white font-semibold">Realistic</p>
                 </div>
 
-                <div class="absolute md:inset-x-[80px] 2xl:inset-x-[90px] top-80 md:top-64 transform bg-secondary-color md:block hidden w-[307px] xl:w-[275px] h-[175px] xl:h-[180px] rounded-tl-3xl rounded-br-3xl z-0 2xl:w-[310px] 2xl:h-[180px]"></div>
+                <div class="absolute xl:block hidden   w-80  top-80 md:top-64 md:left-12 transform ">
+                  <img src="./asset/bg-yellocard-section-about-us.png" alt="">
+                </div>
                 <!-- Bagian teks dan tombol diposisikan secara absolut di atas gambar -->
                 <div class="absolute inset-x-0 top-80 md:top-72 transform -translate-y-1/4 flex flex-col justify-center items-center p-2 md:p-5 bg-gray-100 z-5 max-w-md mx-7 md:py-10 rounded-tl-3xl rounded-br-3xl shadow-xl">
                   <p class="mb-3 font-normal text-gray-500 text-center">Increased levels of happiness are marked by clarity....</p>
@@ -715,7 +721,7 @@
         </section>
 
         <!-- why us section -->
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-end">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -795,7 +801,9 @@
               <!-- Kolom Carousel Gambar -->
               <div class="w-full md:w-1/2 order-2 md:order-2 md:mt-0 relative">
                 <!-- Background -->
-                <div class="absolute md:-left-5 -left-3 md:-bottom-5 -bottom-3 w-full h-full bg-secondary-color md:rounded-tl-3xl rounded-tl-2xl md:rounded-br-3xl rounded-br-2xl -z-10"></div>
+                <div class="absolute md:-left-5 -left-3 md:-bottom-5  -bottom-3 w-full h-full   -z-10">
+                  <img src="./asset/bg-yellow-image.png" alt="">
+                </div>
 
                 <div class="overflow-hidden">
                   <!-- Carousel container -->
@@ -822,7 +830,7 @@
                 </div>
 
                 <!-- Controls/Dots -->
-                <div class="absolute bottom-5 left-0 right-0 flex justify-center mt-4">
+                <div class="absolute bottom-5 left-0 right-0 flex justify-center mt-4 xl:bottom-28 2xl:bottom-5">
                   <div class="flex space-x-4">
                     <button class="w-3 h-3 rounded-full bg-secondary-color focus:outline-none carousel-dot" data-index="0"></button>
                     <button class="w-3 h-3 rounded-full bg-gray-400 focus:outline-none carousel-dot" data-index="1"></button>
@@ -888,7 +896,7 @@
         </section>
 
         <!-- our team section -->
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -903,7 +911,7 @@
             </div>
 
             <div class="flex py-5 mt-7">
-              <p class="md:w-2/3 md:text-lg">Our team of professionals is ready to provide the best support for your mental health journey. Get to know our team members who are ready to help!</p>
+              <p class="md:w-2/3 md:text-lg">  best support for your mental health journey. Get to know our team members who are ready to help!</p>
             </div>
 
             <div>
@@ -914,33 +922,60 @@
                     <!-- Slides container with transition -->
                     <div class="team-carousel-slides flex transition-transform duration-500 ease-in-out">
                       <!-- First slide -->
-                      <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 min-w-full">
-                        <div class="text-center text-gray-500">
-                          <img class="mx-auto mb-4 md:w-64 md:h-64 rounded-tl-3xl rounded-br-3xl object-cover" src="./asset/coach priss.png" alt="Leslie Avatar" />
-                          <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
-                            <a href="#">Coach priss</a>
-                          </h3>
-                          <p>Founder SMI</p>
-                          <!-- Social links here -->
-                        </div>
-                        <div class="text-center text-gray-500">
-                          <img class="mx-auto mb-4 md:w-64 md:h-64 object-cover rounded-tl-3xl rounded-br-3xl" src="./asset/andreas.png" alt="Leslie Avatar" />
-                          <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
-                            <a href="#">Andreas</a>
-                          </h3>
-                          <p>Co-Founder SMI</p>
-                          <!-- Social links here -->
-                        </div>
-                        <div class="text-center text-gray-500">
-                          <img class="mx-auto mb-4 md:w-64 md:h-64 rounded-tl-3xl rounded-br-3xl" src="./asset/blank-profile-picture.png" alt="Leslie Avatar" />
-                          <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
-                            <a href="#">John Doe</a>
-                          </h3>
-                          <p>Graphic Designer</p>
-                          <!-- Social links here -->
-                        </div>
-                        <!-- Add other team members for first slide -->
-                      </div>
+<div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 min-w-full">
+  <!-- Team member 1 -->
+  <div class="relative text-center text-gray-500 overflow-hidden">
+    <!-- Background and Image -->
+    <div class="relative">
+      <div class="absolute inset-0 h-[200px] top-14 bg-primary-color rounded-tl-[64px] rounded-br-[64px]"></div>
+      <img class="relative mx-auto mb-4 w-1/2 object-cover " src="./asset/coach priss.png" alt="Coach" />
+    </div>
+    <!-- Text content outside the background -->
+    <div class="mt-4">
+      <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
+        <a href="#">Coach Priss</a>
+      </h3>
+      <p>Founder SMI</p>
+    </div>
+  </div>
+
+  <!-- Team member 2 -->
+  <div class="relative text-center text-gray-500 overflow-hidden">
+    <!-- Background and Image -->
+    <div class="relative">
+      <div class="absolute inset-0 h-[200px] top-14 bg-primary-color rounded-tl-[64px] rounded-br-[64px]"></div>
+      <img class="relative mx-auto mb-4 w-1/2 object-cover" src="./asset/andreas.png" alt="Andreas" />
+    </div>
+    <!-- Text content outside the background -->
+    <div class="mt-4">
+      <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
+        <a href="#">Andreas</a>
+      </h3>
+      <p>Co-Founder SMI</p>
+    </div>
+  </div>
+
+  <!-- Team member 3 -->
+  <div class="relative text-center text-gray-500 overflow-hidden">
+    <!-- Background and Image -->
+    <div class="relative">
+      <div class="absolute inset-0 h-[200px] top-14 bg-primary-color rounded-tl-[64px] rounded-br-[64px]"></div>
+      <img class="relative mx-auto mb-4 w-1/2 object-cover" src="./asset/andreas.png" alt="Andreas" />
+    </div>
+    <!-- Text content outside the background -->
+    <div class="mt-4">
+      <h3 class="mb-1 text-2xl font-bold tracking-tight text-gray-900">
+        <a href="#">Andreas</a>
+      </h3>
+      <p>Co-Founder SMI</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 
                       <!-- Second slide -->
                       <div class="grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 min-w-full">
@@ -1069,7 +1104,7 @@
           });
         </script>
 
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-end">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->

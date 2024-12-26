@@ -385,10 +385,10 @@
       </div>
     </header>
 
-    <main class="mx-4 md:mx-40 2xl:mx-56">
+    <main class="mx-4 md:mx-40 2xl:mx-40 ">
       <div id="content" class="container mx-auto">
         <!-- reach map-->
-        <section class="mb-28 mt-16 md:-mx-8">
+        <section class="mb-28 mt-16 ">
           <div class="relative inline-block">
             <!-- Background utama dengan bg-primary-color -->
             <div class="bg-primary-color px-8 md:px-32 md:py-3 py-2.5 rounded-tl-2xl rounded-br-2xl relative z-10">
@@ -405,38 +405,38 @@
               <div class="mt-14">
                 <img src="./asset/reach.jpeg" alt="" />
               </div>
-              <div class="md:flex md:space-x-4 mt-10">
-                <div class="bg-primary-color text-white px-8 py-10 rounded-tl-2xl rounded-br-2xl flex flex-col justify-center">
+              <div class="md:flex-row 2xl:flex md:space-y-10 2xl:space-y-0 md:space-x-4 mt-10">
+                <div class="bg-primary-color text-white md:px-6 px-8 md:py-6 py-10 rounded-tl-2xl rounded-br-2xl flex flex-col justify-center">
                   <p class="md:text-xl text-base font-normal">
                     Our total reach from 2014 to 2023, with the assumption that every person we reach directly influences 5 others in their circle, amounts to an impressive <strong class="text-secondary-color">1,689,609</strong> people.
                     This widespread impact has been further amplified by our presence in key markets around the world. Among the countries with the highest number of clients, the top four are:
                   </p>
-                  <hr class="w-full my-5 border-none h-[1px] bg-secondary-color" />
+                  <hr class="my-5 border-none h-[1.5px] bg-secondary-color" />
                   <p class="font-light text-xs md:text-sm">Sumber: Clients, Website, dan Social Media Data per February 28, 2024</p>
                 </div>
                 <div class="flex-1 space-y-4 md:mt-0 mt-5">
                   <div class="flex space-x-4">
-                    <div class="bg-primary-color md:w-[335px] md:h-[168px] w-full py-6 md:py-12 px-9 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
-                      <p class="md:text-4xl font-medium text-secondary-color counter" data-target="1002295">0</p>
-                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
-                      <p class="text-secondary-color">Indonesian</p>
-                    </div>
-                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                  <div class="bg-primary-color md:w-[290px] md:h-[160px] w-full py-6 md:py-12 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                    <p class="md:text-4xl font-medium text-secondary-color counter" data-target="1002295">0</p>
+                    <hr class="my-1 h-[1.5px]  border-none bg-secondary-color mx-16" />
+                    <p class="text-secondary-color">Indonesian</p>
+                  </div>
+                    <div class="bg-primary-color md:w-[290px] w-full md:h-[160px] md:py-12  py-6  md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
                       <p class="md:text-4xl font-medium text-secondary-color counter" data-target="255567">0</p>
-                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <hr class="my-1 h-[1.5px]  border-none bg-secondary-color mx-16" />
                       <p class="text-secondary-color hidden md:inline">United States</p>
                       <p class="text-secondary-color md:hidden">USA</p>
                     </div>
                   </div>
                   <div class="flex space-x-4">
-                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                    <div class="bg-primary-color md:w-[290px] w-full md:h-[160px] md:py-12  py-6  md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
                       <p class="md:text-4xl font-medium text-secondary-color counter" data-target="72866">0</p>
-                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <hr class="my-1 h-[1.5px]  border-none bg-secondary-color mx-16" />
                       <p class="text-secondary-color">India</p>
                     </div>
-                    <div class="bg-primary-color md:w-[335px] w-full md:h-[168px] md:py-12 py-6 px-12 md:px-24 md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
+                    <div class="bg-primary-color md:w-[290px] w-full md:h-[160px] md:py-12  py-6  md:rounded-tl-3xl md:rounded-br-3xl rounded-tl-2xl rounded-br-2xl text-center">
                       <p class="md:text-4xl font-medium text-secondary-color counter" data-target="65678">0</p>
-                      <hr class="w-full my-1 border-none h-[1px] bg-secondary-color" />
+                      <hr class="my-1 h-[1.5px]  border-none bg-secondary-color mx-16" />
                       <p class="text-secondary-color">Russia</p>
                     </div>
                   </div>
@@ -479,7 +479,7 @@
           </article>
         </section>
 
-        <section class="my-28 md:-mx-8">
+        <section class="my-28 ">
           <article>
             <div class="relative flex justify-start md:justify-end">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -597,7 +597,7 @@
           </article>
         </section>
 
-        <section class="mt-28 md:-mx-8">
+        <section class="mt-28 ">
           <article>
             <div class="relative inline-block">
               <!-- Background utama dengan bg-primary-color -->
@@ -865,7 +865,7 @@
         </section>
 
         <!-- our collaborator -->
-        <section class="my-10 md:-mx-8">
+        <section class="my-10 ">
           <article>
             <div class="relative flex md:justify-end justify-start">
               <div class="relative">
@@ -962,7 +962,7 @@
           });
         </script>
 
-        <section class="mt-24   md:-mx-8">
+        <section class="mt-24   ">
           <article>
             <div class="relative inline-block">
               <!-- Background utama dengan bg-primary-color -->
@@ -1037,7 +1037,7 @@
       <aside></aside>
 
       <!-- awal footer -->
-      <footer class="bg-[#1e1e1e] bg-opacity-80  -mx-4  bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply md:-mx-40 2xl:-mx-56 flex justify-center" aria-labelledby="footer-heading">
+      <footer class="bg-[#1e1e1e] bg-opacity-80  -mx-4  bg-[url('./asset/background-footer.png')] bg-center bg-no-repeat bg-cover bg-fixed bg-blend-multiply md:-mx-40 2xl:-mx-40 flex justify-center" aria-labelledby="footer-heading">
         <h2 id="footer-heading" class="sr-only">Footer</h2>
         <div class="mx-4 md:mx-32 max-w-screen-2xl w-full pb-8 pt-16 sm:pt-24 lg:pt-14">
           <div class="xl:grid xl:grid-cols-3 xl:gap-8">

@@ -125,12 +125,12 @@ function titleToSlug($title) {
       <?php
       require_once './header.php';
       ?>
-      <main class="mx-4 md:mx-40 2xl:mx-56">
+      <main class="mx-4 md:mx-40 2xl:mx-40">
         <div id="content" class="container mx-auto">
 
-<!-- CATEGORY LIST -->
-<div class="md:-mx-8 md:mb-10">
-    <div class="container">
+      <!-- CATEGORY LIST -->
+      <div class=" md:mb-10">
+          <div class="container">
         <!-- Mobile Dropdown for Categories -->
         <div class="md:hidden mb-4 ">
             <select onchange="location = this.value;" class="w-full py-2.5 px-4 mb-4 rounded-md border border-slate-200 text-base font-semibold bg-slate-100 text-primary-color">
@@ -201,7 +201,7 @@ function titleToSlug($title) {
 
 
       <?php if ($current_page == 1): ?>
-        <section class="md:mb-24 mb-14 md:-mx-8">
+        <section class="md:mb-24 mb-14 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -283,7 +283,7 @@ function titleToSlug($title) {
         </section>
         <?php endif; ?>
         <!-- Tambahkan id ini pada section artikel -->
-        <section id="article-section" class="md:my-24 my-16 md:-mx-8">
+        <section id="article-section" class="md:my-24 my-16 ">
                   <article>
                     <div class="relative flex md:justify-end">
                       <!-- Container untuk mengatur elemen agar berada di pojok kanan -->

@@ -26,11 +26,11 @@ if (isset($_GET['title'])) {
         }
     }
     
-    if (!$article) {
-        header("HTTP/1.0 404 Not Found");
-        echo "Artikel tidak ditemukan!";
-        exit;
-    }
+if (!$article) {
+    header("HTTP/1.0 404 Not Found");
+    header("Location: " . dirname($_SERVER['PHP_SELF']) . "/error.html");
+    exit;
+}
     
     // Update views
     $updateViewsQuery = "UPDATE articles SET views = views + 1 WHERE id = ?";
@@ -61,9 +61,10 @@ if (isset($_GET['title'])) {
     
 } else {
     header("HTTP/1.0 404 Not Found");
-    echo "Title artikel tidak diberikan!";
+    header("Location: " . dirname($_SERVER['PHP_SELF']) . "/error.html");
     exit;
 }
+
 
 // Gambar profil default
 $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd4625e30d776.jpg"; // Ganti dengan path gambar profil default Anda
@@ -405,7 +406,7 @@ $defaultProfileImage = "https://i.pinimg.com/564x/a6/67/73/a667732975f0f1da1a0fd
     </header>
 
    
-    <main class="md:flex md:space-x-5 mx-4 md:mx-40 2xl:mx-32 md:py-8">
+    <main class="md:flex md:space-x-5 mx-4  md:mx-40 2xl:mx-40 md:py-8">
       <!-- Konten Artikel -->
       <div id="content" class="container md:w-3/4">
           <section>

@@ -308,11 +308,11 @@
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-40 2xl:mx-56">
+    <main class="mx-4 md:mx-40 2xl:mx-40">
       <div id="content" class="container mx-auto">
 
       <!-- our-product section -->
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -327,7 +327,7 @@
             </div>
 
 
-            <div class="md:mt-10 mt-4 md:w-1/2">
+            <div class="md:mt-10 mt-4 md:w-2/3">
               <p>We invite you to try our products specifically designed to support mental health. Try them now and start your journey to a healthier, more balanced life!</p>
             </div>
 

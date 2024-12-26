@@ -365,11 +365,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       <!-- End Of Jumbotron -->
     </header>
 
-    <main class="mx-4 md:mx-40 2xl:mx-56">
+        <main class="mx-4 md:mx-40 2xl:mx-40">
       <div id="content" class="container mx-auto">
 
       <!-- contact information -->
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-start">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->
@@ -563,7 +563,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
           </article>
         </section>
 
-        <section class="my-24 md:-mx-8">
+        <section class="my-24 ">
           <article>
             <div class="relative flex justify-end">
               <!-- Container untuk mengatur elemen agar berada di pojok kanan -->

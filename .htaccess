@@ -1,4 +1,5 @@
 RewriteEngine On
+
 # Aturan untuk article.php
 RewriteRule ^article/?$ blog.php [L]
 
@@ -15,3 +16,8 @@ RewriteRule ^(.*)$ $1.php [L]
 
 # Aturan untuk halaman utama
 RewriteRule ^$ index.php [L]
+
+# Aturan untuk menangani halaman yang tidak ditemukan
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ error.html [NC,L]
